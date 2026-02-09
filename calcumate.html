@@ -29,11 +29,15 @@
         }
 
         body {
-            font-family: 'IBM+Plex+Sans+Arabic', 'Inter', sans-serif;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
             background-color: var(--background);
             color: var(--on-surface);
             line-height: 1.6;
             padding-bottom: 50px;
+        }
+
+        body.en-active {
+            font-family: 'Inter', sans-serif;
         }
 
         .container {
@@ -139,9 +143,25 @@
             display: block;
         }
 
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: black;
+            padding: 8px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            font-family: 'Inter', sans-serif;
+        }
+
         body.en-active .lang-switch {
             left: auto;
             right: 20px;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
         }
 
         @media (max-width: 600px) {
