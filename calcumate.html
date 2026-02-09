@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة الخصوصية | CalcuMate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF9800;
+            --primary-light: #FFB74D;
+            --surface: #1E1E1E;
+            --background: #121212;
+            --on-surface: #E0E0E0;
+            --on-surface-variant: #B0B0B0;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'IBM+Plex+Sans+Arabic', 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--on-surface);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo-box {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(255, 152, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--on-surface-variant);
+            font-weight: normal;
+        }
+
+        section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        p {
+            color: var(--on-surface-variant);
+            font-size: 1.05rem;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--glass-border);
+            margin: 60px 0;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--on-surface-variant);
+            font-size: 0.9rem;
+        }
+
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: black;
+            padding: 8px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        [lang="en"] {
+            display: none;
+            direction: ltr;
+        }
+
+        body.en-active [lang="ar"] { display: none; }
+        body.en-active [lang="en"] { display: block; }
+        body.en-active .lang-switch { left: auto; right: 20px; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="lang-switch" id="langBtn">English</a>
+
+    <div class="container">
+        <header>
+            <div class="logo-box">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                    <line x1="8" y1="6" x2="16" y2="6"></line>
+                    <line x1="16" y1="14" x2="16" y2="18"></line>
+                    <path d="M16 10h.01"></path>
+                    <path d="M12 10h.01"></path>
+                    <path d="M8 10h.01"></path>
+                    <path d="M12 14h.01"></path>
+                    <path d="M8 14h.01"></path>
+                    <path d="M12 18h.01"></path>
+                    <path d="M8 18h.01"></path>
+                </svg>
+            </div>
+            <h1 lang="ar">سياسة الخصوصية</h1>
+            <h1 lang="en">Privacy Policy</h1>
+            <p class="subtitle" lang="ar">تطبيق CalcuMate - بسيط وآمن</p>
+            <p class="subtitle" lang="en">CalcuMate App - Simple & Secure</p>
+        </header>
+
+        <section>
+            <h2 lang="ar">🛡️ جمع البيانات</h2>
+            <h2 lang="en">🛡️ Data Collection</h2>
+            <p lang="ar">هذا التطبيق لا يجمع أو يخزن أو يشارك أي بيانات شخصية خاصة بك. جميع العمليات الحسابية والبيانات المخزنة في السجل تبقى محلياً على جهازك فقط.</p>
+            <p lang="en">This app does not collect, store, or share any of your personal data. All calculations and history data remain locally on your device only.</p>
+        </section>
+
+        <section>
+            <h2 lang="ar">🚫 الإعلانات والتتبع</h2>
+            <h2 lang="en">🚫 Ads and Tracking</h2>
+            <p lang="ar">لا يحتوي التطبيق على إعلانات، ولا يستخدم أي أدوات تتبع أو تحليل للسلوك أو الطرف الثالث.</p>
+            <p lang="en">The app does not contain ads and does not use any tracking or analytics tools from third parties.</p>
+        </section>
+
+        <section>
+            <h2 lang="ar">🔑 الأذونات</h2>
+            <h2 lang="en">🔑 Permissions</h2>
+            <p lang="ar">لا يطلب التطبيق أي أذونات خاصة من الجهاز للعمل. الأذونات التقنية الأساسية تُستخدم فقط لضمان عمل الوظائف البرمجية بشكل سليم.</p>
+            <p lang="en">The app does not request any special device permissions to operate. Basic technical permissions are used solely to ensure software functions work correctly.</p>
+        </section>
+
+        <section>
+            <h2 lang="ar">📩 إرسال الملاحظات</h2>
+            <h2 lang="en">📩 Sending Feedback</h2>
+            <p lang="ar">عند استخدام ميزة "أرسل ملاحظة"، يتم فتح تطبيق البريد الافتراضي في جهازك لإرسال الرسالة مباشرة إلى المطور. لا يتم حفظ أو تخزين محتوى الرسالة داخل التطبيق.</p>
+            <p lang="en">When using the "Send Feedback" feature, your device's default mail app is opened to send the message directly to the developer. No message content is saved or stored within the app.</p>
+        </section>
+
+        <section>
+            <h2 lang="ar">🔄 التغييرات المستقبيلة</h2>
+            <h2 lang="en">🔄 Future Changes</h2>
+            <p lang="ar">في حال تم تحديث هذه السياسة مستقبلاً، سيتم نشر النسخة الجديدة مباشرة في هذه الصفحة.</p>
+            <p lang="en">If this policy is updated in the future, the new version will be published directly on this page.</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <footer>
+            <p lang="ar">تطوير: علمدار (Alamdar)</p>
+            <p lang="en">Developed by: Alamdar</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;" lang="ar">آخر تحديث: فبراير 2026</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;" lang="en">Last Updated: February 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        const btn = document.getElementById('langBtn');
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.body.classList.toggle('en-active');
+            const isEn = document.body.classList.contains('en-active');
+            btn.textContent = isEn ? 'العربية' : 'English';
+            document.documentElement.dir = isEn ? 'ltr' : 'rtl';
+            document.documentElement.lang = isEn ? 'en' : 'ar';
+        });
+    </script>
+</body>
+</html>
