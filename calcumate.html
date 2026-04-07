@@ -254,18 +254,40 @@
             <p style="font-size: 0.8rem; margin-top: 10px;" lang="en">Last Updated: February 2026</p>
         </footer>
     </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-    <script>
-        const btn = document.getElementById('langBtn');
+    const userLang = navigator.language || navigator.userLanguage;
+
+    if (userLang && userLang.startsWith('en')) {
+        document.body.classList.add('en-active');
+        document.documentElement.dir = 'ltr';
+        document.documentElement.lang = 'en';
+    } else {
+        document.documentElement.dir = 'rtl';
+        document.documentElement.lang = 'ar';
+    }
+
+    const btn = document.getElementById('langBtn');
+
+    if (btn) {
+        const isEn = document.body.classList.contains('en-active');
+        btn.textContent = isEn ? 'العربية' : 'English';
+
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             document.body.classList.toggle('en-active');
+
             const isEn = document.body.classList.contains('en-active');
+
             btn.textContent = isEn ? 'العربية' : 'English';
             document.documentElement.dir = isEn ? 'ltr' : 'rtl';
             document.documentElement.lang = isEn ? 'en' : 'ar';
         });
-    </script>
+    }
+
+});
+</script>
 </body>
 
 </html>
