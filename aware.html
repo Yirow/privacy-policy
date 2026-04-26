@@ -77,7 +77,25 @@
     }
     button.secondary { background: transparent; color: var(--accent-dark); }
     .meta { color: var(--muted); font-size: 0.95rem; }
-    .hidden { display: none; }
+    body [data-en] {
+  display: none;
+}
+
+body.en-active [data-ar] {
+  display: none;
+}
+
+body.en-active [data-en] {
+  display: block;
+}
+
+body.en-active table[data-en] {
+  display: table;
+}
+
+body.en-active tr[data-en] {
+  display: table-row;
+}
     footer { margin-top: 42px; padding: 24px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.95rem; }
     @media (max-width: 640px) {
       .container { padding: 18px; }
@@ -91,20 +109,23 @@
     <header>
       <div class="brand" id="appName">واعي</div>
       <h1 data-ar>سياسة الخصوصية</h1>
-      <h1 data-en class="hidden" dir="ltr">Privacy Policy</h1>
+      <h1 data-en dir="ltr">Privacy Policy</h1>
       <p class="meta" data-ar>تاريخ آخر تحديث: 26 أبريل 2026</p>
-      <p class="meta hidden" data-en dir="ltr">Last updated: April 26, 2026</p>
-      <div class="lang-switch" aria-label="مبدّل اللغة">
-        <button type="button" id="arBtn">العربية</button>
-        <button type="button" id="enBtn" class="secondary">الإنجليزية</button>
-      </div>
+      <p class="meta" data-en dir="ltr">Last updated: April 26, 2026</p>
+ <div class="lang-switch" aria-label="مبدّل اللغة">
+  <button type="button" id="langBtn">English</button>
+</div>
     </header>
 
     <section data-ar>
-      <div class="card positive">
-        <strong>ملخص واضح:</strong>
-        تطبيق واعي مصمم بمبدأ الخصوصية أولاً. بيانات استخدام التطبيقات، الحدود، جلسات التركيز، الشارات، والسجل السلوكي تبقى محفوظة محلياً على جهازك. لا نبيع بياناتك، لا نشاركها مع أطراف ثالثة، ولا نستخدمها للإعلانات أو التتبع التسويقي.
-      </div>
+   <div class="card positive">
+  <p><strong>ملخص مبسط</strong></p>
+  <p>
+    تطبيق واعي مصمم وفق مبدأ "الخصوصية أولاً".
+    جميع بيانات استخدام التطبيقات، والحدود، وجلسات التركيز، والشارات، والسجل السلوكي تُحفظ محلياً على جهازك.
+    لا نبيع بياناتك، ولا نشاركها مع أطراف ثالثة، ولا نستخدمها للإعلانات أو التتبع التسويقي.
+  </p>
+</div>
 
       <h2>1. من نحن</h2>
       <p>واعي هو تطبيق يساعدك على فهم عادات استخدام الهاتف، تقليل التشتت، وضع حدود للتطبيقات، تفعيل جلسات التركيز، والحصول على تنبيهات وتوجيهات سلوكية تساعدك على بناء استخدام رقمي صحي.</p>
@@ -135,7 +156,7 @@
           <tr>
             <td>خدمة إمكانية الوصول</td>
             <td>اكتشاف التطبيق المفتوح حالياً وعرض شاشة حجب أو تحذير عندما يتجاوز المستخدم الحد أو أثناء جلسة تركيز.</td>
-            <td>لا نقرأ الرسائل، لا نقرأ كلمات المرور، لا نسجل ضغطات لوحة المفاتيح، ولا نتحكم بجهازك خارج ميزات الحجب المعلنة.</td>
+            <td>لا نقرأ الرسائل، لا نقرأ كلمات المرور، لا نسجل ضغطات لوحة المفاتيح، ولا نتحكم في جهازك خارج ميزات الحجب المعلنة.</td>
           </tr>
           <tr>
             <td>الإشعارات</td>
@@ -143,7 +164,7 @@
             <td>لا نرسل إعلانات أو رسائل تسويقية.</td>
           </tr>
           <tr>
-            <td>المنبّهات والتذكيرات الدقيقة</td>
+            <td>التنبيهات الدقيقة</td>
             <td>إرسال إشعار دقيق عند انتهاء جلسة التركيز.</td>
             <td>لا نستخدمها لتتبعك أو تشغيل نشاط غير معلن.</td>
           </tr>
@@ -157,9 +178,9 @@
 
       <h2>4. إفصاح مهم حول خدمة إمكانية الوصول</h2>
       <div class="card notice">
-        <p><strong>واعي يستخدم خدمة تسهيل الاستخدام فقط لتفعيل ميزات الحجب والتدخل السلوكي.</strong></p>
-        <p>عند فتح تطبيق مشتت أو تطبيق تجاوز الحد، قد يستخدم واعي خدمة تسهيل الاستخدام لمعرفة اسم التطبيق المفتوح وعرض شاشة حجب أو تحذير. هذه الخدمة ضرورية لميزات حجب التطبيقات، وضع التركيز، والمرشد السلوكي.</p>
-        <p>واعي لا يستخدم خدمة تسهيل الاستخدام لقراءة محتوى الشاشة الخاص، أو قراءة الرسائل، أو جمع كلمات المرور، أو تسجيل ضغطات المستخدم، أو تنفيذ إجراءات غير مرتبطة بوظائف التطبيق المعلنة.</p>
+        <p><strong>واعي يستخدم خدمة إمكانية الوصول فقط لتفعيل ميزات الحجب والتدخل السلوكي.</strong></p>
+        <p>عند فتح تطبيق مشتت أو تطبيق تجاوز الحد، قد يستخدم واعي خدمة إمكانية الوصول لمعرفة اسم التطبيق المفتوح وعرض شاشة حجب أو تحذير. هذه الخدمة ضرورية لميزات حجب التطبيقات، وضع التركيز، والمرشد السلوكي.</p>
+        <p>واعي لا يستخدم خدمة إمكانية الوصول لقراءة محتوى الشاشة الخاص، أو قراءة الرسائل، أو جمع كلمات المرور، أو تسجيل ضغطات المستخدم، أو تنفيذ إجراءات غير مرتبطة بوظائف التطبيق المعلنة.</p>
       </div>
 
       <h2>5. كيف يتم استخدام البيانات؟</h2>
@@ -181,7 +202,7 @@
       <h2>8. حذف البيانات</h2>
       <p>يمكنك حذف بيانات واعي بإحدى الطرق التالية:</p>
       <ul>
-        <li>من داخل التطبيق، إذا كان خيار الحذف متاحاً.</li>
+        <li>من داخل التطبيق: الإعدادات &gt; إعادة ضبط التطبيق &gt; إعادة الضبط.</li>
         <li>من إعدادات أندرويد: التطبيقات &gt; واعي &gt; التخزين &gt; مسح البيانات.</li>
         <li>بإلغاء تثبيت التطبيق من جهازك.</li>
       </ul>
@@ -190,7 +211,7 @@
       <p>واعي ليس موجهاً خصيصاً للأطفال. إذا تم استخدامه من قبل طفل، يجب أن يكون ذلك تحت إشراف ولي الأمر أو الوصي القانوني، خصوصاً عند تفعيل الحجب أو الحدود.</p>
 
       <h2>10. خدمات الطرف الثالث</h2>
-      <p>حسب التصميم الحالي، لا يعتمد واعي على خادم خارجي لجمع بيانات الاستخدام. إذا تمت إضافة خدمات طرف ثالث مستقبلاً مثل التحليلات أو تسجيل الدخول أو النسخ الاحتياطي السحابي، سيتم تحديث هذه السياسة بوضوح قبل أو عند إطلاق تلك الميزة.</p>
+      <p>في التصميم الحالي، لا يعتمد واعي على خادم خارجي لجمع بيانات الاستخدام. إذا تمت إضافة خدمات طرف ثالث مستقبلاً مثل التحليلات أو تسجيل الدخول أو النسخ الاحتياطي السحابي، سيتم تحديث هذه السياسة بوضوح قبل أو عند إطلاق تلك الميزة.</p>
 
       <h2>11. تغييرات هذه السياسة</h2>
       <p>قد نقوم بتحديث سياسة الخصوصية عند إضافة ميزات جديدة أو تغيير طريقة معالجة البيانات. سيتم تحديث تاريخ آخر تعديل أعلى الصفحة.</p>
@@ -199,11 +220,15 @@
       <p>لأي سؤال حول الخصوصية أو البيانات، تواصل معنا عبر: <a href="mailto:Yirow.dev@gmail.com">Yirow.dev@gmail.com</a></p>
     </section>
 
-    <section data-en class="hidden" dir="ltr">
+    <section data-en dir="ltr">
       <div class="card positive">
-        <strong>Plain-language summary:</strong>
-        Aware is designed with privacy first. App usage data, limits, focus sessions, badges, streaks, and behavioral settings stay locally on your device. We do not sell your data, share it with third parties, or use it for advertising or marketing tracking.
-      </div>
+  <p><strong>Plain-language summary</strong></p>
+  <p>
+    Aware is designed with a privacy-first approach.
+    All app usage data, limits, focus sessions, badges, and behavioral data are stored locally on your device.
+    We do not sell your data, share it with third parties, or use it for advertising or tracking.
+  </p>
+</div>
 
       <h2>1. Who we are</h2>
       <p>Aware is an app that helps you understand phone habits, reduce distractions, set app limits, run focus sessions, and receive behavioral reminders that support healthier digital use.</p>
@@ -212,7 +237,7 @@
       <p>Aware uses local device data to provide its core features. This may include:</p>
       <ul>
         <li>Names of apps installed or used on the device.</li>
-        <li>App usage time and app opening periods.</li>
+        <li>App usage time and app opening history.</li>
         <li>Limits you set for individual apps or your general limit.</li>
         <li>Focus session data such as duration and status.</li>
         <li>Motivation data such as streaks and badges.</li>
@@ -229,7 +254,7 @@
           <tr>
             <td>Usage Access</td>
             <td>To read app usage time so Aware can show statistics, apply limits, and notify you when you approach a limit.</td>
-            <td>We do not use it for spying and we do not upload your usage history to a server.</td>
+            <td>We do not use it to monitor you beyond the disclosed app features, and we do not upload your usage history to a server.</td>
           </tr>
           <tr>
             <td>Accessibility Service</td>
@@ -280,7 +305,7 @@
       <h2>8. Deleting your data</h2>
       <p>You can delete Aware data by:</p>
       <ul>
-        <li>Using the in-app deletion option, if available.</li>
+        <li>Within the app: Settings &gt; Reset App &gt; Reset.</li>
         <li>Going to Android Settings: Apps &gt; Aware &gt; Storage &gt; Clear data.</li>
         <li>Uninstalling the app from your device.</li>
       </ul>
@@ -300,32 +325,55 @@
 
     <footer>
     <p data-ar> © 2026 جميع الحقوق محفوظة – تم تطوير هذا التطبيق بواسطة <strong>يِرُو</strong></p>
-    <p data-en class="hidden" dir="ltr"> © 2026 All rights reserved – Developed by <strong>Yirow</strong></p>
+    <p data-en dir="ltr"> © 2026 All rights reserved – Developed by <strong>Yirow</strong></p>
    </footer>
     
   </main>
 
-  <script>
-    const arBtn = document.getElementById('arBtn');
-    const enBtn = document.getElementById('enBtn');
-    const arEls = document.querySelectorAll('[data-ar]');
-    const enEls = document.querySelectorAll('[data-en]');
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const userLang = navigator.language || navigator.userLanguage;
+  const btn = document.getElementById("langBtn");
+  const appName = document.getElementById("appName");
 
-    function setLang(lang) {
-      const isAr = lang === 'ar';
-      document.documentElement.lang = isAr ? 'ar' : 'en';
-      document.documentElement.dir = isAr ? 'rtl' : 'ltr';
-      arEls.forEach(el => el.classList.toggle('hidden', !isAr));
-      enEls.forEach(el => el.classList.toggle('hidden', isAr));
-      arBtn.classList.toggle('secondary', !isAr);
-      enBtn.classList.toggle('secondary', isAr);
-      document.getElementById("appName").textContent = isAr ? "واعي" : "Aware";
-      localStorage.setItem('awarePrivacyLang', lang);
+  function applyLanguage(lang) {
+    const isEn = lang === "en";
+
+    document.body.classList.toggle("en-active", isEn);
+    document.documentElement.dir = isEn ? "ltr" : "rtl";
+    document.documentElement.lang = isEn ? "en" : "ar";
+    document.title = isEn ? "Privacy Policy | Aware" : "سياسة الخصوصية | واعي";
+    
+    if (appName) {
+      appName.textContent = isEn ? "Aware" : "واعي";
     }
 
-    arBtn.addEventListener('click', () => setLang('ar'));
-    enBtn.addEventListener('click', () => setLang('en'));
-    setLang(localStorage.getItem('awarePrivacyLang') || 'ar');
-  </script>
+    if (btn) {
+      btn.textContent = isEn ? "العربية" : "English";
+    }
+
+    localStorage.setItem("awarePrivacyLang", isEn ? "en" : "ar");
+  }
+
+  const savedLang = localStorage.getItem("awarePrivacyLang");
+
+  if (savedLang) {
+    applyLanguage(savedLang);
+  } else if (userLang && userLang.startsWith("en")) {
+    applyLanguage("en");
+  } else {
+    applyLanguage("ar");
+  }
+
+  if (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const isCurrentlyEn = document.body.classList.contains("en-active");
+      applyLanguage(isCurrentlyEn ? "ar" : "en");
+    });
+  }
+});
+</script>
 </body>
 </html>
