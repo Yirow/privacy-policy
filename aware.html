@@ -1,379 +1,484 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>سياسة الخصوصية | واعي</title>
-  <meta name="description" content="سياسة الخصوصية لتطبيق واعي: تطبيق يساعدك على فهم استخدامك للهاتف، وضع حدود، حجب التطبيقات المشتتة، وجلسات التركيز. البيانات محفوظة محلياً على جهازك." />
-  <style>
-    :root {
-      --bg: #f7f3ec;
-      --card: #fffaf2;
-      --text: #1f2933;
-      --muted: #5f6c7b;
-      --border: #e6dccd;
-      --accent: #8b5e34;
-      --accent-dark: #5f3f22;
-      --warning: #fff3cd;
-      --warning-border: #f0d58c;
-      --ok: #eaf7ee;
-      --ok-border: #b8dfc2;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, Arial, sans-serif;
-      line-height: 1.8;
-    }
-    a { color: var(--accent-dark); }
-    .container { max-width: 980px; margin: 0 auto; padding: 24px; }
-    header {
-      padding: 36px 0 18px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 24px;
-    }
-    .brand { font-size: 0.95rem; color: var(--muted); margin-bottom: 8px; }
-    h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin: 0 0 12px; }
-    h2 { margin-top: 36px; font-size: 1.45rem; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
-    h3 { margin-top: 24px; font-size: 1.1rem; }
-    p { margin: 10px 0; }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 18px;
-      margin: 16px 0;
-      box-shadow: 0 8px 24px rgba(95, 63, 34, 0.06);
-    }
-    .notice {
-      background: var(--warning);
-      border-color: var(--warning-border);
-    }
-    .positive {
-      background: var(--ok);
-      border-color: var(--ok-border);
-    }
-    ul { padding-inline-start: 1.4rem; }
-    li { margin: 6px 0; }
-    table { width: 100%; border-collapse: collapse; margin: 14px 0; background: #fff; border-radius: 12px; overflow: hidden; }
-    th, td { border: 1px solid var(--border); padding: 12px; vertical-align: top; text-align: start; }
-    th { background: #f0e7da; }
-    .lang-switch {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-    button {
-      border: 1px solid var(--accent);
-      background: var(--accent);
-      color: #fff;
-      padding: 10px 14px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-weight: 700;
-    }
-    button.secondary { background: transparent; color: var(--accent-dark); }
-    .meta { color: var(--muted); font-size: 0.95rem; }
-    body [data-en] {
-  display: none;
-}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>سياسة الخصوصية | واعي</title>
+    <meta name="description" content="سياسة الخصوصية لتطبيق واعي: تطبيق يساعدك على فهم استخدامك للهاتف، وضع حدود، حجب التطبيقات المشتتة، وجلسات التركيز. البيانات محفوظة محلياً على جهازك." />
+    <style>
+        :root {
+            --bg: #f7f3ec;
+            --card: #fffaf2;
+            --text: #1f2933;
+            --muted: #5f6c7b;
+            --border: #e6dccd;
+            --accent: #8b5e34;
+            --accent-dark: #5f3f22;
+            --warning: #fff3cd;
+            --warning-border: #f0d58c;
+            --ok: #eaf7ee;
+            --ok-border: #b8dfc2;
+        }
 
-body.en-active [data-ar] {
-  display: none;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-body.en-active [data-en] {
-  display: block;
-}
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, Arial, sans-serif;
+            line-height: 1.8;
+        }
 
-body.en-active table[data-en] {
-  display: table;
-}
+        a {
+            color: var(--accent-dark);
+        }
 
-body.en-active tr[data-en] {
-  display: table-row;
-}
-    footer { margin-top: 42px; padding: 24px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.95rem; }
-    @media (max-width: 640px) {
-      .container { padding: 18px; }
-      th, td { display: block; width: 100%; }
-      th { border-bottom: 0; }
-    }
-  </style>
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            padding: 36px 0 18px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 24px;
+        }
+
+        .brand {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.2;
+            margin: 0 0 12px;
+        }
+
+        h2 {
+            margin-top: 36px;
+            font-size: 1.45rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            margin-top: 24px;
+            font-size: 1.1rem;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 18px;
+            margin: 16px 0;
+            box-shadow: 0 8px 24px rgba(95, 63, 34, 0.06);
+        }
+
+        .notice {
+            background: var(--warning);
+            border-color: var(--warning-border);
+        }
+
+        .positive {
+            background: var(--ok);
+            border-color: var(--ok-border);
+        }
+
+        ul {
+            padding-inline-start: 1.4rem;
+        }
+
+        li {
+            margin: 6px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            vertical-align: top;
+            text-align: start;
+        }
+
+        th {
+            background: #f0e7da;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        button {
+            border: 1px solid var(--accent);
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        button.secondary {
+            background: transparent;
+            color: var(--accent-dark);
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        body [data-en] {
+            display: none;
+        }
+
+        body.en-active [data-ar] {
+            display: none;
+        }
+
+        body.en-active [data-en] {
+            display: block;
+        }
+
+        body.en-active table[data-en] {
+            display: table;
+        }
+
+        body.en-active tr[data-en] {
+            display: table-row;
+        }
+
+        footer {
+            margin-top: 42px;
+            padding: 24px 0;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 18px;
+            }
+
+            th,
+            td {
+                display: block;
+                width: 100%;
+            }
+
+            th {
+                border-bottom: 0;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <main class="container">
-    <header>
-      <div class="brand" id="appName">واعي</div>
-      <h1 data-ar>سياسة الخصوصية</h1>
-      <h1 data-en dir="ltr">Privacy Policy</h1>
-      <p class="meta" data-ar>تاريخ آخر تحديث: 26 أبريل 2026</p>
-      <p class="meta" data-en dir="ltr">Last updated: April 26, 2026</p>
- <div class="lang-switch" aria-label="مبدّل اللغة">
-  <button type="button" id="langBtn">English</button>
-</div>
-    </header>
+    <main class="container">
+        <header>
+            <div class="brand" id="appName">واعي</div>
+            <h1 data-ar>سياسة الخصوصية</h1>
+            <h1 data-en dir="ltr">Privacy Policy</h1>
+            <p class="meta" data-ar>تاريخ آخر تحديث: 26 أبريل 2026</p>
+            <p class="meta" data-en dir="ltr">Last updated: April 26, 2026</p>
+            <div class="lang-switch">
+                <button type="button" id="langBtn" aria-label="تبديل اللغة">
+                    English
+                </button>
+            </div>
+        </header>
 
-    <section data-ar>
-   <div class="card positive">
-  <p><strong>ملخص مبسط</strong></p>
-  <p>
-    تطبيق واعي مصمم وفق مبدأ "الخصوصية أولاً".
-    جميع بيانات استخدام التطبيقات، والحدود، وجلسات التركيز، والشارات، والسجل السلوكي تُحفظ محلياً على جهازك.
-    لا نبيع بياناتك، ولا نشاركها مع أطراف ثالثة، ولا نستخدمها للإعلانات أو التتبع التسويقي.
-  </p>
-</div>
+        <section data-ar>
+            <div class="card positive">
+                <p><strong>ملخص مبسط</strong></p>
+                <p>تطبيق واعي مصمم وفق مبدأ "الخصوصية أولاً".</p>
+                <p>جميع بيانات استخدام التطبيقات، والحدود، وجلسات التركيز، والشارات، والسجل السلوكي تُحفظ محلياً على جهازك.</p>
+                <p>لا نبيع بياناتك، ولا نشاركها مع أطراف ثالثة، ولا نستخدمها للإعلانات أو التتبع التسويقي.</p>
+            </div>
 
-      <h2>1. من نحن</h2>
-      <p>واعي هو تطبيق يساعدك على فهم عادات استخدام الهاتف، تقليل التشتت، وضع حدود للتطبيقات، تفعيل جلسات التركيز، والحصول على تنبيهات وتوجيهات سلوكية تساعدك على بناء استخدام رقمي صحي.</p>
+            <h2>1. من نحن</h2>
+            <p>واعي هو تطبيق يساعدك على فهم عادات استخدام الهاتف، تقليل التشتت، وضع حدود للتطبيقات، تفعيل جلسات التركيز، والحصول على تنبيهات وتوجيهات سلوكية تساعدك على بناء استخدام رقمي صحي.</p>
 
-      <h2>2. ما البيانات التي يستخدمها التطبيق؟</h2>
-      <p>يعتمد واعي على بيانات محلية من جهازك لتقديم ميزاته الأساسية. قد تشمل هذه البيانات:</p>
-      <ul>
-        <li>أسماء التطبيقات المثبتة أو المستخدمة على الجهاز.</li>
-        <li>وقت استخدام التطبيقات وفترات فتحها.</li>
-        <li>الحدود التي تضبطها لكل تطبيق أو الحد العام.</li>
-        <li>بيانات جلسات التركيز مثل مدة الجلسة وحالتها.</li>
-        <li>بيانات التحفيز مثل سلسلة الالتزام والشارات.</li>
-        <li>إعدادات التطبيق وتفضيلاتك.</li>
-      </ul>
-      <p><strong>هذه البيانات تُستخدم داخل جهازك لتشغيل التطبيق ولا يتم رفعها إلى خوادمنا.</strong></p>
+            <h2>2. ما البيانات التي يستخدمها التطبيق؟</h2>
+            <p>يعتمد واعي على بيانات محلية من جهازك لتقديم ميزاته الأساسية. قد تشمل هذه البيانات:</p>
+            <ul>
+                <li>أسماء التطبيقات المثبتة أو المستخدمة على الجهاز.</li>
+                <li>وقت استخدام التطبيقات وفترات فتحها.</li>
+                <li>الحدود التي تضبطها لكل تطبيق أو الحد العام.</li>
+                <li>بيانات جلسات التركيز مثل مدة الجلسة وحالتها.</li>
+                <li>بيانات التحفيز مثل سلسلة الالتزام والشارات.</li>
+                <li>إعدادات التطبيق وتفضيلاتك.</li>
+            </ul>
+            <p><strong>هذه البيانات تُستخدم داخل جهازك لتشغيل التطبيق ولا يتم رفعها إلى خوادمنا.</strong></p>
 
-      <h2>3. الصلاحيات ولماذا نحتاجها</h2>
-      <table>
-        <thead>
-          <tr><th>الصلاحية</th><th>سبب الاستخدام</th><th>ما لا نفعله</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>الوصول إلى بيانات الاستخدام</td>
-            <td>قراءة وقت استخدام التطبيقات حتى يتم عرض الإحصائيات، تطبيق الحدود، وإرسال التنبيهات عند الاقتراب من الحد.</td>
-            <td>لا نستخدمها للتجسس، ولا نرفع سجل استخدامك إلى خادم.</td>
-          </tr>
-          <tr>
-            <td>خدمة إمكانية الوصول</td>
-            <td>اكتشاف التطبيق المفتوح حالياً وعرض شاشة حجب أو تحذير عندما يتجاوز المستخدم الحد أو أثناء جلسة تركيز.</td>
-            <td>لا نقرأ الرسائل، لا نقرأ كلمات المرور، لا نسجل ضغطات لوحة المفاتيح، ولا نتحكم في جهازك خارج ميزات الحجب المعلنة.</td>
-          </tr>
-          <tr>
-            <td>الإشعارات</td>
-            <td>إرسال تنبيهات عند 75% و90% و100% من الحد، وتنبيهات جلسات التركيز وتقييم نهاية اليوم.</td>
-            <td>لا نرسل إعلانات أو رسائل تسويقية.</td>
-          </tr>
-          <tr>
-            <td>التنبيهات الدقيقة</td>
-            <td>إرسال إشعار دقيق عند انتهاء جلسة التركيز.</td>
-            <td>لا نستخدمها لتتبعك أو تشغيل نشاط غير معلن.</td>
-          </tr>
-          <tr>
-            <td>بدء التشغيل بعد إعادة تشغيل الجهاز</td>
-            <td>إعادة جدولة التنبيهات والمهام المحلية بعد إعادة تشغيل الجهاز.</td>
-            <td>لا يتم إرسال أي بيانات عند تشغيل الجهاز.</td>
-          </tr>
-        </tbody>
-      </table>
+            <h2>3. الصلاحيات ولماذا نحتاجها</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>الصلاحية</th>
+                        <th>سبب الاستخدام</th>
+                        <th>ما لا نفعله</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>الوصول إلى بيانات الاستخدام</td>
+                        <td>قراءة وقت استخدام التطبيقات حتى يتم عرض الإحصائيات، تطبيق الحدود، وإرسال التنبيهات عند الاقتراب من الحد.</td>
+                        <td>لا نستخدمها للتجسس، ولا نرفع سجل استخدامك إلى خادم.</td>
+                    </tr>
+                    <tr>
+                        <td>خدمة إمكانية الوصول</td>
+                        <td>اكتشاف التطبيق المفتوح حالياً وعرض شاشة حجب أو تحذير عندما يتجاوز المستخدم الحد أو أثناء جلسة تركيز.</td>
+                        <td>لا نقرأ الرسائل، لا نقرأ كلمات المرور، لا نسجل ضغطات لوحة المفاتيح، ولا نتحكم في جهازك خارج ميزات الحجب المعلنة.</td>
+                    </tr>
+                    <tr>
+                        <td>الإشعارات</td>
+                        <td>إرسال تنبيهات عند 75% و90% و100% من الحد، وتنبيهات جلسات التركيز وتقييم نهاية اليوم.</td>
+                        <td>لا نرسل إعلانات أو رسائل تسويقية.</td>
+                    </tr>
+                    <tr>
+                        <td>التنبيهات الدقيقة</td>
+                        <td>إرسال إشعار دقيق عند انتهاء جلسة التركيز.</td>
+                        <td>لا نستخدمها لتتبعك أو تشغيل نشاط غير معلن.</td>
+                    </tr>
+                    <tr>
+                        <td>بدء التشغيل بعد إعادة تشغيل الجهاز</td>
+                        <td>إعادة جدولة التنبيهات والمهام المحلية بعد إعادة تشغيل الجهاز.</td>
+                        <td>لا يتم إرسال أي بيانات عند تشغيل الجهاز.</td>
+                    </tr>
+                </tbody>
+            </table>
 
-      <h2>4. إفصاح مهم حول خدمة إمكانية الوصول</h2>
-      <div class="card notice">
-        <p><strong>واعي يستخدم خدمة إمكانية الوصول فقط لتفعيل ميزات الحجب والتدخل السلوكي.</strong></p>
-        <p>عند فتح تطبيق مشتت أو تطبيق تجاوز الحد، قد يستخدم واعي خدمة إمكانية الوصول لمعرفة اسم التطبيق المفتوح وعرض شاشة حجب أو تحذير. هذه الخدمة ضرورية لميزات حجب التطبيقات، وضع التركيز، والمرشد السلوكي.</p>
-        <p>واعي لا يستخدم خدمة إمكانية الوصول لقراءة محتوى الشاشة الخاص، أو قراءة الرسائل، أو جمع كلمات المرور، أو تسجيل ضغطات المستخدم، أو تنفيذ إجراءات غير مرتبطة بوظائف التطبيق المعلنة.</p>
-      </div>
+            <h2>4. إفصاح مهم حول خدمة إمكانية الوصول</h2>
+            <div class="card notice">
+                <p><strong>واعي يستخدم خدمة إمكانية الوصول فقط لتفعيل ميزات الحجب والتدخل السلوكي.</strong></p>
+                <p>عند فتح تطبيق مشتت أو تطبيق تجاوز الحد، قد يستخدم واعي خدمة إمكانية الوصول لمعرفة اسم التطبيق المفتوح وعرض شاشة حجب أو تحذير.</p>
+                <p>هذه الخدمة ضرورية لميزات حجب التطبيقات، وضع التركيز، والمرشد السلوكي.</p>
+                <p>واعي لا يستخدم خدمة إمكانية الوصول لقراءة محتوى الشاشة الخاص، أو قراءة الرسائل، أو جمع كلمات المرور، أو تسجيل ضغطات المستخدم، أو تنفيذ إجراءات غير مرتبطة بوظائف التطبيق المعلنة.</p>
+            </div>
 
-      <h2>5. كيف يتم استخدام البيانات؟</h2>
-      <ul>
-        <li>عرض لوحة تحكم توضح وقت الاستخدام وحالة اليوم.</li>
-        <li>تطبيق حدود الاستخدام العامة أو الخاصة بكل تطبيق.</li>
-        <li>إظهار تحذير أو حجب التطبيق عند تجاوز الحد.</li>
-        <li>تشغيل جلسات التركيز وحجب التطبيقات المشتتة خلالها.</li>
-        <li>حساب سلسلة الالتزام والشارات محلياً لتحفيز الالتزام.</li>
-        <li>إرسال تنبيهات محلية تساعدك على ضبط استخدامك.</li>
-      </ul>
+            <h2>5. كيف يتم استخدام البيانات؟</h2>
+            <ul>
+                <li>عرض لوحة تحكم توضح وقت الاستخدام وحالة اليوم.</li>
+                <li>تطبيق حدود الاستخدام العامة أو الخاصة بكل تطبيق.</li>
+                <li>إظهار تحذير أو حجب التطبيق عند تجاوز الحد.</li>
+                <li>تشغيل جلسات التركيز وحجب التطبيقات المشتتة خلالها.</li>
+                <li>حساب سلسلة الالتزام والشارات محلياً لتحفيز الالتزام.</li>
+                <li>إرسال تنبيهات محلية تساعدك على ضبط استخدامك.</li>
+            </ul>
 
-      <h2>6. مشاركة البيانات وبيعها</h2>
-      <p>لا نبيع بياناتك. لا نشارك بيانات استخدامك مع أطراف ثالثة. لا نستخدم بياناتك للإعلانات، إعادة الاستهداف، بناء ملفات تسويقية، أو تتبعك عبر التطبيقات والمواقع.</p>
+            <h2>6. مشاركة البيانات وبيعها</h2>
+            <p>لا نبيع بياناتك.</p>
+            <p>لا نشارك بيانات استخدامك مع أطراف ثالثة.</p>
+            <p>لا نستخدم بياناتك للإعلانات، إعادة الاستهداف، بناء ملفات تسويقية، أو تتبعك عبر التطبيقات والمواقع.</p>
+            <h2>7. التخزين والأمان</h2>
+            <p>يتم تخزين بيانات التطبيق محلياً على جهازك. يعتمد أمان هذه البيانات أيضاً على أمان جهازك ونظام أندرويد. ننصح باستخدام قفل شاشة وتحديث النظام باستمرار.</p>
 
-      <h2>7. التخزين والأمان</h2>
-      <p>يتم تخزين بيانات التطبيق محلياً على جهازك. يعتمد أمان هذه البيانات أيضاً على أمان جهازك ونظام أندرويد. ننصح باستخدام قفل شاشة وتحديث النظام باستمرار.</p>
+            <h2>8. حذف البيانات</h2>
+            <p>يمكنك حذف بيانات واعي بإحدى الطرق التالية:</p>
+            <ul>
+                <li>من داخل التطبيق: الإعدادات &gt; إعادة ضبط التطبيق &gt; إعادة الضبط.</li>
+                <li>من إعدادات أندرويد: التطبيقات &gt; واعي &gt; التخزين &gt; مسح البيانات.</li>
+                <li>بإلغاء تثبيت التطبيق من جهازك.</li>
+            </ul>
 
-      <h2>8. حذف البيانات</h2>
-      <p>يمكنك حذف بيانات واعي بإحدى الطرق التالية:</p>
-      <ul>
-        <li>من داخل التطبيق: الإعدادات &gt; إعادة ضبط التطبيق &gt; إعادة الضبط.</li>
-        <li>من إعدادات أندرويد: التطبيقات &gt; واعي &gt; التخزين &gt; مسح البيانات.</li>
-        <li>بإلغاء تثبيت التطبيق من جهازك.</li>
-      </ul>
+            <h2>9. الأطفال</h2>
+            <p>واعي ليس موجهاً خصيصاً للأطفال. إذا تم استخدامه من قبل طفل، يجب أن يكون ذلك تحت إشراف ولي الأمر أو الوصي القانوني، خصوصاً عند تفعيل الحجب أو الحدود.</p>
 
-      <h2>9. الأطفال</h2>
-      <p>واعي ليس موجهاً خصيصاً للأطفال. إذا تم استخدامه من قبل طفل، يجب أن يكون ذلك تحت إشراف ولي الأمر أو الوصي القانوني، خصوصاً عند تفعيل الحجب أو الحدود.</p>
+            <h2>10. خدمات الطرف الثالث</h2>
+            <p>في التصميم الحالي، لا يعتمد واعي على خادم خارجي لجمع بيانات الاستخدام.</p>
+            <p>إذا تمت إضافة خدمات طرف ثالث مستقبلاً مثل التحليلات أو تسجيل الدخول أو النسخ الاحتياطي السحابي، سيتم تحديث هذه السياسة بوضوح قبل أو عند إطلاق تلك الميزة.</p>
+            <h2>11. تغييرات هذه السياسة</h2>
+            <p>قد نقوم بتحديث سياسة الخصوصية عند إضافة ميزات جديدة أو تغيير طريقة معالجة البيانات. سيتم تحديث تاريخ آخر تعديل أعلى الصفحة.</p>
 
-      <h2>10. خدمات الطرف الثالث</h2>
-      <p>في التصميم الحالي، لا يعتمد واعي على خادم خارجي لجمع بيانات الاستخدام. إذا تمت إضافة خدمات طرف ثالث مستقبلاً مثل التحليلات أو تسجيل الدخول أو النسخ الاحتياطي السحابي، سيتم تحديث هذه السياسة بوضوح قبل أو عند إطلاق تلك الميزة.</p>
+            <h2>12. التواصل</h2>
+            <p>لأي سؤال حول الخصوصية أو البيانات، تواصل معنا عبر: <a href="mailto:Yirow.dev@gmail.com">Yirow.dev@gmail.com</a></p>
+        </section>
 
-      <h2>11. تغييرات هذه السياسة</h2>
-      <p>قد نقوم بتحديث سياسة الخصوصية عند إضافة ميزات جديدة أو تغيير طريقة معالجة البيانات. سيتم تحديث تاريخ آخر تعديل أعلى الصفحة.</p>
+        <section data-en dir="ltr">
+            <div class="card positive">
+                <p><strong>Plain-language summary</strong></p>
+                <p>Aware is designed with a privacy-first approach.</p>
+                <p>All app usage data, limits, focus sessions, badges, and behavioral data are stored locally on your device.</p>
+                <p>We do not sell your data, share it with third parties, or use it for advertising or tracking.</p>
+            </div>
 
-      <h2>12. التواصل</h2>
-      <p>لأي سؤال حول الخصوصية أو البيانات، تواصل معنا عبر: <a href="mailto:Yirow.dev@gmail.com">Yirow.dev@gmail.com</a></p>
-    </section>
+            <h2>1. Who we are</h2>
+            <p>Aware is an app that helps you understand phone habits, reduce distractions, set app limits, run focus sessions, and receive behavioral reminders that support healthier digital use.</p>
 
-    <section data-en dir="ltr">
-      <div class="card positive">
-  <p><strong>Plain-language summary</strong></p>
-  <p>
-    Aware is designed with a privacy-first approach.
-    All app usage data, limits, focus sessions, badges, and behavioral data are stored locally on your device.
-    We do not sell your data, share it with third parties, or use it for advertising or tracking.
-  </p>
-</div>
+            <h2>2. What data the app uses</h2>
+            <p>Aware uses local device data to provide its core features. This may include:</p>
+            <ul>
+                <li>Names of apps installed or used on the device.</li>
+                <li>App usage time and app opening history.</li>
+                <li>Limits you set for individual apps or your general limit.</li>
+                <li>Focus session data such as duration and status.</li>
+                <li>Motivation data such as streaks and badges.</li>
+                <li>App settings and preferences.</li>
+            </ul>
+            <p><strong>This data is used on your device to operate the app and is not uploaded to our servers.</strong></p>
 
-      <h2>1. Who we are</h2>
-      <p>Aware is an app that helps you understand phone habits, reduce distractions, set app limits, run focus sessions, and receive behavioral reminders that support healthier digital use.</p>
+            <h2>3. Permissions and why we need them</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Permission</th>
+                        <th>Why it is used</th>
+                        <th>What we do not do</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Usage Access</td>
+                        <td>To read app usage time so Aware can show statistics, apply limits, and notify you when you approach a limit.</td>
+                        <td>We do not use it to monitor you beyond the disclosed app features, and we do not upload your usage history to a server.</td>
+                    </tr>
+                    <tr>
+                        <td>Accessibility Service</td>
+                        <td>To detect the currently opened app and show a block screen or warning when a limit is exceeded or during a focus session.</td>
+                        <td>We do not read messages, passwords, keystrokes, or control your device outside the disclosed blocking features.</td>
+                    </tr>
+                    <tr>
+                        <td>Notifications</td>
+                        <td>To send alerts at 75%, 90%, and 100% of limits, focus session updates, and end-of-day evaluations.</td>
+                        <td>We do not send ads or marketing notifications.</td>
+                    </tr>
+                    <tr>
+                        <td>Exact Alarm</td>
+                        <td>To notify you accurately when a focus session ends.</td>
+                        <td>We do not use it for tracking or undisclosed background activity.</td>
+                    </tr>
+                    <tr>
+                        <td>Boot Completed</td>
+                        <td>To reschedule local reminders and tasks after the device restarts.</td>
+                        <td>No data is sent when the device starts.</td>
+                    </tr>
+                </tbody>
+            </table>
 
-      <h2>2. What data the app uses</h2>
-      <p>Aware uses local device data to provide its core features. This may include:</p>
-      <ul>
-        <li>Names of apps installed or used on the device.</li>
-        <li>App usage time and app opening history.</li>
-        <li>Limits you set for individual apps or your general limit.</li>
-        <li>Focus session data such as duration and status.</li>
-        <li>Motivation data such as streaks and badges.</li>
-        <li>App settings and preferences.</li>
-      </ul>
-      <p><strong>This data is used on your device to operate the app and is not uploaded to our servers.</strong></p>
+            <h2>4. Important Accessibility Service disclosure</h2>
+            <div class="card notice">
+                <p><strong>Aware uses the Accessibility Service only to enable app blocking and behavioral intervention features.</strong></p>
+                <p>When you open a distracting app or an app that has exceeded its limit, Aware may use Accessibility Service to identify the opened app name and display a block screen or warning.</p>
+                <p>This service is required for App Blocking, Focus Mode, and Behavior Coach.</p>
+                <p>Aware does not use Accessibility Service to read private screen content, read messages, collect passwords, log keystrokes, or perform actions unrelated to the app’s disclosed features.</p>
+            </div>
 
-      <h2>3. Permissions and why we need them</h2>
-      <table>
-        <thead>
-          <tr><th>Permission</th><th>Why it is used</th><th>What we do not do</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Usage Access</td>
-            <td>To read app usage time so Aware can show statistics, apply limits, and notify you when you approach a limit.</td>
-            <td>We do not use it to monitor you beyond the disclosed app features, and we do not upload your usage history to a server.</td>
-          </tr>
-          <tr>
-            <td>Accessibility Service</td>
-            <td>To detect the currently opened app and show a block screen or warning when a limit is exceeded or during a focus session.</td>
-            <td>We do not read messages, passwords, keystrokes, or control your device outside the disclosed blocking features.</td>
-          </tr>
-          <tr>
-            <td>Notifications</td>
-            <td>To send alerts at 75%, 90%, and 100% of limits, focus session updates, and end-of-day evaluations.</td>
-            <td>We do not send ads or marketing notifications.</td>
-          </tr>
-          <tr>
-            <td>Exact Alarm</td>
-            <td>To notify you accurately when a focus session ends.</td>
-            <td>We do not use it for tracking or undisclosed background activity.</td>
-          </tr>
-          <tr>
-            <td>Boot Completed</td>
-            <td>To reschedule local reminders and tasks after the device restarts.</td>
-            <td>No data is sent when the device starts.</td>
-          </tr>
-        </tbody>
-      </table>
+            <h2>5. How the data is used</h2>
+            <ul>
+                <li>To display a dashboard showing usage time and daily status.</li>
+                <li>To apply general and per-app usage limits.</li>
+                <li>To show warnings or block apps when limits are exceeded.</li>
+                <li>To run focus sessions and block distracting apps during sessions.</li>
+                <li>To calculate streaks and badges locally.</li>
+                <li>To send local reminders that help you manage your usage.</li>
+            </ul>
 
-      <h2>4. Important Accessibility Service disclosure</h2>
-      <div class="card notice">
-        <p><strong>Aware uses the Accessibility Service only to enable app blocking and behavioral intervention features.</strong></p>
-        <p>When you open a distracting app or an app that has exceeded its limit, Aware may use Accessibility Service to identify the opened app name and display a block screen or warning. This service is required for App Blocking, Focus Mode, and Behavior Coach.</p>
-        <p>Aware does not use Accessibility Service to read private screen content, read messages, collect passwords, log keystrokes, or perform actions unrelated to the app’s disclosed features.</p>
-      </div>
+            <h2>6. Data sharing and sale</h2>
+            <p>We do not sell your data.</p>
+            <p>We do not share your app usage data with third parties.</p>
+            <p>We do not use your data for advertising, retargeting, marketing profiles, or tracking across apps and websites.</p>
+            <h2>7. Storage and security</h2>
+            <p>App data is stored locally on your device. The security of this data also depends on the security of your device and Android system. We recommend using a screen lock and keeping your system updated.</p>
 
-      <h2>5. How the data is used</h2>
-      <ul>
-        <li>To display a dashboard showing usage time and daily status.</li>
-        <li>To apply general and per-app usage limits.</li>
-        <li>To show warnings or block apps when limits are exceeded.</li>
-        <li>To run focus sessions and block distracting apps during sessions.</li>
-        <li>To calculate streaks and badges locally.</li>
-        <li>To send local reminders that help you manage your usage.</li>
-      </ul>
+            <h2>8. Deleting your data</h2>
+            <p>You can delete Aware data by:</p>
+            <ul>
+                <li>Within the app: Settings &gt; Reset App &gt; Reset.</li>
+                <li>Going to Android Settings: Apps &gt; Aware &gt; Storage &gt; Clear data.</li>
+                <li>Uninstalling the app from your device.</li>
+            </ul>
 
-      <h2>6. Data sharing and sale</h2>
-      <p>We do not sell your data. We do not share your app usage data with third parties. We do not use your data for advertising, retargeting, marketing profiles, or tracking across apps and websites.</p>
+            <h2>9. Children</h2>
+            <p>Aware is not specifically directed to children. If used by a child, it should be used under the supervision of a parent or legal guardian, especially when blocking or limits are enabled.</p>
 
-      <h2>7. Storage and security</h2>
-      <p>App data is stored locally on your device. The security of this data also depends on the security of your device and Android system. We recommend using a screen lock and keeping your system updated.</p>
+            <h2>10. Third-party services</h2>
+            <p>In the current design, Aware does not rely on an external server to collect usage data.</p>
+            <p>If third-party services such as analytics, sign-in, or cloud backup are added later, this policy will be updated clearly before or when that feature is released.</p>
+            <h2>11. Changes to this policy</h2>
+            <p>We may update this Privacy Policy when new features are added or when data handling changes. The latest update date will appear at the top of this page.</p>
 
-      <h2>8. Deleting your data</h2>
-      <p>You can delete Aware data by:</p>
-      <ul>
-        <li>Within the app: Settings &gt; Reset App &gt; Reset.</li>
-        <li>Going to Android Settings: Apps &gt; Aware &gt; Storage &gt; Clear data.</li>
-        <li>Uninstalling the app from your device.</li>
-      </ul>
+            <h2>12. Contact</h2>
+            <p>For privacy or data questions, contact us at: <a href="mailto:Yirow.dev@gmail.com">Yirow.dev@gmail.com</a></p>
+        </section>
 
-      <h2>9. Children</h2>
-      <p>Aware is not specifically directed to children. If used by a child, it should be used under the supervision of a parent or legal guardian, especially when blocking or limits are enabled.</p>
+        <footer>
+            <p data-ar> © 2026 جميع الحقوق محفوظة – تم تطوير هذا التطبيق بواسطة <strong>يِرُو</strong></p>
+            <p data-en dir="ltr"> © 2026 All rights reserved – Developed by <strong>Yirow</strong></p>
+        </footer>
 
-      <h2>10. Third-party services</h2>
-      <p>In the current design, Aware does not rely on an external server to collect usage data. If third-party services such as analytics, sign-in, or cloud backup are added later, this policy will be updated clearly before or when that feature is released.</p>
+    </main>
 
-      <h2>11. Changes to this policy</h2>
-      <p>We may update this Privacy Policy when new features are added or when data handling changes. The latest update date will appear at the top of this page.</p>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const userLang = navigator.language || navigator.userLanguage;
+            const btn = document.getElementById("langBtn");
+            const appName = document.getElementById("appName");
 
-      <h2>12. Contact</h2>
-      <p>For privacy or data questions, contact us at: <a href="mailto:Yirow.dev@gmail.com">Yirow.dev@gmail.com</a></p>
-    </section>
+            function applyLanguage(lang) {
+                const isEn = lang === "en";
 
-    <footer>
-    <p data-ar> © 2026 جميع الحقوق محفوظة – تم تطوير هذا التطبيق بواسطة <strong>يِرُو</strong></p>
-    <p data-en dir="ltr"> © 2026 All rights reserved – Developed by <strong>Yirow</strong></p>
-   </footer>
-    
-  </main>
+                document.body.classList.toggle("en-active", isEn);
+                document.documentElement.dir = isEn ? "ltr" : "rtl";
+                document.documentElement.lang = isEn ? "en" : "ar";
+                document.title = isEn ? "Privacy Policy | Aware" : "سياسة الخصوصية | واعي";
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const userLang = navigator.language || navigator.userLanguage;
-  const btn = document.getElementById("langBtn");
-  const appName = document.getElementById("appName");
+                if (appName) {
+                    appName.textContent = isEn ? "Aware" : "واعي";
+                }
 
-  function applyLanguage(lang) {
-    const isEn = lang === "en";
+                if (btn) {
+                    btn.textContent = isEn ? "العربية" : "English";
+                }
 
-    document.body.classList.toggle("en-active", isEn);
-    document.documentElement.dir = isEn ? "ltr" : "rtl";
-    document.documentElement.lang = isEn ? "en" : "ar";
-    document.title = isEn ? "Privacy Policy | Aware" : "سياسة الخصوصية | واعي";
-    
-    if (appName) {
-      appName.textContent = isEn ? "Aware" : "واعي";
-    }
+                localStorage.setItem("awarePrivacyLang", isEn ? "en" : "ar");
+            }
 
-    if (btn) {
-      btn.textContent = isEn ? "العربية" : "English";
-    }
+            const savedLang = localStorage.getItem("awarePrivacyLang");
 
-    localStorage.setItem("awarePrivacyLang", isEn ? "en" : "ar");
-  }
+            if (savedLang) {
+                applyLanguage(savedLang);
+            } else if (userLang && userLang.startsWith("en")) {
+                applyLanguage("en");
+            } else {
+                applyLanguage("ar");
+            }
 
-  const savedLang = localStorage.getItem("awarePrivacyLang");
+            if (btn) {
+                btn.addEventListener("click", function(e) {
+                    e.preventDefault();
 
-  if (savedLang) {
-    applyLanguage(savedLang);
-  } else if (userLang && userLang.startsWith("en")) {
-    applyLanguage("en");
-  } else {
-    applyLanguage("ar");
-  }
-
-  if (btn) {
-    btn.addEventListener("click", function (e) {
-      e.preventDefault();
-
-      const isCurrentlyEn = document.body.classList.contains("en-active");
-      applyLanguage(isCurrentlyEn ? "ar" : "en");
-    });
-  }
-});
-</script>
+                    const isCurrentlyEn = document.body.classList.contains("en-active");
+                    applyLanguage(isCurrentlyEn ? "ar" : "en");
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>
