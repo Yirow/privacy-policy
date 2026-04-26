@@ -89,7 +89,7 @@
 <body>
   <main class="container">
     <header>
-      <div class="brand">واعي</div>
+      <div class="brand" id="appName">واعي</div>
       <h1 data-ar>سياسة الخصوصية</h1>
       <h1 data-en class="hidden" dir="ltr">Privacy Policy</h1>
       <p class="meta" data-ar>تاريخ آخر تحديث: 26 أبريل 2026</p>
@@ -133,7 +133,7 @@
             <td>لا نستخدمها للتجسس، ولا نرفع سجل استخدامك إلى خادم.</td>
           </tr>
           <tr>
-            <td>خدمة تسهيل الاستخدام</td>
+            <td>خدمة إمكانية الوصول</td>
             <td>اكتشاف التطبيق المفتوح حالياً وعرض شاشة حجب أو تحذير عندما يتجاوز المستخدم الحد أو أثناء جلسة تركيز.</td>
             <td>لا نقرأ الرسائل، لا نقرأ كلمات المرور، لا نسجل ضغطات لوحة المفاتيح، ولا نتحكم بجهازك خارج ميزات الحجب المعلنة.</td>
           </tr>
@@ -155,7 +155,7 @@
         </tbody>
       </table>
 
-      <h2>4. إفصاح مهم حول خدمة تسهيل الاستخدام</h2>
+      <h2>4. إفصاح مهم حول خدمة إمكانية الوصول</h2>
       <div class="card notice">
         <p><strong>واعي يستخدم خدمة تسهيل الاستخدام فقط لتفعيل ميزات الحجب والتدخل السلوكي.</strong></p>
         <p>عند فتح تطبيق مشتت أو تطبيق تجاوز الحد، قد يستخدم واعي خدمة تسهيل الاستخدام لمعرفة اسم التطبيق المفتوح وعرض شاشة حجب أو تحذير. هذه الخدمة ضرورية لميزات حجب التطبيقات، وضع التركيز، والمرشد السلوكي.</p>
@@ -297,6 +297,12 @@
       <h2>12. Contact</h2>
       <p>For privacy or data questions, contact us at: <a href="mailto:privacy@example.com">privacy@example.com</a></p>
     </section>
+
+    <footer>
+    <p data-ar> © 2026 جميع الحقوق محفوظة – تم تطوير هذا التطبيق بواسطة <strong>يِرُو</strong></p>
+    <p data-en class="hidden" dir="ltr"> © 2026 All rights reserved – Developed by <strong>Yirow</strong></p>
+   </footer>
+    
   </main>
 
   <script>
@@ -313,6 +319,7 @@
       enEls.forEach(el => el.classList.toggle('hidden', isAr));
       arBtn.classList.toggle('secondary', !isAr);
       enBtn.classList.toggle('secondary', isAr);
+      document.getElementById("appName").textContent = isAr ? "واعي" : "Aware";
       localStorage.setItem('awarePrivacyLang', lang);
     }
 
