@@ -436,12 +436,11 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const userLang = navigator.language || navigator.userLanguage;
             const btn = document.getElementById("langBtn");
             const appName = document.getElementById("appName");
 
             function applyLanguage(lang) {
-                const isEn = lang === "en";
+                const isEn = lang.startsWith("en");
 
                 document.body.classList.toggle("en-active", isEn);
                 document.documentElement.dir = isEn ? "ltr" : "rtl";
@@ -453,7 +452,7 @@
                 }
 
                 if (btn) {
-                    btn.textContent = isEn ? "Arabic" : "الإنجليزية";
+                    btn.textContent = isEn ? "العربية" : "English";
                 }
 
                 localStorage.setItem("awarePrivacyLang", isEn ? "en" : "ar");
@@ -461,9 +460,13 @@
 
             const savedLang = localStorage.getItem("awarePrivacyLang");
 
+            const lang = (navigator.language || "").toLowerCase();
+
             if (savedLang) {
                 applyLanguage(savedLang);
-            } else if (userLang && userLang.startsWith("en")) {
+            } else if (lang.startsWith("ar")) {
+                applyLanguage("ar");
+            } else if (lang.startsWith("en")) {
                 applyLanguage("en");
             } else {
                 applyLanguage("ar");
