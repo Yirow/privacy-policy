@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>سياسة الخصوصية | واعي</title>
-    <meta name="description" content="سياسة الخصوصية لتطبيق واعي: تطبيق يساعدك على فهم استخدامك للهاتف، وضع حدود، حجب التطبيقات المشتتة، وجلسات التركيز. البيانات محفوظة محلياً على جهازك." />
+    <meta name="description"
+        content="سياسة الخصوصية لتطبيق واعي: تطبيق يساعدك على فهم استخدامك للهاتف، وضع حدود، حجب التطبيقات المشتتة، وجلسات التركيز. البيانات محفوظة محلياً على جهازك." />
     <style>
         :root {
             --bg: #f7f3ec;
@@ -133,18 +134,26 @@
         }
 
         button {
-            border: 1px solid var(--accent);
-            background: var(--accent);
-            color: #fff;
-            padding: 10px 14px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            padding: 6px 14px;
             border-radius: 999px;
             cursor: pointer;
-            font-weight: 700;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s;
         }
 
-        button.secondary {
-            background: transparent;
-            color: var(--accent-dark);
+        button:hover {
+            border-color: var(--accent);
+        }
+
+        button.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            font-weight: 700;
         }
 
         .meta {
@@ -152,23 +161,33 @@
             font-size: 0.95rem;
         }
 
-        body [data-en] {
+        [data-ar],
+        [data-en],
+        [data-zh] {
             display: none;
         }
 
-        body.en-active [data-ar] {
-            display: none;
+        body.ar-active [data-ar] {
+            display: block;
         }
 
         body.en-active [data-en] {
             display: block;
         }
 
-        body.en-active table[data-en] {
+        body.zh-active [data-zh] {
+            display: block;
+        }
+
+        body.ar-active table[data-ar],
+        body.en-active table[data-en],
+        body.zh-active table[data-zh] {
             display: table;
         }
 
-        body.en-active tr[data-en] {
+        body.ar-active tr[data-ar],
+        body.en-active tr[data-en],
+        body.zh-active tr[data-zh] {
             display: table-row;
         }
 
@@ -198,24 +217,31 @@
     </style>
 </head>
 
-<body>
+<body class="ar-active">
     <main class="container">
         <header>
             <div class="brand" id="appName">واعي</div>
             <h1 data-ar>سياسة الخصوصية</h1>
             <h1 data-en dir="ltr">Privacy Policy</h1>
-            <p class="meta" data-ar>تاريخ آخر تحديث: 5 مايو 2026</p>
-            <p class="meta" data-en dir="ltr">Last updated: May 5, 2026</p>
+            <h1 data-zh dir="ltr">隐私政策</h1>
+
+            <p class="meta" data-ar>تاريخ آخر تحديث: 11 مايو 2026</p>
+            <p class="meta" data-en dir="ltr">Last updated: May 11, 2026</p>
+            <p class="meta" data-zh dir="ltr">最后更新日期：2026年5月11日</p>
+
             <div class="lang-switch">
-                <button type="button" id="langBtn" aria-label="تبديل اللغة">
-                    English
-                </button>
+                <button type="button" data-lang="ar" class="active">العربية</button>
+                <button type="button" data-lang="en">English</button>
+                <button type="button" data-lang="zh">中文</button>
             </div>
         </header>
 
+
+        <!-- النسخة العربية -->
         <section data-ar>
             <div class="card positive">
                 <p><strong>ملخص مبسط</strong></p>
+                <p>اسم التطبيق: واعي<br>اسم المطوّر: يِرُر</p>
                 <p>تطبيق واعي مصمم وفق مبدأ "الخصوصية أولاً".</p>
                 <p>جميع بيانات استخدام التطبيقات، والحدود، وجلسات التركيز، وإعدادات الاستخدام يتم معالجتها وتخزينها
                     محلياً على جهازك، ولا يتم إرسالها إلى خوادم خارجية في النسخة الحالية من التطبيق.</p>
@@ -265,7 +291,8 @@
                     <tr>
                         <td>الإشعارات</td>
                         <td>
-                            إرسال تنبيهات محلية للحدود وجلسات التركيز، مثل التنبيه عند الاقتراب من الحد، تجاوزه، انتهاء الجلسة، أو توقف الحجب.<br>قد تُستخدم آليات النظام لضمان وصول التنبيهات في وقتها.
+                            إرسال تنبيهات محلية للحدود وجلسات التركيز، مثل التنبيه عند الاقتراب من الحد، تجاوزه، انتهاء
+                            الجلسة، أو توقف الحجب.<br>قد تُستخدم آليات النظام لضمان وصول التنبيهات في وقتها.
                         </td>
                         <td>لا نرسل إعلانات أو رسائل تسويقية.</td>
                     </tr>
@@ -332,21 +359,36 @@
             <p>لا يستخدم التطبيق أي أدوات تحليل أو مكتبات إعلانية أو خدمات تتبع خارجية.</p>
             <p>إذا تمت إضافة خدمات طرف ثالث مستقبلاً (مثل التحليلات أو تسجيل الدخول أو النسخ الاحتياطي السحابي)، سيتم
                 تحديث هذه السياسة بوضوح قبل أو عند إطلاق تلك الميزة.</p>
-            <h2>11. تغييرات هذه السياسة</h2>
+
+            <h2>11. إرسال الملاحظات</h2>
+            <p>يوفر تطبيق واعي خيار "إرسال ملاحظة" داخل شاشة "حول التطبيق" لمساعدتك على إرسال اقتراح أو الإبلاغ عن
+                مشكلة.</p>
+            <p>عند استخدام هذا الخيار، يتم فتح تطبيق البريد الإلكتروني المثبت على جهازك مع قالب رسالة جاهز. لا يرسل واعي
+                الملاحظة تلقائياً، ولا يتم إرسال أي شيء إلا إذا اخترت أنت إرسال البريد من تطبيق البريد.</p>
+            <p>قد يتضمن قالب الرسالة معلومات غير حساسة مثل اسم التطبيق، رقم الإصدار، لغة الواجهة، نوع الملاحظة، ونص
+                الملاحظة الذي تكتبه بنفسك.</p>
+            <p>لا يتم تضمين بيانات استخدامك، أو أسماء التطبيقات، أو معرف الجهاز، أو موقعك، أو أي بيانات شخصية حساسة
+                تلقائياً في رسالة الملاحظة.</p>
+            <p>عند إرسال البريد، ستتم معالجة الرسالة بواسطة تطبيق وخدمة البريد الإلكتروني التي تستخدمها، وقد تخضع
+                لسياسات الخصوصية الخاصة بها.</p>
+
+            <h2>12. تغييرات هذه السياسة</h2>
             <p>قد نقوم بتحديث سياسة الخصوصية من وقت لآخر عند إضافة ميزات جديدة أو تغيير طريقة معالجة البيانات.</p>
             <p>سيتم تحديث تاريخ "آخر تحديث" في أعلى هذه الصفحة عند إجراء أي تعديل.</p>
             <p>في حال وجود تغييرات جوهرية تؤثر على طريقة استخدام البيانات، سيتم توضيح ذلك داخل التطبيق أو عند فتح صفحة
                 سياسة الخصوصية.</p>
 
-            <h2>12. التواصل</h2>
+            <h2>13. التواصل</h2>
             <p>إذا كان لديك أي استفسار حول الخصوصية أو طريقة استخدام البيانات في تطبيق واعي، يمكنك التواصل معنا عبر
                 البريد الإلكتروني: <a href="mailto:Yirow.dev@gmail.com">Yirow.dev@gmail.com</a></p>
             <p>سنحاول الرد على استفساراتك في أقرب وقت ممكن.</p>
         </section>
 
+        <!-- النسخة الإنجليزية -->
         <section data-en dir="ltr">
             <div class="card positive">
                 <p><strong>Plain-language summary</strong></p>
+                <p>App name: Aware<br>Developer name: Yirow</p>
                 <p>Aware is designed with a "privacy-first" approach.</p>
                 <p>All app usage data, limits, focus sessions, and app settings and usage preferences are processed and
                     stored locally on your device, and are not sent to external servers in the current version of the
@@ -399,7 +441,9 @@
                     <tr>
                         <td>Notifications</td>
                         <td>
-                            To send local notifications for limits and focus sessions, such as limit warnings, limit reached alerts, session completion, or blocking becoming inactive.<br>System mechanisms may be used to deliver notifications on time.
+                            To send local notifications for limits and focus sessions, such as limit warnings, limit
+                            reached alerts, session completion, or blocking becoming inactive.<br>System mechanisms may
+                            be used to deliver notifications on time.
                         </td>
                         <td>We do not send ads or marketing notifications.</td>
                     </tr>
@@ -467,78 +511,230 @@
             <p>The app does not use analytics tools, advertising SDKs, or external tracking services.</p>
             <p>If third-party services (such as analytics, sign-in, or cloud backup) are added in the future, this
                 policy will be updated clearly before or when those features are released.</p>
-            <h2>11. Changes to this policy</h2>
+
+            <h2>11. Feedback</h2>
+            <p>Aware provides a "Send Feedback" option inside the "About App" screen to help you send a suggestion or
+                report an issue.</p>
+            <p>When you use this option, your email app opens with a prepared message template. Aware does not send the
+                feedback automatically, and nothing is sent unless you choose to send the email from your email app.</p>
+            <p>The email template may include non-sensitive information such as the app name, app version, interface
+                language, feedback type, and the feedback message you write yourself.</p>
+            <p>Aware does not automatically include your usage data, app list, device identifier, location, or any
+                sensitive personal information in the feedback email.</p>
+            <p>If you send the email, the message will be handled by the email app and email service you use, and may be
+                subject to their own privacy policies.</p>
+
+            <h2>12. Changes to this policy</h2>
             <p>We may update this Privacy Policy from time to time when new features are added or when data handling
                 changes.</p>
             <p>The "Last updated" date at the top of this page will be revised accordingly.</p>
             <p>If there are material changes affecting how data is used, they will be communicated within the app or
                 when you view this policy.</p>
 
-            <h2>12. Contact</h2>
+            <h2>13. Contact</h2>
             <p>If you have any questions about privacy or how your data is used in Aware, you can contact us via email:
                 <a href="mailto:Yirow.dev@gmail.com">Yirow.dev@gmail.com</a>
             </p>
             <p>We will do our best to respond as soon as possible.</p>
         </section>
 
+        <!-- النسخة الصينية -->
+        <section data-zh dir="ltr">
+            <div class="card positive">
+                <p><strong>简明摘要</strong></p>
+                <p>应用名称：Aware<br>开发者名称：Yirow</p>
+                <p>Aware 秉承“隐私至上”的设计理念。</p>
+                <p>所有应用使用数据、限制、专注模式时长以及应用设置和使用偏好均在您的设备本地处理并存储，在当前版本的应用中不会发送到外部服务器。</p>
+                <p>我们不会出售您的数据，不会将其与第三方共享，也不会将其用于广告或营销跟踪。</p>
+            </div>
+
+            <h2>1. 我们是谁</h2>
+            <p>Aware 是一款管理手机使用的移动应用程序。它帮助用户跟踪使用时长、设置应用限制并运行专注模式以减少干扰。该应用在用户设备上本地运行，并依靠使用数据来提供这些功能。</p>
+
+            <h2>2. 应用使用哪些数据</h2>
+            <p>Aware 使用本地设备数据来提供其核心功能。这包括：</p>
+            <ul>
+                <li>已安装或使用的应用名称及应用打开次数。</li>
+                <li>应用使用时长（屏幕时间）。</li>
+                <li>您为单个应用设置的限制或您的每日全局限制。</li>
+                <li>专注模式数据，如会话时长和允许的应用。</li>
+                <li>应用设置和屏蔽偏好（灵活屏蔽或严格屏蔽）。</li>
+            </ul>
+            <p><strong>这些数据仅在您的设备上本地处理，以运行应用的功能，在当前版本的应用中不会发送或上传到任何外部服务器。</strong></p>
+
+            <h2>3. 权限及其必要性</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>权限</th>
+                        <th>使用原因</th>
+                        <th>我们不做的操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>使用情况访问 (Usage Access)</td>
+                        <td>读取应用使用时间，以便 Aware 显示统计数据、应用限制并在您接近限制时发送通知。</td>
+                        <td>我们不会在披露的应用功能之外监视您，也不会将您的使用历史记录上传到服务器。</td>
+                    </tr>
+                    <tr>
+                        <td>无障碍服务 (Accessibility Service)</td>
+                        <td>检测当前打开的应用，并在超出限制或专注模式期间显示屏蔽屏幕或警告。</td>
+                        <td>我们不会读取消息、密码、击键，也不会在披露的屏蔽功能之外控制您的设备。</td>
+                    </tr>
+                    <tr>
+                        <td>通知 (Notifications)</td>
+                        <td>发送限制和专注模式的本地通知，例如限制警告、达到限制提醒、会话完成或屏蔽失效。系统机制可能用于确保及时送达通知。</td>
+                        <td>我们不发送广告或营销通知。</td>
+                    </tr>
+                    <tr>
+                        <td>启动完成 (Boot Completed)</td>
+                        <td>在设备重启后重新安排本地提醒和任务。</td>
+                        <td>设备启动时不会发送任何数据。</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>4. 重要的无障碍服务披露</h2>
+            <div class="card notice">
+                <p><strong>Aware 仅使用无障碍服务来激活应用屏蔽功能。</strong></p>
+                <p>当您打开分散注意力的应用或超出限制的应用时，Aware 可能会使用此服务来识别打开的应用并显示屏蔽屏幕或警告。</p>
+                <p>此服务是应用屏蔽、专注模式和使用控制功能所必需的。</p>
+                <p>Aware 不会使用无障碍服务来读取私人屏幕内容、读取消息、收集密码、记录击键或执行与应用披露功能无关的操作。</p>
+            </div>
+
+            <h2>5. 如何使用数据</h2>
+            <ul>
+                <li>根据使用数据展示显示屏幕时间及每日状态的仪表盘。</li>
+                <li>根据您的设置应用全局及单个应用的使用限制。</li>
+                <li>检测何时超出限制，并在需要时显示警告或屏蔽应用。</li>
+                <li>运行专注模式并在期间屏蔽分散注意力的应用。</li>
+                <li>发送帮助您管理使用的本地通知。</li>
+            </ul>
+
+            <h2>6. 数据共享与出售</h2>
+            <p>我们不会出售您的数据。</p>
+            <p>我们不会与任何第三方共享您的应用使用数据。</p>
+            <p>我们不会将您的数据用于广告、重定向或营销跟踪。</p>
+            <p>在当前版本的应用中，不会向外部服务器发送任何数据。</p>
+
+            <h2>7. 存储与安全</h2>
+            <p>所有应用数据仅在您的设备本地存储，在当前版本的应用中不会发送到任何外部服务器。</p>
+            <p>此类数据的安全性取决于您的设备及 Android 系统的安全性。我们无法访问这些数据，也不会在您的设备之外存储或备份。</p>
+            <p>建议使用安全的屏幕锁定并保持操作系统处于最新状态。</p>
+
+            <h2>8. 删除您的数据</h2>
+            <p>您可以随时通过以下方法之一删除您的 Aware 数据：</p>
+            <ul>
+                <li>在应用内：设置 > 隐私与数据 > 重置数据。</li>
+                <li>通过 Android 设置：应用 > Aware > 存储 > 清除数据。</li>
+                <li>从您的设备卸载应用。</li>
+            </ul>
+            <p><strong>当您删除数据或卸载应用时，本地存储的应用数据将从您的设备中移除，且不会在设备之外保留任何副本。</strong></p>
+
+            <h2>9. 儿童</h2>
+            <p>Aware 不面向儿童，也不会故意收集儿童的数据。</p>
+            <p>如果儿童使用该应用，应在家长或法定监护人的监督下进行，特别是在使用屏蔽或限制功能时。</p>
+            <p>由于应用不收集个人数据，也不向外部服务器发送数据，因此不会在设备之外存储或共享儿童的数据。</p>
+
+            <h2>10. 第三方服务</h2>
+            <p>在当前版本的应用中，Aware 不依赖任何第三方服务来处理或存储使用数据。</p>
+            <p>所有数据均在您的设备上本地处理，不会发送到任何外部服务器。</p>
+            <p>该应用不使用分析工具、广告 SDK 或外部跟踪服务。</p>
+            <p>如果将来添加了第三方服务（如分析、登录或云备份），我们将在发布这些功能之前或发布时明确更新本政策。</p>
+
+            <h2>11. 发送反馈</h2>
+            <p>Aware 在“关于应用”界面内提供“发送反馈”选项，帮助您发送建议或报告问题。</p>
+            <p>当您使用此选项时，您的电子邮件应用将打开并包含准备好的邮件模板。Aware 不会自动发送反馈，除非您选择从电子邮件应用发送邮件，否则不会发送任何内容。</p>
+            <p>电子邮件模板可能包含非敏感信息，如应用名称、应用版本、界面语言、反馈类型以及您自己编写的反馈消息。</p>
+            <p>Aware 不会在反馈邮件中自动包含您的使用数据、应用列表、设备标识符、位置或任何敏感个人信息。</p>
+            <p>如果您发送电子邮件，该邮件将由您使用的电子邮件应用和电子邮件服务处理，并可能受其自身隐私政策的约束。</p>
+
+            <h2>12. 本政策的变更</h2>
+            <p>当添加新功能或数据处理发生变化时，我们可能会不时更新本隐私政策。</p>
+            <p>本页面顶部的“最后更新日期”将相应修订。</p>
+            <p>如果存在影响数据使用方式的重大变更，我们将在应用内或您查看本政策时予以传达。</p>
+
+            <h2>13. 联系方式</h2>
+            <p>如果您对 Aware 的隐私或数据使用方式有任何疑问，可以通过电子邮件联系我们：<a href="mailto:Yirow.dev@gmail.com">Yirow.dev@gmail.com</a></p>
+            <p>我们将尽力尽快回复。</p>
+        </section>
+
         <footer>
             <div data-ar>
-                <p>© 2026 جميع الحقوق محفوظة – تم تطوير تطبيق واعي بواسطة <strong>يِرُو</strong></p>
+                <p>© 2026 جميع الحقوق محفوظة – تم تطوير تطبيق واعي بواسطة <strong>Yirow</strong></p>
                 <p>تم تصميم هذا التطبيق وفق مبدأ "الخصوصية أولاً".</p>
             </div>
             <div data-en dir="ltr">
                 <p>© 2026 All rights reserved – Aware app developed by <strong>Yirow</strong></p>
                 <p>Designed with a privacy-first approach.</p>
             </div>
+            <div data-zh dir="ltr">
+                <p>© 2026 保留所有权利 – Aware 应用由 <strong>Yirow</strong> 开发</p>
+                <p>秉承隐私至上的原则设计。</p>
+            </div>
         </footer>
 
     </main>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const btn = document.getElementById("langBtn");
+        document.addEventListener("DOMContentLoaded", function () {
             const appName = document.getElementById("appName");
+            const langButtons = document.querySelectorAll(".lang-switch button");
 
             function applyLanguage(lang) {
-                const isEn = lang.startsWith("en");
+                const isAr = lang === "ar";
+                const isEn = lang === "en";
+                const isZh = lang === "zh";
 
-                document.body.classList.toggle("en-active", isEn);
-                document.documentElement.dir = isEn ? "ltr" : "rtl";
-                document.documentElement.lang = isEn ? "en" : "ar";
-                document.title = isEn ? "Privacy Policy | Aware" : "سياسة الخصوصية | واعي";
+                // Update Body Class
+                document.body.className = `${lang}-active`;
 
+                // Update HTML Attributes
+                document.documentElement.dir = isAr ? "rtl" : "ltr";
+                document.documentElement.lang = lang;
+
+                // Update Title
+                if (isAr) document.title = "سياسة الخصوصية | واعي";
+                else if (isZh) document.title = "隐私政策 | Aware";
+                else document.title = "Privacy Policy | Aware";
+
+                // Update App Name Header
                 if (appName) {
-                    appName.textContent = isEn ? "Aware" : "واعي";
+                    appName.textContent = isAr ? "واعي" : "Aware";
                 }
 
-                if (btn) {
-                    btn.textContent = isEn ? "العربية" : "English";
-                }
+                // Update Button States
+                langButtons.forEach(btn => {
+                    if (btn.getAttribute("data-lang") === lang) {
+                        btn.classList.add("active");
+                    } else {
+                        btn.classList.remove("active");
+                    }
+                });
 
-                localStorage.setItem("awarePrivacyLang", isEn ? "en" : "ar");
+                localStorage.setItem("awarePrivacyLang", lang);
             }
 
+            // Button Click Handlers
+            langButtons.forEach(btn => {
+                btn.addEventListener("click", function () {
+                    applyLanguage(this.getAttribute("data-lang"));
+                });
+            });
+
+            // Initial Load Logic
             const savedLang = localStorage.getItem("awarePrivacyLang");
+            const browserLang = (navigator.language || "").toLowerCase();
 
-            const lang = (navigator.language || "").toLowerCase();
-
-            if (savedLang) {
+            if (savedLang && ["ar", "en", "zh"].includes(savedLang)) {
                 applyLanguage(savedLang);
-            } else if (lang.startsWith("ar")) {
+            } else if (browserLang.startsWith("ar")) {
                 applyLanguage("ar");
-            } else if (lang.startsWith("en")) {
-                applyLanguage("en");
+            } else if (browserLang.startsWith("zh")) {
+                applyLanguage("zh");
             } else {
                 applyLanguage("ar");
-            }
-
-            if (btn) {
-                btn.addEventListener("click", function(e) {
-                    e.preventDefault();
-
-                    const isCurrentlyEn = document.body.classList.contains("en-active");
-                    applyLanguage(isCurrentlyEn ? "ar" : "en");
-                });
             }
         });
     </script>
