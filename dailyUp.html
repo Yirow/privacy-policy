@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="ar-active">
 
 <head>
     <meta charset="utf-8" />
@@ -7,6 +7,46 @@
     <title>سياسة الخصوصية — خطوة</title>
     <meta name="description"
         content="سياسة الخصوصية لتطبيق خطوة — DailyUp. تطبيق تحدي يومي يعمل محلياً دون حساب أو إنترنت." />
+    <link rel="icon" type="image/png" href="dailyup-icon.png" />
+    <link rel="apple-touch-icon" href="dailyup-icon.png" />
+    <script>
+        (function () {
+            var titles = {
+                ar: "سياسة الخصوصية — خطوة",
+                en: "Privacy Policy — DailyUp",
+                zh: "隐私政策 — DailyUp"
+            };
+
+            var savedLang = null;
+
+            try {
+                savedLang = localStorage.getItem("khotwa_privacy_lang");
+            } catch (_) {}
+
+            var browserLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+            var lang = savedLang || "ar";
+
+            if (!savedLang) {
+                if (browserLang.startsWith("zh")) {
+                    lang = "zh";
+                } else if (browserLang.startsWith("en")) {
+                    lang = "en";
+                }
+            }
+
+            if (!["ar", "en", "zh"].includes(lang)) {
+                lang = "ar";
+            }
+
+            document.documentElement.classList.remove("ar-active", "en-active", "zh-active");
+            document.documentElement.classList.add(lang + "-active");
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+            document.title = titles[lang] || titles.ar;
+
+            window.__privacyLang = lang;
+        })();
+    </script>
     <style>
         :root {
             --bg: #f7f7f8;
@@ -34,8 +74,8 @@
             line-height: 1.9;
         }
 
-        body.en-active,
-        body.zh-active {
+        html.en-active body,
+        html.zh-active body {
             font-family: "Inter", "Roboto", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
 
@@ -95,15 +135,22 @@
         }
 
         .logo {
-            width: 84px;
-            height: 84px;
+            width: 96px;
+            height: 96px;
             margin: 0 auto 14px;
             display: grid;
             place-items: center;
             border-radius: 50%;
             background: var(--gold-soft);
             border: 1px solid rgba(212, 175, 55, 0.28);
-            font-size: 42px;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 82px;
+            height: 82px;
+            object-fit: contain;
+            display: block;
         }
 
         h1 {
@@ -131,6 +178,21 @@
             border: 1px solid rgba(212, 175, 55, 0.28);
             border-radius: 999px;
             font-size: 0.94rem;
+        }
+
+        .updated,
+        footer span {
+            unicode-bidi: isolate;
+        }
+
+        .updated[dir="rtl"],
+        footer span[dir="rtl"] {
+            direction: rtl;
+        }
+
+        .updated[dir="ltr"],
+        footer span[dir="ltr"] {
+            direction: ltr;
         }
 
         .summary {
@@ -252,38 +314,27 @@
             color: #9a7a13;
         }
 
-        .content [lang="en"],
-        .content [lang="zh"] {
-            display: none;
+        html.ar-active .content [lang="en"],
+        html.ar-active .content [lang="zh"] {
+            display: none !important;
         }
 
-        body.ar-active .content [lang="ar"] {
-            display: block;
+        html.en-active .content [lang="ar"],
+        html.en-active .content [lang="zh"] {
+            display: none !important;
         }
 
-        body.en-active .content [lang="en"] {
-            display: block;
+        html.zh-active .content [lang="ar"],
+        html.zh-active .content [lang="en"] {
+            display: none !important;
         }
 
-        body.zh-active .content [lang="zh"] {
-            display: block;
-        }
-
-        body.ar-active .content [lang="en"],
-        body.ar-active .content [lang="zh"],
-        body.en-active .content [lang="ar"],
-        body.en-active .content [lang="zh"],
-        body.zh-active .content [lang="ar"],
-        body.zh-active .content [lang="en"] {
-            display: none;
-        }
-
-        body.ar-active .page {
+        html.ar-active .page {
             direction: rtl;
         }
 
-        body.en-active .page,
-        body.zh-active .page {
+        html.en-active .page,
+        html.zh-active .page {
             direction: ltr;
         }
 
@@ -360,16 +411,18 @@
     </style>
 </head>
 
-<body class="ar-active">
+<body>
     <main class="page content">
         <header>
             <div class="lang-switch" aria-label="Language switcher">
-                <button class="lang-btn active" type="button" data-lang="ar">العربية</button>
+                <button class="lang-btn" type="button" data-lang="ar">العربية</button>
                 <button class="lang-btn" type="button" data-lang="en">English</button>
                 <button class="lang-btn" type="button" data-lang="zh">中文</button>
             </div>
 
-            <div class="logo" aria-hidden="true">🔥</div>
+            <div class="logo">
+                <img src="dailyup-icon.png" alt="شعار تطبيق خطوة" />
+            </div>
 
             <h1 lang="ar">سياسة الخصوصية</h1>
             <h1 lang="en">Privacy Policy</h1>
@@ -388,9 +441,9 @@
                 本政策说明 <strong>Khotwa</strong> 应用如何处理您的数据。本应用以简洁和隐私为核心，提供本地化体验，不需要账户，也不需要持续联网。
             </p>
 
-            <div class="updated" lang="ar">آخر تحديث: 19 مايو 2026</div>
-            <div class="updated" lang="en">Last updated: May 19, 2026</div>
-            <div class="updated" lang="zh">最后更新：2026年5月19日</div>
+            <div class="updated" lang="ar" dir="rtl">آخر تحديث: <bdi>19 مايو 2026</bdi></div>
+            <div class="updated" lang="en" dir="ltr">Last updated: <bdi>May 19, 2026</bdi></div>
+            <div class="updated" lang="zh" dir="ltr">最后更新：<bdi>2026年5月19日</bdi></div>
         </header>
 
         <div class="summary" aria-label="Privacy summary">
@@ -721,20 +774,28 @@
         </section>
 
         <footer>
-            <span lang="ar">© 2026 خطوة — جميع الحقوق محفوظة.</span>
-            <span lang="en">© 2026 Khotwa — All rights reserved.</span>
-            <span lang="zh">© 2026 Khotwa — 保留所有权利。</span>
+            <span lang="ar" dir="rtl">جميع الحقوق محفوظة © <bdi>2026</bdi> خطوة.</span>
+            <span lang="en" dir="ltr">© <bdi>2026</bdi> Khotwa — All rights reserved.</span>
+            <span lang="zh" dir="ltr">© <bdi>2026</bdi> Khotwa — 保留所有权利。</span>
         </footer>
     </main>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             function setLanguage(lang) {
-                document.body.classList.remove("ar-active", "en-active", "zh-active");
-                document.body.classList.add(lang + "-active");
+                document.documentElement.classList.remove("ar-active", "en-active", "zh-active");
+                document.documentElement.classList.add(lang + "-active");
 
                 document.documentElement.lang = lang;
                 document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+                const titles = {
+                    ar: "سياسة الخصوصية — خطوة",
+                    en: "Privacy Policy — DailyUp",
+                    zh: "隐私政策 — DailyUp"
+                };
+
+                document.title = titles[lang] || titles.ar;
 
                 document.querySelectorAll(".lang-btn").forEach(function (button) {
                     button.classList.toggle("active", button.getAttribute("data-lang") === lang);
@@ -751,7 +812,7 @@
             } catch (_) { }
 
             var browserLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
-            var initialLang = savedLang || "ar";
+            var initialLang = window.__privacyLang || savedLang || "ar";
 
             if (!savedLang) {
                 if (browserLang.startsWith("zh")) {
