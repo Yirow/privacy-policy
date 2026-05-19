@@ -162,8 +162,7 @@
         }
 
         [data-ar],
-        [data-en],
-        [data-zh] {
+        [data-en] {
             display: none;
         }
 
@@ -175,19 +174,13 @@
             display: block;
         }
 
-        body.zh-active [data-zh] {
-            display: block;
-        }
-
         body.ar-active table[data-ar],
-        body.en-active table[data-en],
-        body.zh-active table[data-zh] {
+        body.en-active table[data-en] {
             display: table;
         }
 
         body.ar-active tr[data-ar],
-        body.en-active tr[data-en],
-        body.zh-active tr[data-zh] {
+        body.en-active tr[data-en] {
             display: table-row;
         }
 
@@ -224,16 +217,12 @@
             <div class="brand" id="appName">واعي</div>
             <h1 data-ar>سياسة الخصوصية</h1>
             <h1 data-en dir="ltr">Privacy Policy</h1>
-            <h1 data-zh dir="ltr">隐私政策</h1>
 
             <p class="meta" data-ar>تاريخ آخر تحديث: <bdi>16 مايو 2026</bdi></p>
             <p class="meta" data-en dir="ltr">Last updated: May 16, 2026</p>
-            <p class="meta" data-zh dir="ltr">最后更新日期：2026年5月16日</p>
 
-            <div class="lang-switch">
-                <button type="button" data-lang="ar" class="active">العربية</button>
-                <button type="button" data-lang="en">English</button>
-                <button type="button" data-lang="zh">中文</button>
+            <div class="lang-switch" aria-label="Language selector">
+                <button type="button" id="languageToggle" data-target-lang="en">English</button>
             </div>
         </header>
 
@@ -278,7 +267,8 @@
                 <tbody>
                     <tr>
                         <td>الوصول إلى بيانات الاستخدام</td>
-                        <td>قراءة وقت استخدام التطبيقات حتى يتم عرض الإحصائيات، تطبيق الحدود العامة وحدود التطبيقات، وإرسال تنبيهات محلية عند الاقتراب من الحد اليومي العام.</td>
+                        <td>قراءة وقت استخدام التطبيقات حتى يتم عرض الإحصائيات، تطبيق الحدود العامة وحدود التطبيقات،
+                            وإرسال تنبيهات محلية عند الاقتراب من الحد اليومي العام.</td>
                         <td>لا نستخدمها للتجسس، ولا نرفع سجل استخدامك إلى خادم.</td>
                     </tr>
                     <tr>
@@ -291,7 +281,8 @@
                     <tr>
                         <td>الإشعارات</td>
                         <td>
-                            إرسال تنبيهات محلية للحد اليومي العام وجلسات التركيز، مثل التنبيه عند الاقتراب من الحد العام، بلوغه أو تجاوزه، انتهاء جلسة التركيز، أو توقف الحجب.
+                            إرسال تنبيهات محلية للحد اليومي العام وجلسات التركيز، مثل التنبيه عند الاقتراب من الحد
+                            العام، بلوغه أو تجاوزه، انتهاء جلسة التركيز، أو توقف الحجب.
                         </td>
                         <td>لا نرسل إعلانات أو رسائل تسويقية.</td>
                     </tr>
@@ -310,7 +301,8 @@
                 <p>عند فتح تطبيق مشتت أو تطبيق تجاوز الحد، قد يستخدم واعي هذه الخدمة لمعرفة اسم التطبيق المفتوح وعرض
                     شاشة حجب أو تحذير.</p>
                 <p>هذه الخدمة ضرورية لميزات حجب التطبيقات، وضع التركيز، والتحكم في الاستخدام.</p>
-                <p>قد يعيد واعي فحص التطبيق النشط دورياً أثناء تفعيل ميزات الحجب للتحقق من تجاوز الحدود، وذلك باستخدام اسم الحزمة فقط دون قراءة محتوى الشاشة.</p>
+                <p>قد يعيد واعي فحص التطبيق النشط دورياً أثناء تفعيل ميزات الحجب للتحقق من تجاوز الحدود، وذلك باستخدام
+                    اسم الحزمة فقط دون قراءة محتوى الشاشة.</p>
                 <p>لا يستخدم واعي خدمة إمكانية الوصول لقراءة محتوى الشاشة الخاص، أو قراءة الرسائل، أو جمع كلمات المرور،
                     أو تسجيل ضغطات المستخدم، أو تنفيذ إجراءات غير مرتبطة بوظائف التطبيق المعلنة.</p>
             </div>
@@ -321,7 +313,8 @@
                 <li>تطبيق حدود الاستخدام العامة أو الخاصة بكل تطبيق حسب الإعدادات التي تضبطها.</li>
                 <li>اكتشاف تجاوز الحدود وإظهار تحذير أو حجب التطبيق عند الحاجة.</li>
                 <li>تشغيل جلسات التركيز وحجب التطبيقات المشتتة خلالها.</li>
-                <li>إرسال تنبيهات محلية مرتبطة بالحد اليومي العام وجلسات التركيز. أما حدود التطبيقات الفردية فتستخدم الحجب المباشر عند تجاوز الحد ولا ترسل إشعارات استباقية منفصلة.</li>
+                <li>إرسال تنبيهات محلية مرتبطة بالحد اليومي العام وجلسات التركيز. أما حدود التطبيقات الفردية فتستخدم
+                    الحجب المباشر عند تجاوز الحد ولا ترسل إشعارات استباقية منفصلة.</li>
             </ul>
 
             <h2>6. مشاركة البيانات وبيعها</h2>
@@ -343,9 +336,12 @@
                 <li>من إعدادات أندرويد: التطبيقات &gt; واعي &gt; التخزين &gt; مسح البيانات.</li>
                 <li>بإلغاء تثبيت التطبيق من جهازك.</li>
             </ul>
-            <p>عند استخدام خيار إعادة الضبط داخل التطبيق، يتم حذف بيانات الاستخدام، الحدود، جلسات التركيز، التنبيهات، الكاشات، والإعدادات التشغيلية، ثم يعود التطبيق إلى شاشة الترحيب لإعداده من جديد.</p>
-            <p>قد يحتفظ التطبيق محلياً بمعلومة غير حساسة واحدة: هل شاهدت نافذة "ما الجديد؟" لهذا الإصدار أم لا، وذلك فقط حتى لا تظهر لك شارة "جديد" مرة أخرى لنفس الإصدار.</p>
-            <p>أما مسح البيانات من إعدادات أندرويد أو إلغاء تثبيت التطبيق، فيحذف جميع بيانات التطبيق المحلية بالكامل.</p>
+            <p>عند استخدام خيار إعادة الضبط داخل التطبيق، يتم حذف بيانات الاستخدام، الحدود، جلسات التركيز، التنبيهات،
+                الكاشات، والإعدادات التشغيلية، ثم يعود التطبيق إلى شاشة الترحيب لإعداده من جديد.</p>
+            <p>قد يحتفظ التطبيق محلياً بمعلومة غير حساسة واحدة: هل شاهدت نافذة "ما الجديد؟" لهذا الإصدار أم لا، وذلك فقط
+                حتى لا تظهر لك شارة "جديد" مرة أخرى لنفس الإصدار.</p>
+            <p>أما مسح البيانات من إعدادات أندرويد أو إلغاء تثبيت التطبيق، فيحذف جميع بيانات التطبيق المحلية بالكامل.
+            </p>
             <p><strong>لا يتم الاحتفاظ بأي نسخة من بيانات استخدامك خارج جهازك.</strong></p>
 
             <h2>9. الأطفال</h2>
@@ -428,7 +424,8 @@
                 <tbody>
                     <tr>
                         <td>Usage Access</td>
-                        <td>To read app usage time so Aware can show statistics, apply global and per-app limits, and send local notifications when you approach your global daily limit.</td>
+                        <td>To read app usage time so Aware can show statistics, apply global and per-app limits, and
+                            send local notifications when you approach your global daily limit.</td>
                         <td>We do not use it to monitor you beyond the disclosed app features, and we do not upload your
                             usage history to a server.</td>
                     </tr>
@@ -442,7 +439,9 @@
                     <tr>
                         <td>Notifications</td>
                         <td>
-                            To send local notifications for the global daily limit and focus sessions, such as approaching the global limit, reaching or exceeding it, session completion, or blocking becoming inactive.
+                            To send local notifications for the global daily limit and focus sessions, such as
+                            approaching the global limit, reaching or exceeding it, session completion, or blocking
+                            becoming inactive.
                         </td>
                         <td>We do not send ads or marketing notifications.</td>
                     </tr>
@@ -461,7 +460,9 @@
                 <p>When you open a distracting app or an app that has exceeded its limit, Aware may use this service to
                     identify the opened app and display a block screen or warning.</p>
                 <p>This service is required for app blocking, focus mode, and usage control features.</p>
-                <p>Aware may periodically re-check the active app while blocking features are enabled to determine whether limits have been exceeded, using the app package name only and without reading screen content.</p>
+                <p>Aware may periodically re-check the active app while blocking features are enabled to determine
+                    whether limits have been exceeded, using the app package name only and without reading screen
+                    content.</p>
                 <p>Aware does not use the Accessibility Service to read private screen content, read messages, collect
                     passwords, log keystrokes, or perform actions unrelated to the app’s disclosed features.</p>
             </div>
@@ -472,7 +473,8 @@
                 <li>To apply general and per-app usage limits according to your settings.</li>
                 <li>To detect when limits are exceeded and show warnings or block apps when needed.</li>
                 <li>To run focus sessions and block distracting apps during them.</li>
-                <li>To send local notifications related to the global daily limit and focus sessions. Per-app limits use direct blocking when exceeded and do not send separate pre-alert notifications.</li>
+                <li>To send local notifications related to the global daily limit and focus sessions. Per-app limits use
+                    direct blocking when exceeded and do not send separate pre-alert notifications.</li>
             </ul>
 
             <h2>6. Data sharing and sale</h2>
@@ -494,9 +496,12 @@
                 <li>From Android settings: Apps &gt; Aware &gt; Storage &gt; Clear data.</li>
                 <li>By uninstalling the app from your device.</li>
             </ul>
-            <p>When you use the in-app reset option, Aware deletes usage data, limits, focus sessions, notifications, caches, and operational app settings, then returns the app to the start screen for setup again.</p>
-            <p>The app may keep one non-sensitive local interface state: whether you have viewed the "What's New" screen for the current version, only to avoid showing the same "New" badge again for that version.</p>
-            <p>Clearing app data from Android settings or uninstalling the app removes all local app data completely.</p>
+            <p>When you use the in-app reset option, Aware deletes usage data, limits, focus sessions, notifications,
+                caches, and operational app settings, then returns the app to the start screen for setup again.</p>
+            <p>The app may keep one non-sensitive local interface state: whether you have viewed the "What's New" screen
+                for the current version, only to avoid showing the same "New" badge again for that version.</p>
+            <p>Clearing app data from Android settings or uninstalling the app removes all local app data completely.
+            </p>
             <p><strong>No copy of your usage data is retained outside your device.</strong></p>
 
             <h2>9. Children</h2>
@@ -540,141 +545,12 @@
             <p>We will do our best to respond as soon as possible.</p>
         </section>
 
-        <!-- النسخة الصينية -->
-        <section data-zh dir="ltr">
-            <div class="card positive">
-                <p><strong>简明摘要</strong></p>
-                <p>应用名称：Aware<br>开发者名称：Yirow</p>
-                <p>Aware 秉承“隐私至上”的设计理念。</p>
-                <p>所有应用使用数据、限制、专注模式时长以及应用设置和使用偏好均在您的设备本地处理并存储，在当前版本的应用中不会发送到外部服务器。</p>
-                <p>我们不会出售您的数据，不会将其与第三方共享，也不会将其用于广告或营销跟踪。</p>
-            </div>
-
-            <h2>1. 我们是谁</h2>
-            <p>Aware 是一款管理手机使用的移动应用程序。它帮助用户跟踪使用时长、设置应用限制并运行专注模式以减少干扰。该应用在用户设备上本地运行，并依靠使用数据来提供这些功能。</p>
-
-            <h2>2. 应用使用哪些数据</h2>
-            <p>Aware 使用本地设备数据来提供其核心功能。这包括：</p>
-            <ul>
-                <li>已安装或使用的应用名称及应用打开次数。</li>
-                <li>应用使用时长（屏幕时间）。</li>
-                <li>您为单个应用设置的限制或您的每日全局限制。</li>
-                <li>专注模式数据，如会话时长和允许的应用。</li>
-                <li>应用设置和屏蔽偏好（灵活屏蔽或严格屏蔽）。</li>
-            </ul>
-            <p><strong>这些数据仅在您的设备上本地处理，以运行应用的功能，在当前版本的应用中不会发送或上传到任何外部服务器。</strong></p>
-
-            <h2>3. 权限及其必要性</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>权限</th>
-                        <th>使用原因</th>
-                        <th>我们不做的操作</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>使用情况访问 (Usage Access)</td>
-                        <td>读取应用使用时间，以便 Aware 显示统计数据、应用全局限制和单个应用限制，并在您接近每日全局限制时发送本地通知。</td>
-                        <td>我们不会在披露的应用功能之外监视您，也不会将您的使用历史记录上传到服务器。</td>
-                    </tr>
-                    <tr>
-                        <td>无障碍服务 (Accessibility Service)</td>
-                        <td>检测当前打开的应用，并在超出限制或专注模式期间显示屏蔽屏幕或警告。</td>
-                        <td>我们不会读取消息、密码、击键，也不会在披露的屏蔽功能之外控制您的设备。</td>
-                    </tr>
-                    <tr>
-                        <td>通知 (Notifications)</td>
-                        <td>发送与每日全局限制和专注模式相关的本地通知，例如接近全局限制、达到或超过限制、专注会话完成，或屏蔽功能失效。</td>
-                        <td>我们不发送广告或营销通知。</td>
-                    </tr>
-                    <tr>
-                        <td>启动完成 (Boot Completed)</td>
-                        <td>在设备重启后重新安排本地提醒和任务。</td>
-                        <td>设备启动时不会发送任何数据。</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2>4. 重要的无障碍服务披露</h2>
-            <div class="card notice">
-                <p><strong>Aware 仅使用无障碍服务来激活应用屏蔽功能。</strong></p>
-                <p>当您打开分散注意力的应用或超出限制的应用时，Aware 可能会使用此服务来识别打开的应用并显示屏蔽屏幕或警告。</p>
-                <p>此服务是应用屏蔽、专注模式和使用控制功能所必需的。</p>
-                <p>在启用屏蔽功能期间，Aware 可能会定期重新检查当前活动的应用，以判断是否已超过限制；该过程仅使用应用包名，不会读取屏幕内容。</p>
-                <p>Aware 不会使用无障碍服务来读取私人屏幕内容、读取消息、收集密码、记录击键或执行与应用披露功能无关的操作。</p>
-            </div>
-
-            <h2>5. 如何使用数据</h2>
-            <ul>
-                <li>根据使用数据展示显示屏幕时间及每日状态的仪表盘。</li>
-                <li>根据您的设置应用全局及单个应用的使用限制。</li>
-                <li>检测何时超出限制，并在需要时显示警告或屏蔽应用。</li>
-                <li>运行专注模式并在期间屏蔽分散注意力的应用。</li>
-                <li>发送与每日全局限制和专注模式相关的本地通知。单个应用限制在超过限制时使用直接屏蔽，不会发送单独的预警通知。</li>
-            </ul>
-
-            <h2>6. 数据共享与出售</h2>
-            <p>我们不会出售您的数据。</p>
-            <p>我们不会与任何第三方共享您的应用使用数据。</p>
-            <p>我们不会将您的数据用于广告、重定向或营销跟踪。</p>
-            <p>在当前版本的应用中，不会向外部服务器发送任何数据。</p>
-
-            <h2>7. 存储与安全</h2>
-            <p>所有应用数据仅在您的设备本地存储，在当前版本的应用中不会发送到任何外部服务器。</p>
-            <p>此类数据的安全性取决于您的设备及 Android 系统的安全性。我们无法访问这些数据，也不会在您的设备之外存储或备份。</p>
-            <p>建议使用安全的屏幕锁定并保持操作系统处于最新状态。</p>
-
-            <h2>8. 删除您的数据</h2>
-            <p>您可以随时通过以下方式删除 Aware 的数据：</p>
-            <ul>
-                <li>在应用内：设置 &gt; 隐私与数据 &gt; 重置数据。</li>
-                <li>通过 Android 设置：应用 &gt; Aware &gt; 存储 &gt; 清除数据。</li>
-                <li>从设备中卸载应用。</li>
-            </ul>
-            <p>使用应用内重置选项时，Aware 会删除使用数据、限制、专注模式会话、通知、缓存以及运行设置，然后返回开始界面以重新设置应用。</p>
-            <p>应用可能会在本地保留一项非敏感的界面状态：您是否已查看当前版本的“新功能”页面。这仅用于避免同一版本再次显示“新”标记。</p>
-            <p>通过 Android 设置清除应用数据或卸载应用会完全删除所有本地应用数据。</p>
-            <p><strong>您的使用数据不会在设备之外保留任何副本。</strong></p>
-
-            <h2>9. 儿童</h2>
-            <p>Aware 不面向儿童，也不会故意收集儿童的数据。</p>
-            <p>如果儿童使用该应用，应在家长或法定监护人的监督下进行，特别是在使用屏蔽或限制功能时。</p>
-            <p>由于应用不收集个人数据，也不向外部服务器发送数据，因此不会在设备之外存储或共享儿童的数据。</p>
-
-            <h2>10. 第三方服务</h2>
-            <p>在当前版本的应用中，Aware 不依赖任何第三方服务来处理或存储使用数据。</p>
-            <p>所有数据均在您的设备上本地处理，不会发送到任何外部服务器。</p>
-            <p>该应用不使用分析工具、广告 SDK 或外部跟踪服务。</p>
-            <p>如果将来添加了第三方服务（如分析、登录或云备份），我们将在发布这些功能之前或发布时明确更新本政策。</p>
-
-            <h2>11. 发送反馈</h2>
-            <p>Aware 在“关于应用”界面内提供“发送反馈”选项，帮助您发送建议或报告问题。</p>
-            <p>当您使用此选项时，您的电子邮件应用将打开并包含准备好的邮件模板。Aware 不会自动发送反馈，除非您选择从电子邮件应用发送邮件，否则不会发送任何内容。</p>
-            <p>电子邮件模板可能包含非敏感信息，如应用名称、应用版本、界面语言、反馈类型以及您自己编写的反馈消息。</p>
-            <p>Aware 不会在反馈邮件中自动包含您的使用数据、应用列表、设备标识符、位置或任何敏感个人信息。</p>
-            <p>如果您发送电子邮件，该邮件将由您使用的电子邮件应用和电子邮件服务处理，并可能受其自身隐私政策的约束。</p>
-
-            <h2>12. 本政策的变更</h2>
-            <p>当添加新功能或数据处理发生变化时，我们可能会不时更新本隐私政策。</p>
-            <p>本页面顶部的“最后更新日期”将相应修订。</p>
-            <p>如果存在影响数据使用方式的重大变更，我们将在应用内或您查看本政策时予以传达。</p>
-
-            <h2>13. 联系方式</h2>
-            <p>如果您对 Aware 的隐私或数据使用方式有任何疑问，可以通过电子邮件联系我们：<a href="mailto:Yirow.dev@gmail.com" dir="ltr">Yirow.dev@gmail.com</a></p>
-            <p>我们将尽力尽快回复。</p>
-        </section>
-
         <footer>
             <div data-ar>
                 <p dir="ltr">© 2026 <span dir="rtl">جميع الحقوق محفوظة</span></p>
             </div>
             <div data-en dir="ltr">
                 <p>© 2026 All rights reserved</p>
-            </div>
-            <div data-zh dir="ltr">
-                <p>© 2026 保留所有权利</p>
             </div>
         </footer>
 
@@ -683,61 +559,53 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const appName = document.getElementById("appName");
-            const langButtons = document.querySelectorAll(".lang-switch button");
+            const languageToggle = document.getElementById("languageToggle");
 
             function applyLanguage(lang) {
-                const isAr = lang === "ar";
-                const isEn = lang === "en";
-                const isZh = lang === "zh";
+                const normalizedLang = lang === "en" ? "en" : "ar";
+                const isAr = normalizedLang === "ar";
 
-                // Update Body Class
-                document.body.className = `${lang}-active`;
+                // Update body class
+                document.body.className = `${normalizedLang}-active`;
 
-                // Update HTML Attributes
+                // Update HTML attributes
                 document.documentElement.dir = isAr ? "rtl" : "ltr";
-                document.documentElement.lang = lang;
+                document.documentElement.lang = normalizedLang;
 
-                // Update Title
-                if (isAr) document.title = "سياسة الخصوصية | واعي";
-                else if (isZh) document.title = "隐私政策 | Aware";
-                else document.title = "Privacy Policy | Aware";
+                // Update title
+                document.title = isAr ? "سياسة الخصوصية | واعي" : "Privacy Policy | Aware";
 
-                // Update App Name Header
+                // Update app name header
                 if (appName) {
                     appName.textContent = isAr ? "واعي" : "Aware";
                 }
 
-                // Update Button States
-                langButtons.forEach(btn => {
-                    if (btn.getAttribute("data-lang") === lang) {
-                        btn.classList.add("active");
-                    } else {
-                        btn.classList.remove("active");
-                    }
-                });
+                // Keep a single clear language toggle button
+                if (languageToggle) {
+                    languageToggle.textContent = isAr ? "English" : "العربية";
+                    languageToggle.setAttribute("data-target-lang", isAr ? "en" : "ar");
+                    languageToggle.setAttribute("aria-label", isAr ? "Switch to English" : "التبديل إلى العربية");
+                }
 
-                localStorage.setItem("awarePrivacyLang", lang);
+                localStorage.setItem("awarePrivacyLang", normalizedLang);
             }
 
-            // Button Click Handlers
-            langButtons.forEach(btn => {
-                btn.addEventListener("click", function () {
-                    applyLanguage(this.getAttribute("data-lang"));
+            if (languageToggle) {
+                languageToggle.addEventListener("click", function () {
+                    applyLanguage(this.getAttribute("data-target-lang"));
                 });
-            });
+            }
 
-            // Initial Load Logic
+            // Initial load logic
             const savedLang = localStorage.getItem("awarePrivacyLang");
             const browserLang = (navigator.language || "").toLowerCase();
 
-            if (savedLang && ["ar", "en", "zh"].includes(savedLang)) {
+            if (savedLang === "ar" || savedLang === "en") {
                 applyLanguage(savedLang);
             } else if (browserLang.startsWith("ar")) {
                 applyLanguage("ar");
-            } else if (browserLang.startsWith("zh")) {
-                applyLanguage("zh");
             } else {
-                applyLanguage("ar");
+                applyLanguage("en");
             }
         });
     </script>
