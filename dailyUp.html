@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سياسة الخصوصية — خطوة</title>
+  <meta name="description" content="سياسة الخصوصية لتطبيق خطوة — تطبيق تحدي يومي يعمل محلياً دون حساب أو إنترنت." />
+  <style>
+    :root {
+      --bg: #f7f7f8;
+      --card: #ffffff;
+      --text: #1f1f1f;
+      --muted: #6f6f6f;
+      --gold: #d4af37;
+      --gold-soft: #fff6d8;
+      --border: #e7e2d5;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top right, rgba(212, 175, 55, 0.16), transparent 32rem),
+        linear-gradient(180deg, #fbfbfc 0%, var(--bg) 100%);
+      color: var(--text);
+      font-family: "Cairo", "Tajawal", "Noto Kufi Arabic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.9;
+    }
+
+    .page {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 56px;
+    }
+
+    header {
+      text-align: center;
+      padding: 38px 24px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      border-radius: calc(var(--radius) + 10px);
+      background:
+        linear-gradient(135deg, rgba(255, 248, 223, 0.96), rgba(255, 255, 255, 0.9)),
+        var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .logo {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 14px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      font-size: 42px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: -0.04em;
+      line-height: 1.25;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      margin: 12px auto 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .updated {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 8px 14px;
+      color: #7c6517;
+      background: rgba(212, 175, 55, 0.14);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      border-radius: 999px;
+      font-size: 0.94rem;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .summary-card,
+    section {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.035);
+    }
+
+    .summary-card {
+      padding: 18px;
+      text-align: center;
+    }
+
+    .summary-card strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .summary-card span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    section {
+      padding: 24px;
+      margin: 18px 0;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #222;
+    }
+
+    p {
+      margin: 0 0 12px;
+      color: #3d3d3d;
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding: 0 1.2rem 0 0;
+    }
+
+    li {
+      margin: 8px 0;
+      color: #3d3d3d;
+    }
+
+    .note {
+      padding: 16px 18px;
+      margin-top: 14px;
+      border-radius: 18px;
+      background: rgba(212, 175, 55, 0.10);
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      color: #4b421f;
+    }
+
+    .contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      margin-top: 8px;
+      border-radius: 999px;
+      color: #1f1f1f;
+      background: var(--gold-soft);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 28px;
+      font-size: 0.95rem;
+    }
+
+    a {
+      color: #9a7a13;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 22px, 960px);
+        padding-top: 20px;
+      }
+
+      header {
+        padding: 30px 18px;
+      }
+
+      .summary {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 20px;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121212;
+        --card: #1b1b1b;
+        --text: #f3f0e8;
+        --muted: #b7b2a8;
+        --border: #343024;
+        --gold-soft: rgba(212, 175, 55, 0.14);
+        --shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+      }
+
+      body {
+        background:
+          radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 32rem),
+          linear-gradient(180deg, #171717 0%, var(--bg) 100%);
+      }
+
+      header,
+      .summary-card,
+      section {
+        background: rgba(27, 27, 27, 0.9);
+      }
+
+      h2,
+      p,
+      li,
+      .contact {
+        color: var(--text);
+      }
+
+      .note {
+        color: #efe2aa;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="logo" aria-hidden="true">🔥</div>
+      <h1>سياسة الخصوصية</h1>
+      <p class="subtitle">
+        هذه السياسة توضّح كيف يتعامل تطبيق <strong>خطوة</strong> مع بياناتك. صُمم التطبيق ليعمل ببساطة وخصوصية، مع تجربة محلية لا تتطلب حساباً أو اتصالاً دائماً بالإنترنت.
+      </p>
+      <div class="updated">آخر تحديث: 19 مايو 2026</div>
+    </header>
+
+    <div class="summary" aria-label="ملخص الخصوصية">
+      <div class="summary-card">
+        <strong>لا حسابات</strong>
+        <span>لا تحتاج إلى تسجيل دخول أو إنشاء حساب.</span>
+      </div>
+      <div class="summary-card">
+        <strong>بيانات محلية</strong>
+        <span>تقدمك وإعداداتك محفوظة على جهازك.</span>
+      </div>
+      <div class="summary-card">
+        <strong>لا تتبع إعلاني</strong>
+        <span>لا نستخدم بياناتك للإعلانات أو التتبع.</span>
+      </div>
+    </div>
+
+    <section>
+      <h2>1. من نحن</h2>
+      <p>
+        <strong>خطوة</strong> هو تطبيق تطوير ذات بسيط يقدّم تحدياً واحداً يومياً، مع نقاط وسلسلة استمرارية وتقويم إنجاز وشارات تحفيزية. الهدف من التطبيق هو مساعدتك على التحسن خطوة واحدة كل يوم بطريقة هادئة وواضحة.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. البيانات التي لا نجمعها</h2>
+      <p>تطبيق خطوة لا يتطلب إنشاء حساب، ولا يطلب منك إدخال اسمك أو بريدك أو رقم هاتفك لاستخدام التطبيق.</p>
+      <ul>
+        <li>لا نجمع بيانات تعريف شخصية لاستخدام التطبيق الأساسي.</li>
+        <li>لا نبيع بيانات المستخدمين.</li>
+        <li>لا نستخدم تتبعاً إعلانياً داخل التطبيق.</li>
+        <li>لا يحتاج التطبيق إلى الإنترنت لتوليد التحديات أو حفظ تقدمك.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. البيانات المحفوظة على جهازك</h2>
+      <p>
+        لحفظ تجربتك داخل التطبيق، يتم تخزين بعض البيانات محلياً على جهازك فقط، مثل:
+      </p>
+      <ul>
+        <li>حالة إكمال تحدي اليوم.</li>
+        <li>النقاط، السلسلة الحالية، وأطول سلسلة.</li>
+        <li>سجل التحديات المكتملة.</li>
+        <li>محور التركيز المختار.</li>
+        <li>إعدادات اللغة والمظهر.</li>
+        <li>إعدادات التذكير ووقت التذكير.</li>
+        <li>حالة مشاهدة نافذة "ما الجديد".</li>
+      </ul>
+      <div class="note">
+        هذه البيانات تُستخدم لتشغيل ميزات التطبيق مثل شاشة اليوم، التقويم، إنجازاتي، الشارات، والإعدادات. حذف بيانات التطبيق أو إلغاء تثبيته قد يؤدي إلى حذف هذا التقدم المحلي.
+      </div>
+    </section>
+
+    <section>
+      <h2>4. الإشعارات والتذكيرات</h2>
+      <p>
+        يتيح لك التطبيق تفعيل تذكيرات محلية لمساعدتك على عدم نسيان تحدي اليوم. هذه الإشعارات تُدار على جهازك، ويمكنك تفعيلها أو تعطيلها من شاشة الإعدادات في أي وقت.
+      </p>
+      <ul>
+        <li>لا يتم طلب إذن الإشعارات أثناء التهيئة الأولى.</li>
+        <li>قد يظهر طلب ناعم لتفعيل التذكير بعد أول إنجاز.</li>
+        <li>يمكن تغيير وقت التذكير من الإعدادات عند تفعيل الإشعارات.</li>
+        <li>يمكنك تعطيل الإشعارات من داخل التطبيق أو من إعدادات النظام.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. إرسال الملاحظات عبر البريد</h2>
+      <p>
+        إذا اخترت إرسال ملاحظة من شاشة "عن التطبيق"، فقد يفتح التطبيق برنامج البريد الموجود على جهازك مع قالب رسالة جاهز. لا يتم إرسال الرسالة تلقائياً من داخل التطبيق؛ أنت من يقرر إرسالها من تطبيق البريد.
+      </p>
+      <p>
+        عند إرسال بريد إلكتروني، فإن محتوى رسالتك وعنوان بريدك قد يظهران لمستلم الرسالة ولمزوّد خدمة البريد الذي تستخدمه. إذا تعذر فتح تطبيق البريد، قد يعرض التطبيق قالباً يمكنك نسخه يدوياً.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. الروابط الخارجية</h2>
+      <p>
+        قد يحتوي التطبيق على روابط خارجية، مثل رابط سياسة الخصوصية أو روابط فتح البريد. عند فتح رابط خارجي، قد يغادر المستخدم التطبيق إلى المتصفح أو تطبيق آخر، وتخضع تلك الخدمات لسياسات الخصوصية الخاصة بها.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. عمل التطبيق دون إنترنت</h2>
+      <p>
+        صُمم تطبيق خطوة ليعمل محلياً دون الحاجة إلى اتصال دائم بالإنترنت. مكتبة التحديات، التقدم، التقويم، الشارات، والإعدادات تعمل داخل الجهاز. قد تحتاج فقط إلى الإنترنت عند فتح رابط خارجي أو إرسال ملاحظة عبر البريد.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. مشاركة البيانات مع أطراف خارجية</h2>
+      <p>
+        لا يشارك تطبيق خطوة بيانات تقدمك المحلي مع أطراف خارجية. لا توجد مزامنة حسابية أو خادم خارجي لتخزين تقدمك داخل التطبيق.
+      </p>
+      <p>
+        الاستثناء الوحيد هو ما تختار أنت إرساله يدوياً عبر البريد أو ما يحدث عند فتح روابط خارجية من جهازك.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. خصوصية الأطفال</h2>
+      <p>
+        التطبيق لا يطلب إنشاء حساب ولا يجمع معلومات شخصية مباشرة. إذا كنت ولي أمر وتعتقد أن طفلاً أرسل معلومات شخصية عبر البريد أو وسيلة خارجية، يمكنك التواصل معنا لطلب المساعدة.
+      </p>
+    </section>
+
+    <section>
+      <h2>10. أمان البيانات</h2>
+      <p>
+        لأن بيانات التقدم محفوظة محلياً على جهازك، فإن أمانها يعتمد أيضاً على أمان جهازك ونظام التشغيل. ننصح باستخدام قفل شاشة وتحديث نظام الجهاز بانتظام.
+      </p>
+    </section>
+
+    <section>
+      <h2>11. تغييرات سياسة الخصوصية</h2>
+      <p>
+        قد يتم تحديث هذه السياسة عند إضافة ميزات جديدة أو تحسين طريقة توضيح الخصوصية. عند حدوث تغيير مهم، يمكن تحديث هذه الصفحة أو الإشارة إلى ذلك داخل التطبيق.
+      </p>
+    </section>
+
+    <section>
+      <h2>12. التواصل</h2>
+      <p>
+        لأي سؤال حول سياسة الخصوصية أو طريقة عمل التطبيق، يمكنك التواصل عبر البريد:
+      </p>
+      <a class="contact" href="mailto:Yirow.dev@gmail.com">Yirow.dev@gmail.com</a>
+    </section>
+
+    <footer>
+      © 2026 خطوة — جميع الحقوق محفوظة.
+    </footer>
+  </main>
+</body>
+</html>
