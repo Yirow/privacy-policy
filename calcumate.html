@@ -35,7 +35,7 @@
             padding-bottom: 50px;
         }
 
-        body.en-active, body.zh-active {
+        body.en-active {
             font-family: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
 
@@ -53,13 +53,18 @@
         .logo-box {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 20px;
             margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(255, 152, 0, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
         }
 
         h1 {
@@ -118,63 +123,78 @@
         .lang-switch-container {
             width: fit-content;
             max-width: 100%;
-            margin: 0 auto 28px;
+            margin-bottom: 28px;
             background: var(--glass-bg);
             backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            padding: 5px;
-            border-radius: 50px;
+            padding: 4px;
+            border-radius: 999px;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 5px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             z-index: 1000;
         }
 
+        body.ar-active .lang-switch-container {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        body.en-active .lang-switch-container {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
         .lang-btn {
-            min-width: 82px;
-            padding: 8px 14px;
-            border-radius: 50px;
+            min-width: 96px;
+            padding: 7px 16px;
+            border-radius: 999px;
             text-decoration: none;
             font-weight: bold;
             font-size: 0.85rem;
-            color: var(--on-surface-variant);
+            color: black;
             transition: all 0.3s ease;
             cursor: pointer;
             border: none;
-            background: transparent;
+            background: var(--primary);
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
             white-space: nowrap;
         }
 
-        .lang-btn.active {
-            background: var(--primary);
-            color: black;
-            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+        .lang-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
         }
 
-        .lang-btn:hover:not(.active) {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--on-surface);
-        }
-
-        .container [lang="en"], 
-        .container [lang="zh"] {
+        .container [lang="en"] {
             display: none;
         }
 
         /* Visibility Logic */
-        body.ar-active .container [lang="ar"] { display: block; }
-        body.en-active .container [lang="en"] { display: block; }
-        body.zh-active .container [lang="zh"] { display: block; }
+        body.ar-active .container [lang="ar"] {
+            display: block;
+        }
 
-        body.ar-active .container [lang="en"], body.ar-active .container [lang="zh"] { display: none; }
-        body.en-active .container [lang="ar"], body.en-active .container [lang="zh"] { display: none; }
-        body.zh-active .container [lang="ar"], body.zh-active .container [lang="en"] { display: none; }
+        body.en-active .container [lang="en"] {
+            display: block;
+        }
+
+        body.ar-active .container [lang="en"] {
+            display: none;
+        }
+
+        body.en-active .container [lang="ar"] {
+            display: none;
+        }
 
         /* Direction Logic */
-        body.en-active .container, body.zh-active .container { direction: ltr; }
-        body.ar-active .container { direction: rtl; }
+        body.en-active .container {
+            direction: ltr;
+        }
+
+        body.ar-active .container {
+            direction: rtl;
+        }
 
         @media (max-width: 600px) {
             h1 {
@@ -186,16 +206,15 @@
             }
 
             .lang-switch-container {
-                width: 100%;
-                border-radius: 20px;
-                padding: 6px;
+                width: fit-content;
+                border-radius: 999px;
+                padding: 4px;
                 margin-bottom: 24px;
             }
 
             .lang-btn {
-                flex: 1;
-                min-width: 0;
-                padding: 8px 10px;
+                min-width: 90px;
+                padding: 7px 14px;
                 font-size: 0.8rem;
             }
 
@@ -210,44 +229,26 @@
     </style>
 </head>
 
-<body>
+<body class="ar-active">
 
     <div class="container">
         <header>
             <div class="lang-switch-container">
-                <button class="lang-btn" data-lang="ar">العربية</button>
-                <button class="lang-btn" data-lang="en">English</button>
-                <button class="lang-btn" data-lang="zh">中文</button>
+                <button class="lang-btn active" id="languageToggle" type="button">English</button>
             </div>
             <div class="logo-box">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="2" width="16" height="20" rx="2"></rect>
-                    <line x1="8" y1="6" x2="16" y2="6"></line>
-                    <line x1="16" y1="14" x2="16" y2="18"></line>
-                    <path d="M16 10h.01"></path>
-                    <path d="M12 10h.01"></path>
-                    <path d="M8 10h.01"></path>
-                    <path d="M12 14h.01"></path>
-                    <path d="M8 14h.01"></path>
-                    <path d="M12 18h.01"></path>
-                    <path d="M8 18h.01"></path>
-                </svg>
+                <img src="calcumate-icon.png" alt="CalcuMate app icon">
             </div>
             <h1 lang="ar">سياسة الخصوصية</h1>
             <h1 lang="en">Privacy Policy</h1>
-            <h1 lang="zh">隐私政策</h1>
-            <p class="subtitle" lang="ar">حاسبك الذكي - آلة حاسبة وأدوات</p>
+<p class="subtitle" lang="ar">حاسبك الذكي - آلة حاسبة وأدوات</p>
             <p class="subtitle" lang="en">CalcuMate - Calculator & Tools</p>
-            <p class="subtitle" lang="zh">CalcuMate - Calculator & Tools</p>
-        </header>
+</header>
 
         <section>
             <h2 lang="ar">ℹ️ معلومات التطبيق والمطوّر</h2>
             <h2 lang="en">ℹ️ App and Developer Information</h2>
-            <h2 lang="zh">ℹ️ 应用和开发者信息</h2>
-
-            <p lang="ar">
+<p lang="ar">
                 اسم التطبيق: حاسبك الذكي - آلة حاسبة وأدوات<br>
                 اسم المطوّر: يِرُو
             </p>
@@ -256,118 +257,100 @@
                 App name: CalcuMate - Calculator & Tools<br>
                 Developer name: Yirow
             </p>
-
-            <p lang="zh">
-                应用名称：CalcuMate - Calculator & Tools<br>
-                开发者名称：Yirow
-            </p>
         </section>
 
         <section>
             <h2 lang="ar">🛡️ جمع البيانات</h2>
             <h2 lang="en">🛡️ Data Collection</h2>
-            <h2 lang="zh">🛡️ 数据收集</h2>
-            <p lang="ar">هذا التطبيق لا يجمع أو يخزن أو يشارك أي بيانات شخصية خاصة بك. جميع العمليات الحسابية والبيانات
+<p lang="ar">هذا التطبيق لا يجمع أو يخزن أو يشارك أي بيانات شخصية خاصة بك. جميع العمليات الحسابية والبيانات
                 المخزنة في السجل تبقى محلياً على جهازك فقط.</p>
             <p lang="en">This app does not collect, store, or share any of your personal data. All calculations and
                 history data remain locally on your device only.</p>
-            <p lang="zh">此应用不收集、存储或共享您的任何个人数据。所有计算和历史数据仅保留在您的设备本地。</p>
-        </section>
+</section>
 
         <section>
             <h2 lang="ar">🚫 الإعلانات والتتبع</h2>
             <h2 lang="en">🚫 Ads and Tracking</h2>
-            <h2 lang="zh">🚫 广告和追踪</h2>
-            <p lang="ar">لا يحتوي التطبيق على إعلانات، ولا يستخدم أي أدوات تتبع أو تحليل للسلوك أو الطرف الثالث.</p>
+<p lang="ar">لا يحتوي التطبيق على إعلانات، ولا يستخدم أي أدوات تتبع أو تحليل للسلوك أو الطرف الثالث.</p>
             <p lang="en">The app does not contain ads and does not use any tracking or analytics tools from third
                 parties.</p>
-            <p lang="zh">该应用不含广告，也不使用任何来自第三方的追踪或分析工具。</p>
-        </section>
+</section>
 
         <section>
             <h2 lang="ar">🔑 الأذونات</h2>
             <h2 lang="en">🔑 Permissions</h2>
-            <h2 lang="zh">🔑 权限</h2>
-            <p lang="ar">لا يطلب التطبيق أي أذونات خاصة من الجهاز للعمل. الأذونات التقنية الأساسية تُستخدم فقط لضمان عمل
+<p lang="ar">لا يطلب التطبيق أي أذونات خاصة من الجهاز للعمل. الأذونات التقنية الأساسية تُستخدم فقط لضمان عمل
                 الوظائف البرمجية بشكل سليم.</p>
             <p lang="en">The app does not request any special device permissions to operate. Basic technical permissions
                 are used solely to ensure software functions work correctly.</p>
-            <p lang="zh">该应用不需要任何特殊的设备权限即可运行。基础技术权限仅用于确保软件功能正常运行。</p>
-        </section>
+</section>
 
         <section>
             <h2 lang="ar">📩 إرسال الملاحظات</h2>
             <h2 lang="en">📩 Sending Feedback</h2>
-            <h2 lang="zh">📩 发送反馈</h2>
-            <p lang="ar">عند استخدام ميزة "أرسل ملاحظة"، يتم فتح تطبيق البريد الافتراضي في جهازك لإرسال الرسالة مباشرة
+<p lang="ar">عند استخدام ميزة "أرسل ملاحظة"، يتم فتح تطبيق البريد الافتراضي في جهازك لإرسال الرسالة مباشرة
                 إلى المطور. لا يتم حفظ أو تخزين محتوى الرسالة داخل التطبيق.</p>
             <p lang="en">When using the "Send Feedback" feature, your device's default mail app is opened to send the
                 message directly to the developer. No message content is saved or stored within the app.</p>
-            <p lang="zh">使用“发送反馈”功能时，将打开您设备的默认邮件应用，直接向开发者发送邮件。应用内不会保存或存储任何邮件内容。</p>
-        </section>
+</section>
 
         <section>
             <h2 lang="ar">🔄 التغييرات المستقبيلة</h2>
             <h2 lang="en">🔄 Future Changes</h2>
-            <h2 lang="zh">🔄 未来变更</h2>
-            <p lang="ar">في حال تم تحديث هذه السياسة مستقبلاً، سيتم نشر النسخة الجديدة مباشرة في هذه الصفحة.</p>
+<p lang="ar">في حال تم تحديث هذه السياسة مستقبلاً، سيتم نشر النسخة الجديدة مباشرة في هذه الصفحة.</p>
             <p lang="en">If this policy is updated in the future, the new version will be published directly on this
                 page.</p>
-            <p lang="zh">如果未来更新此政策，新版本将直接发布在此页面上。</p>
-        </section>
+</section>
 
         <div class="divider"></div>
 
         <footer>
             <p style="font-size: 0.8rem; margin-top: 10px;" lang="ar">آخر تحديث: 8 مايو 2026</p>
             <p style="font-size: 0.8rem; margin-top: 10px;" lang="en">Last Updated: May 8, 2026</p>
-            <p style="font-size: 0.8rem; margin-top: 10px;" lang="zh">最后更新：2026年5月8日</p>
-        </footer>
+</footer>
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            const languageToggle = document.getElementById("languageToggle");
 
             function setLanguage(lang) {
-                // Remove all active classes
-                document.body.classList.remove('ar-active', 'en-active', 'zh-active');
-                
-                // Add new active class
-                document.body.classList.add(lang + '-active');
-                
-                // Update HTML attributes
+                const isArabic = lang === "ar";
+
+                document.body.classList.remove("ar-active", "en-active");
+                document.body.classList.add(isArabic ? "ar-active" : "en-active");
+
                 document.documentElement.lang = lang;
-                document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-                
-                // Update buttons
-                document.querySelectorAll('.lang-btn').forEach(btn => {
-                    if (btn.getAttribute('data-lang') === lang) {
-                        btn.classList.add('active');
-                    } else {
-                        btn.classList.remove('active');
-                    }
-                });
-            }
+                document.documentElement.dir = isArabic ? "rtl" : "ltr";
 
-            const userLang = navigator.language || navigator.userLanguage;
-            let initialLang = 'ar'; // Default
+                document.title = isArabic
+                    ? "سياسة الخصوصية | حاسبك الذكي"
+                    : "Privacy Policy | CalcuMate";
 
-            if (userLang) {
-                const lowerLang = userLang.toLowerCase();
-                if (lowerLang.startsWith('zh')) {
-                    initialLang = 'zh';
-                } else if (lowerLang.startsWith('en')) {
-                    initialLang = 'en';
+                if (languageToggle) {
+                    languageToggle.textContent = isArabic ? "English" : "العربية";
+                    languageToggle.setAttribute("aria-label", isArabic ? "Switch to English" : "التبديل إلى العربية");
                 }
+
+                localStorage.setItem("calcumatePrivacyLang", lang);
             }
 
-            setLanguage(initialLang);
+            const savedLang = localStorage.getItem("calcumatePrivacyLang");
+            const browserLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
 
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    setLanguage(btn.getAttribute('data-lang'));
+            if (savedLang === "ar" || savedLang === "en") {
+                setLanguage(savedLang);
+            } else if (browserLang.startsWith("ar")) {
+                setLanguage("ar");
+            } else {
+                setLanguage("en");
+            }
+
+            if (languageToggle) {
+                languageToggle.addEventListener("click", function () {
+                    const nextLang = document.body.classList.contains("ar-active") ? "en" : "ar";
+                    setLanguage(nextLang);
                 });
-            });
-
+            }
         });
     </script>
 </body>
