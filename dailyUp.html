@@ -1,384 +1,768 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>سياسة الخصوصية — خطوة</title>
-  <meta name="description" content="سياسة الخصوصية لتطبيق خطوة — تطبيق تحدي يومي يعمل محلياً دون حساب أو إنترنت." />
-  <style>
-    :root {
-      --bg: #f7f7f8;
-      --card: #ffffff;
-      --text: #1f1f1f;
-      --muted: #6f6f6f;
-      --gold: #d4af37;
-      --gold-soft: #fff6d8;
-      --border: #e7e2d5;
-      --shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
-      --radius: 22px;
-    }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>سياسة الخصوصية — خطوة</title>
+    <meta name="description"
+        content="سياسة الخصوصية لتطبيق خطوة — DailyUp. تطبيق تحدي يومي يعمل محلياً دون حساب أو إنترنت." />
+    <style>
+        :root {
+            --bg: #f7f7f8;
+            --card: #ffffff;
+            --text: #1f1f1f;
+            --muted: #6f6f6f;
+            --gold: #d4af37;
+            --gold-soft: #fff6d8;
+            --border: #e7e2d5;
+            --shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+            --radius: 22px;
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at top right, rgba(212, 175, 55, 0.16), transparent 32rem),
-        linear-gradient(180deg, #fbfbfc 0%, var(--bg) 100%);
-      color: var(--text);
-      font-family: "Cairo", "Tajawal", "Noto Kufi Arabic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.9;
-    }
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at top right, rgba(212, 175, 55, 0.16), transparent 32rem),
+                linear-gradient(180deg, #fbfbfc 0%, var(--bg) 100%);
+            color: var(--text);
+            font-family: "Cairo", "Tajawal", "Noto Kufi Arabic", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.9;
+        }
 
-    .page {
-      width: min(960px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 40px 0 56px;
-    }
+        body.en-active,
+        body.zh-active {
+            font-family: "Inter", "Roboto", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
 
-    header {
-      text-align: center;
-      padding: 38px 24px;
-      margin-bottom: 24px;
-      border: 1px solid rgba(212, 175, 55, 0.28);
-      border-radius: calc(var(--radius) + 10px);
-      background:
-        linear-gradient(135deg, rgba(255, 248, 223, 0.96), rgba(255, 255, 255, 0.9)),
-        var(--card);
-      box-shadow: var(--shadow);
-    }
+        .page {
+            width: min(960px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 40px 0 56px;
+        }
 
-    .logo {
-      width: 84px;
-      height: 84px;
-      margin: 0 auto 14px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--gold-soft);
-      border: 1px solid rgba(212, 175, 55, 0.28);
-      font-size: 42px;
-    }
+        header {
+            text-align: center;
+            padding: 38px 24px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            border-radius: calc(var(--radius) + 10px);
+            background:
+                linear-gradient(135deg, rgba(255, 248, 223, 0.96), rgba(255, 255, 255, 0.9)),
+                var(--card);
+            box-shadow: var(--shadow);
+        }
 
-    h1 {
-      margin: 0;
-      font-size: clamp(2rem, 5vw, 3rem);
-      letter-spacing: -0.04em;
-      line-height: 1.25;
-    }
+        .lang-switch {
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 auto 24px;
+            padding: 6px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.62);
+            border: 1px solid rgba(212, 175, 55, 0.26);
+        }
 
-    .subtitle {
-      max-width: 720px;
-      margin: 12px auto 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
+        .lang-btn {
+            border: 0;
+            background: transparent;
+            color: var(--muted);
+            min-width: 90px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 0.92rem;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
 
-    .updated {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 18px;
-      padding: 8px 14px;
-      color: #7c6517;
-      background: rgba(212, 175, 55, 0.14);
-      border: 1px solid rgba(212, 175, 55, 0.28);
-      border-radius: 999px;
-      font-size: 0.94rem;
-    }
+        .lang-btn:hover {
+            transform: translateY(-1px);
+        }
 
-    .summary {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin: 24px 0;
-    }
+        .lang-btn.active {
+            color: #1f1f1f;
+            background: var(--gold);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.22);
+        }
 
-    .summary-card,
-    section {
-      background: rgba(255, 255, 255, 0.86);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.035);
-    }
+        .logo {
+            width: 84px;
+            height: 84px;
+            margin: 0 auto 14px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--gold-soft);
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            font-size: 42px;
+        }
 
-    .summary-card {
-      padding: 18px;
-      text-align: center;
-    }
+        h1 {
+            margin: 0;
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: -0.04em;
+            line-height: 1.25;
+        }
 
-    .summary-card strong {
-      display: block;
-      color: var(--gold);
-      font-size: 1.05rem;
-      margin-bottom: 4px;
-    }
+        .subtitle {
+            max-width: 720px;
+            margin: 12px auto 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
 
-    .summary-card span {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+        .updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            padding: 8px 14px;
+            color: #7c6517;
+            background: rgba(212, 175, 55, 0.14);
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            border-radius: 999px;
+            font-size: 0.94rem;
+        }
 
-    section {
-      padding: 24px;
-      margin: 18px 0;
-    }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin: 24px 0;
+        }
 
-    h2 {
-      margin: 0 0 12px;
-      font-size: 1.35rem;
-      line-height: 1.35;
-      color: #222;
-    }
+        .summary-card,
+        section {
+            background: rgba(255, 255, 255, 0.86);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.035);
+        }
 
-    p {
-      margin: 0 0 12px;
-      color: #3d3d3d;
-    }
+        .summary-card {
+            padding: 18px;
+            text-align: center;
+        }
 
-    ul {
-      margin: 8px 0 0;
-      padding: 0 1.2rem 0 0;
-    }
+        .summary-card strong {
+            display: block;
+            color: var(--gold);
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
 
-    li {
-      margin: 8px 0;
-      color: #3d3d3d;
-    }
+        .summary-card span {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
 
-    .note {
-      padding: 16px 18px;
-      margin-top: 14px;
-      border-radius: 18px;
-      background: rgba(212, 175, 55, 0.10);
-      border: 1px solid rgba(212, 175, 55, 0.22);
-      color: #4b421f;
-    }
+        section {
+            padding: 24px;
+            margin: 18px 0;
+        }
 
-    .contact {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      margin-top: 8px;
-      border-radius: 999px;
-      color: #1f1f1f;
-      background: var(--gold-soft);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      text-decoration: none;
-      font-weight: 700;
-    }
+        h2 {
+            margin: 0 0 12px;
+            font-size: 1.35rem;
+            line-height: 1.35;
+            color: #222;
+        }
 
-    footer {
-      text-align: center;
-      color: var(--muted);
-      margin-top: 28px;
-      font-size: 0.95rem;
-    }
+        p {
+            margin: 0 0 12px;
+            color: #3d3d3d;
+        }
 
-    a {
-      color: #9a7a13;
-    }
+        ul {
+            margin: 8px 0 0;
+            padding-inline-start: 1.2rem;
+        }
 
-    @media (max-width: 760px) {
-      .page {
-        width: min(100% - 22px, 960px);
-        padding-top: 20px;
-      }
+        li {
+            margin: 8px 0;
+            color: #3d3d3d;
+        }
 
-      header {
-        padding: 30px 18px;
-      }
+        .note {
+            padding: 16px 18px;
+            margin-top: 14px;
+            border-radius: 18px;
+            background: rgba(212, 175, 55, 0.10);
+            border: 1px solid rgba(212, 175, 55, 0.22);
+            color: #4b421f;
+        }
 
-      .summary {
-        grid-template-columns: 1fr;
-      }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 14px;
+        }
 
-      section {
-        padding: 20px;
-      }
-    }
+        .info-item {
+            padding: 14px 16px;
+            border-radius: 18px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+        }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #121212;
-        --card: #1b1b1b;
-        --text: #f3f0e8;
-        --muted: #b7b2a8;
-        --border: #343024;
-        --gold-soft: rgba(212, 175, 55, 0.14);
-        --shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
-      }
+        .info-item strong {
+            display: block;
+            color: var(--gold);
+            margin-bottom: 2px;
+            font-size: 0.95rem;
+        }
 
-      body {
-        background:
-          radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 32rem),
-          linear-gradient(180deg, #171717 0%, var(--bg) 100%);
-      }
+        .info-item span {
+            color: var(--text);
+            font-weight: 700;
+        }
 
-      header,
-      .summary-card,
-      section {
-        background: rgba(27, 27, 27, 0.9);
-      }
+        .contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            margin-top: 8px;
+            border-radius: 999px;
+            color: #1f1f1f;
+            background: var(--gold-soft);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            text-decoration: none;
+            font-weight: 700;
+        }
 
-      h2,
-      p,
-      li,
-      .contact {
-        color: var(--text);
-      }
+        footer {
+            text-align: center;
+            color: var(--muted);
+            margin-top: 28px;
+            font-size: 0.95rem;
+        }
 
-      .note {
-        color: #efe2aa;
-      }
-    }
-  </style>
+        a {
+            color: #9a7a13;
+        }
+
+        .content [lang="en"],
+        .content [lang="zh"] {
+            display: none;
+        }
+
+        body.ar-active .content [lang="ar"] {
+            display: block;
+        }
+
+        body.en-active .content [lang="en"] {
+            display: block;
+        }
+
+        body.zh-active .content [lang="zh"] {
+            display: block;
+        }
+
+        body.ar-active .content [lang="en"],
+        body.ar-active .content [lang="zh"],
+        body.en-active .content [lang="ar"],
+        body.en-active .content [lang="zh"],
+        body.zh-active .content [lang="ar"],
+        body.zh-active .content [lang="en"] {
+            display: none;
+        }
+
+        body.ar-active .page {
+            direction: rtl;
+        }
+
+        body.en-active .page,
+        body.zh-active .page {
+            direction: ltr;
+        }
+
+        @media (max-width: 760px) {
+            .page {
+                width: min(100% - 22px, 960px);
+                padding-top: 20px;
+            }
+
+            header {
+                padding: 30px 18px;
+            }
+
+            .summary,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .lang-switch {
+                width: 100%;
+                border-radius: 20px;
+            }
+
+            .lang-btn {
+                flex: 1;
+                min-width: 0;
+                padding: 9px 8px;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #121212;
+                --card: #1b1b1b;
+                --text: #f3f0e8;
+                --muted: #b7b2a8;
+                --border: #343024;
+                --gold-soft: rgba(212, 175, 55, 0.14);
+                --shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+            }
+
+            body {
+                background:
+                    radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 32rem),
+                    linear-gradient(180deg, #171717 0%, var(--bg) 100%);
+            }
+
+            header,
+            .summary-card,
+            section {
+                background: rgba(27, 27, 27, 0.9);
+            }
+
+            .lang-switch {
+                background: rgba(255, 255, 255, 0.04);
+            }
+
+            h2,
+            p,
+            li,
+            .contact,
+            .info-item span {
+                color: var(--text);
+            }
+
+            .note {
+                color: #efe2aa;
+            }
+        }
+    </style>
 </head>
-<body>
-  <main class="page">
-    <header>
-      <div class="logo" aria-hidden="true">🔥</div>
-      <h1>سياسة الخصوصية</h1>
-      <p class="subtitle">
-        هذه السياسة توضّح كيف يتعامل تطبيق <strong>خطوة</strong> مع بياناتك. صُمم التطبيق ليعمل ببساطة وخصوصية، مع تجربة محلية لا تتطلب حساباً أو اتصالاً دائماً بالإنترنت.
-      </p>
-      <div class="updated">آخر تحديث: 19 مايو 2026</div>
-    </header>
 
-    <div class="summary" aria-label="ملخص الخصوصية">
-      <div class="summary-card">
-        <strong>لا حسابات</strong>
-        <span>لا تحتاج إلى تسجيل دخول أو إنشاء حساب.</span>
-      </div>
-      <div class="summary-card">
-        <strong>بيانات محلية</strong>
-        <span>تقدمك وإعداداتك محفوظة على جهازك.</span>
-      </div>
-      <div class="summary-card">
-        <strong>لا تتبع إعلاني</strong>
-        <span>لا نستخدم بياناتك للإعلانات أو التتبع.</span>
-      </div>
-    </div>
+<body class="ar-active">
+    <main class="page content">
+        <header>
+            <div class="lang-switch" aria-label="Language switcher">
+                <button class="lang-btn active" type="button" data-lang="ar">العربية</button>
+                <button class="lang-btn" type="button" data-lang="en">English</button>
+                <button class="lang-btn" type="button" data-lang="zh">中文</button>
+            </div>
 
-    <section>
-      <h2>1. من نحن</h2>
-      <p>
-        <strong>خطوة</strong> هو تطبيق تطوير ذات بسيط يقدّم تحدياً واحداً يومياً، مع نقاط وسلسلة استمرارية وتقويم إنجاز وشارات تحفيزية. الهدف من التطبيق هو مساعدتك على التحسن خطوة واحدة كل يوم بطريقة هادئة وواضحة.
-      </p>
-    </section>
+            <div class="logo" aria-hidden="true">🔥</div>
 
-    <section>
-      <h2>2. البيانات التي لا نجمعها</h2>
-      <p>تطبيق خطوة لا يتطلب إنشاء حساب، ولا يطلب منك إدخال اسمك أو بريدك أو رقم هاتفك لاستخدام التطبيق.</p>
-      <ul>
-        <li>لا نجمع بيانات تعريف شخصية لاستخدام التطبيق الأساسي.</li>
-        <li>لا نبيع بيانات المستخدمين.</li>
-        <li>لا نستخدم تتبعاً إعلانياً داخل التطبيق.</li>
-        <li>لا يحتاج التطبيق إلى الإنترنت لتوليد التحديات أو حفظ تقدمك.</li>
-      </ul>
-    </section>
+            <h1 lang="ar">سياسة الخصوصية</h1>
+            <h1 lang="en">Privacy Policy</h1>
+            <h1 lang="zh">隐私政策</h1>
 
-    <section>
-      <h2>3. البيانات المحفوظة على جهازك</h2>
-      <p>
-        لحفظ تجربتك داخل التطبيق، يتم تخزين بعض البيانات محلياً على جهازك فقط، مثل:
-      </p>
-      <ul>
-        <li>حالة إكمال تحدي اليوم.</li>
-        <li>النقاط، السلسلة الحالية، وأطول سلسلة.</li>
-        <li>سجل التحديات المكتملة.</li>
-        <li>محور التركيز المختار.</li>
-        <li>إعدادات اللغة والمظهر.</li>
-        <li>إعدادات التذكير ووقت التذكير.</li>
-        <li>حالة مشاهدة نافذة "ما الجديد".</li>
-      </ul>
-      <div class="note">
-        هذه البيانات تُستخدم لتشغيل ميزات التطبيق مثل شاشة اليوم، التقويم، إنجازاتي، الشارات، والإعدادات. حذف بيانات التطبيق أو إلغاء تثبيته قد يؤدي إلى حذف هذا التقدم المحلي.
-      </div>
-    </section>
+            <p class="subtitle" lang="ar">
+                هذه السياسة توضّح كيف يتعامل تطبيق <strong>خطوة</strong> مع بياناتك. صُمم التطبيق ليعمل ببساطة وخصوصية،
+                مع تجربة محلية لا تتطلب حساباً أو اتصالاً دائماً بالإنترنت.
+            </p>
+            <p class="subtitle" lang="en">
+                This policy explains how the <strong>Khotwa</strong> app handles your data. The app is designed to be
+                simple and private, with a local experience that does not require an account or a constant internet
+                connection.
+            </p>
+            <p class="subtitle" lang="zh">
+                本政策说明 <strong>Khotwa</strong> 应用如何处理您的数据。本应用以简洁和隐私为核心，提供本地化体验，不需要账户，也不需要持续联网。
+            </p>
 
-    <section>
-      <h2>4. الإشعارات والتذكيرات</h2>
-      <p>
-        يتيح لك التطبيق تفعيل تذكيرات محلية لمساعدتك على عدم نسيان تحدي اليوم. هذه الإشعارات تُدار على جهازك، ويمكنك تفعيلها أو تعطيلها من شاشة الإعدادات في أي وقت.
-      </p>
-      <ul>
-        <li>لا يتم طلب إذن الإشعارات أثناء التهيئة الأولى.</li>
-        <li>قد يظهر طلب ناعم لتفعيل التذكير بعد أول إنجاز.</li>
-        <li>يمكن تغيير وقت التذكير من الإعدادات عند تفعيل الإشعارات.</li>
-        <li>يمكنك تعطيل الإشعارات من داخل التطبيق أو من إعدادات النظام.</li>
-      </ul>
-    </section>
+            <div class="updated" lang="ar">آخر تحديث: 19 مايو 2026</div>
+            <div class="updated" lang="en">Last updated: May 19, 2026</div>
+            <div class="updated" lang="zh">最后更新：2026年5月19日</div>
+        </header>
 
-    <section>
-      <h2>5. إرسال الملاحظات عبر البريد</h2>
-      <p>
-        إذا اخترت إرسال ملاحظة من شاشة "عن التطبيق"، فقد يفتح التطبيق برنامج البريد الموجود على جهازك مع قالب رسالة جاهز. لا يتم إرسال الرسالة تلقائياً من داخل التطبيق؛ أنت من يقرر إرسالها من تطبيق البريد.
-      </p>
-      <p>
-        عند إرسال بريد إلكتروني، فإن محتوى رسالتك وعنوان بريدك قد يظهران لمستلم الرسالة ولمزوّد خدمة البريد الذي تستخدمه. إذا تعذر فتح تطبيق البريد، قد يعرض التطبيق قالباً يمكنك نسخه يدوياً.
-      </p>
-    </section>
+        <div class="summary" aria-label="Privacy summary">
+            <div class="summary-card">
+                <strong lang="ar">لا حسابات</strong>
+                <strong lang="en">No accounts</strong>
+                <strong lang="zh">无需账户</strong>
+                <span lang="ar">لا تحتاج إلى تسجيل دخول أو إنشاء حساب.</span>
+                <span lang="en">No sign-in or account creation is required.</span>
+                <span lang="zh">无需登录或创建账户。</span>
+            </div>
+            <div class="summary-card">
+                <strong lang="ar">بيانات محلية</strong>
+                <strong lang="en">Local data</strong>
+                <strong lang="zh">本地数据</strong>
+                <span lang="ar">تقدمك وإعداداتك محفوظة على جهازك.</span>
+                <span lang="en">Your progress and settings are stored on your device.</span>
+                <span lang="zh">您的进度和设置保存在您的设备上。</span>
+            </div>
+            <div class="summary-card">
+                <strong lang="ar">لا تتبع إعلاني</strong>
+                <strong lang="en">No ad tracking</strong>
+                <strong lang="zh">无广告追踪</strong>
+                <span lang="ar">لا نستخدم بياناتك للإعلانات أو التتبع.</span>
+                <span lang="en">We do not use your data for ads or tracking.</span>
+                <span lang="zh">我们不会将您的数据用于广告或追踪。</span>
+            </div>
+        </div>
 
-    <section>
-      <h2>6. الروابط الخارجية</h2>
-      <p>
-        قد يحتوي التطبيق على روابط خارجية، مثل رابط سياسة الخصوصية أو روابط فتح البريد. عند فتح رابط خارجي، قد يغادر المستخدم التطبيق إلى المتصفح أو تطبيق آخر، وتخضع تلك الخدمات لسياسات الخصوصية الخاصة بها.
-      </p>
-    </section>
+        <section>
+            <h2 lang="ar">1. معلومات التطبيق والمطور</h2>
+            <h2 lang="en">1. App and Developer Information</h2>
+            <h2 lang="zh">1. 应用与开发者信息</h2>
 
-    <section>
-      <h2>7. عمل التطبيق دون إنترنت</h2>
-      <p>
-        صُمم تطبيق خطوة ليعمل محلياً دون الحاجة إلى اتصال دائم بالإنترنت. مكتبة التحديات، التقدم، التقويم، الشارات، والإعدادات تعمل داخل الجهاز. قد تحتاج فقط إلى الإنترنت عند فتح رابط خارجي أو إرسال ملاحظة عبر البريد.
-      </p>
-    </section>
+            <p lang="ar">
+                يوضح هذا القسم المعلومات الأساسية الخاصة بالتطبيق والمطور المسؤول عنه.
+            </p>
+            <p lang="en">
+                This section provides the basic information about the app and its developer.
+            </p>
+            <p lang="zh">
+                本节提供应用及其开发者的基本信息。
+            </p>
 
-    <section>
-      <h2>8. مشاركة البيانات مع أطراف خارجية</h2>
-      <p>
-        لا يشارك تطبيق خطوة بيانات تقدمك المحلي مع أطراف خارجية. لا توجد مزامنة حسابية أو خادم خارجي لتخزين تقدمك داخل التطبيق.
-      </p>
-      <p>
-        الاستثناء الوحيد هو ما تختار أنت إرساله يدوياً عبر البريد أو ما يحدث عند فتح روابط خارجية من جهازك.
-      </p>
-    </section>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong lang="ar">اسم التطبيق</strong>
+                    <strong lang="en">App name</strong>
+                    <strong lang="zh">应用名称</strong>
+                    <span lang="ar">خطوة</span>
+                    <span lang="en">DailyUp</span>
+                    <span lang="zh">DailyUp</span>
+                </div>
+                <div class="info-item">
+                    <strong lang="ar">نوع التطبيق</strong>
+                    <strong lang="en">App type</strong>
+                    <strong lang="zh">应用类型</strong>
+                    <span lang="ar">تطوير ذات وتحديات يومية</span>
+                    <span lang="en">Self-improvement and daily challenges</span>
+                    <span lang="zh">自我提升与每日挑战</span>
+                </div>
+                <div class="info-item">
+                    <strong lang="ar">اسم المطور</strong>
+                    <strong lang="en">Developer name</strong>
+                    <strong lang="zh">开发者名称</strong>
+                    <span lang="ar">يِرُو</span>
+                    <span lang="en">Yirow</span>
+                    <span lang="zh">Yirow</span>
+                </div>
+                <div class="info-item">
+                    <strong lang="ar">البريد الإلكتروني للتواصل</strong>
+                    <strong lang="en">Contact Email</strong>
+                    <strong lang="zh">联系邮箱</strong>
+                    <span>Yirow.dev@gmail.com</span>
+                </div>
+            </div>
+        </section>
 
-    <section>
-      <h2>9. خصوصية الأطفال</h2>
-      <p>
-        التطبيق لا يطلب إنشاء حساب ولا يجمع معلومات شخصية مباشرة. إذا كنت ولي أمر وتعتقد أن طفلاً أرسل معلومات شخصية عبر البريد أو وسيلة خارجية، يمكنك التواصل معنا لطلب المساعدة.
-      </p>
-    </section>
+        <section>
+            <h2 lang="ar">2. من نحن</h2>
+            <h2 lang="en">2. About the App</h2>
+            <h2 lang="zh">2. 关于本应用</h2>
 
-    <section>
-      <h2>10. أمان البيانات</h2>
-      <p>
-        لأن بيانات التقدم محفوظة محلياً على جهازك، فإن أمانها يعتمد أيضاً على أمان جهازك ونظام التشغيل. ننصح باستخدام قفل شاشة وتحديث نظام الجهاز بانتظام.
-      </p>
-    </section>
+            <p lang="ar">
+                <strong>خطوة</strong> هو تطبيق تطوير ذات بسيط يقدّم تحدياً واحداً يومياً، مع نقاط وسلسلة استمرارية
+                وتقويم إنجاز وشارات تحفيزية. الهدف من التطبيق هو مساعدتك على التحسن خطوة واحدة كل يوم بطريقة هادئة
+                وواضحة.
+            </p>
+            <p lang="en">
+                <strong>Khotwa</strong> is a simple self-improvement app that provides one daily challenge, along with
+                points, streaks, an achievement calendar, and motivational badges. Its goal is to help you improve one
+                small step each day in a calm and clear way.
+            </p>
+            <p lang="zh">
+                <strong>Khotwa</strong> 是一款简洁的自我提升应用，每天提供一个挑战，并包含积分、连续打卡、成就日历和激励徽章。应用的目标是帮助您以清晰、轻松的方式每天进步一小步。
+            </p>
+        </section>
 
-    <section>
-      <h2>11. تغييرات سياسة الخصوصية</h2>
-      <p>
-        قد يتم تحديث هذه السياسة عند إضافة ميزات جديدة أو تحسين طريقة توضيح الخصوصية. عند حدوث تغيير مهم، يمكن تحديث هذه الصفحة أو الإشارة إلى ذلك داخل التطبيق.
-      </p>
-    </section>
+        <section>
+            <h2 lang="ar">3. البيانات التي لا نجمعها</h2>
+            <h2 lang="en">3. Data We Do Not Collect</h2>
+            <h2 lang="zh">3. 我们不收集的数据</h2>
 
-    <section>
-      <h2>12. التواصل</h2>
-      <p>
-        لأي سؤال حول سياسة الخصوصية أو طريقة عمل التطبيق، يمكنك التواصل عبر البريد:
-      </p>
-      <a class="contact" href="mailto:Yirow.dev@gmail.com">Yirow.dev@gmail.com</a>
-    </section>
+            <p lang="ar">تطبيق خطوة لا يتطلب إنشاء حساب، ولا يطلب منك إدخال اسمك أو بريدك أو رقم هاتفك لاستخدام التطبيق.
+            </p>
+            <p lang="en">Khotwa does not require an account and does not ask you to enter your name, email address, or
+                phone number to use the app.</p>
+            <p lang="zh">Khotwa 不需要创建账户，也不会要求您输入姓名、电子邮箱或电话号码来使用应用。</p>
 
-    <footer>
-      © 2026 خطوة — جميع الحقوق محفوظة.
-    </footer>
-  </main>
+            <ul lang="ar">
+                <li>لا نجمع بيانات تعريف شخصية لاستخدام التطبيق الأساسي.</li>
+                <li>لا نبيع بيانات المستخدمين.</li>
+                <li>لا نستخدم تتبعاً إعلانياً داخل التطبيق.</li>
+                <li>لا يحتاج التطبيق إلى الإنترنت لتوليد التحديات أو حفظ تقدمك.</li>
+            </ul>
+            <ul lang="en">
+                <li>We do not collect personal identifiers for the core app experience.</li>
+                <li>We do not sell user data.</li>
+                <li>We do not use advertising tracking inside the app.</li>
+                <li>The app does not need the internet to generate challenges or save your progress.</li>
+            </ul>
+            <ul lang="zh">
+                <li>核心应用体验不会收集个人身份信息。</li>
+                <li>我们不会出售用户数据。</li>
+                <li>应用内不使用广告追踪。</li>
+                <li>应用无需联网即可生成挑战并保存您的进度。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 lang="ar">4. البيانات المحفوظة على جهازك</h2>
+            <h2 lang="en">4. Data Stored on Your Device</h2>
+            <h2 lang="zh">4. 存储在您设备上的数据</h2>
+
+            <p lang="ar">لحفظ تجربتك داخل التطبيق، يتم تخزين بعض البيانات محلياً على جهازك فقط، مثل:</p>
+            <p lang="en">To keep your in-app experience working, some data is stored locally on your device, such as:
+            </p>
+            <p lang="zh">为保持应用体验正常运行，部分数据仅会本地存储在您的设备上，例如：</p>
+
+            <ul lang="ar">
+                <li>حالة إكمال تحدي اليوم.</li>
+                <li>النقاط، السلسلة الحالية، وأطول سلسلة.</li>
+                <li>سجل التحديات المكتملة.</li>
+                <li>محور التركيز المختار.</li>
+                <li>إعدادات اللغة والمظهر.</li>
+                <li>إعدادات التذكير ووقت التذكير.</li>
+                <li>حالة مشاهدة نافذة "ما الجديد".</li>
+            </ul>
+            <ul lang="en">
+                <li>The completion status of today’s challenge.</li>
+                <li>Points, current streak, and longest streak.</li>
+                <li>Completed challenge history.</li>
+                <li>Your selected focus area.</li>
+                <li>Language and appearance settings.</li>
+                <li>Reminder settings and reminder time.</li>
+                <li>The viewed status of the “What’s New” dialog.</li>
+            </ul>
+            <ul lang="zh">
+                <li>今日挑战的完成状态。</li>
+                <li>积分、当前连续记录和最长连续记录。</li>
+                <li>已完成挑战记录。</li>
+                <li>您选择的专注方向。</li>
+                <li>语言和外观设置。</li>
+                <li>提醒设置和提醒时间。</li>
+                <li>“新增内容”窗口的查看状态。</li>
+            </ul>
+
+            <div class="note" lang="ar">
+                هذه البيانات تُستخدم لتشغيل ميزات التطبيق مثل شاشة اليوم، التقويم، إنجازاتي، الشارات، والإعدادات. حذف
+                بيانات التطبيق أو إلغاء تثبيته قد يؤدي إلى حذف هذا التقدم المحلي.
+            </div>
+            <div class="note" lang="en">
+                This data is used to power features such as Today, Calendar, Achievements, badges, and Settings.
+                Deleting the app data or uninstalling the app may delete this local progress.
+            </div>
+            <div class="note" lang="zh">
+                这些数据用于支持“今日”、日历、成就、徽章和设置等功能。删除应用数据或卸载应用可能会删除这些本地进度。
+            </div>
+        </section>
+
+        <section>
+            <h2 lang="ar">5. الإشعارات والتذكيرات</h2>
+            <h2 lang="en">5. Notifications and Reminders</h2>
+            <h2 lang="zh">5. 通知与提醒</h2>
+
+            <p lang="ar">يتيح لك التطبيق تفعيل تذكيرات محلية لمساعدتك على عدم نسيان تحدي اليوم. هذه الإشعارات تُدار على
+                جهازك، ويمكنك تفعيلها أو تعطيلها من شاشة الإعدادات في أي وقت.</p>
+            <p lang="en">The app lets you enable local reminders to help you remember today’s challenge. These
+                notifications are managed on your device, and you can enable or disable them from Settings at any time.
+            </p>
+            <p lang="zh">应用允许您启用本地提醒，帮助您记住每日挑战。这些通知由您的设备管理，您可以随时在设置中开启或关闭。</p>
+
+            <ul lang="ar">
+                <li>لا يتم طلب إذن الإشعارات أثناء التهيئة الأولى.</li>
+                <li>قد يظهر طلب ناعم لتفعيل التذكير بعد أول إنجاز.</li>
+                <li>يمكن تغيير وقت التذكير من الإعدادات عند تفعيل الإشعارات.</li>
+                <li>يمكنك تعطيل الإشعارات من داخل التطبيق أو من إعدادات النظام.</li>
+            </ul>
+            <ul lang="en">
+                <li>Notification permission is not requested during onboarding.</li>
+                <li>A gentle reminder prompt may appear after your first completion.</li>
+                <li>You can change the reminder time from Settings when reminders are enabled.</li>
+                <li>You can disable notifications from inside the app or from system settings.</li>
+            </ul>
+            <ul lang="zh">
+                <li>初始引导期间不会请求通知权限。</li>
+                <li>完成第一次挑战后，可能会显示温和的提醒启用提示。</li>
+                <li>启用提醒后，您可以在设置中更改提醒时间。</li>
+                <li>您可以在应用内或系统设置中关闭通知。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 lang="ar">6. إرسال الملاحظات عبر البريد</h2>
+            <h2 lang="en">6. Sending Feedback by Email</h2>
+            <h2 lang="zh">6. 通过电子邮件发送反馈</h2>
+
+            <p lang="ar">إذا اخترت إرسال ملاحظة من شاشة "عن التطبيق"، فقد يفتح التطبيق برنامج البريد الموجود على جهازك
+                مع قالب رسالة جاهز. لا يتم إرسال الرسالة تلقائياً من داخل التطبيق؛ أنت من يقرر إرسالها من تطبيق البريد.
+            </p>
+            <p lang="en">If you choose to send feedback from the “About” screen, the app may open your device’s email
+                app with a prepared message template. The message is not sent automatically from inside Khotwa; you
+                decide whether to send it from your email app.</p>
+            <p lang="zh">如果您在“关于”页面选择发送反馈，应用可能会打开您设备上的邮件应用，并填入准备好的邮件模板。邮件不会在 Khotwa 内自动发送；是否发送由您在邮件应用中决定。</p>
+
+            <p lang="ar">عند إرسال بريد إلكتروني، فإن محتوى رسالتك وعنوان بريدك قد يظهران لمستلم الرسالة ولمزوّد خدمة
+                البريد الذي تستخدمه. إذا تعذر فتح تطبيق البريد، قد يعرض التطبيق قالباً يمكنك نسخه يدوياً.</p>
+            <p lang="en">When you send an email, your message content and email address may be visible to the recipient
+                and to the email service provider you use. If the email app cannot be opened, Khotwa may show a template
+                that you can copy manually.</p>
+            <p lang="zh">发送电子邮件时，您的邮件内容和电子邮箱地址可能会被收件人以及您使用的邮件服务提供商看到。如果无法打开邮件应用，Khotwa 可能会显示一个可手动复制的模板。</p>
+        </section>
+
+        <section>
+            <h2 lang="ar">7. الروابط الخارجية</h2>
+            <h2 lang="en">7. External Links</h2>
+            <h2 lang="zh">7. 外部链接</h2>
+
+            <p lang="ar">قد يحتوي التطبيق على روابط خارجية، مثل رابط سياسة الخصوصية أو روابط فتح البريد. عند فتح رابط
+                خارجي، قد يغادر المستخدم التطبيق إلى المتصفح أو تطبيق آخر، وتخضع تلك الخدمات لسياسات الخصوصية الخاصة
+                بها.</p>
+            <p lang="en">The app may contain external links, such as the privacy policy link or email links. When you
+                open an external link, you may leave the app and use a browser or another app, which will be governed by
+                that service’s own privacy policy.</p>
+            <p lang="zh">应用可能包含外部链接，例如隐私政策链接或邮件链接。当您打开外部链接时，可能会离开本应用并使用浏览器或其他应用；这些服务受其自身隐私政策约束。</p>
+        </section>
+
+        <section>
+            <h2 lang="ar">8. عمل التطبيق دون إنترنت</h2>
+            <h2 lang="en">8. Offline Use</h2>
+            <h2 lang="zh">8. 离线使用</h2>
+
+            <p lang="ar">صُمم تطبيق خطوة ليعمل محلياً دون الحاجة إلى اتصال دائم بالإنترنت. مكتبة التحديات، التقدم،
+                التقويم، الشارات، والإعدادات تعمل داخل الجهاز. قد تحتاج فقط إلى الإنترنت عند فتح رابط خارجي أو إرسال
+                ملاحظة عبر البريد.</p>
+            <p lang="en">Khotwa is designed to work locally without requiring a constant internet connection. The
+                challenge library, progress, calendar, badges, and settings work on your device. Internet access may
+                only be needed when opening an external link or sending feedback by email.</p>
+            <p lang="zh">Khotwa 被设计为可在本地运行，不需要持续联网。挑战库、进度、日历、徽章和设置都在您的设备上运行。只有在打开外部链接或通过电子邮件发送反馈时，才可能需要互联网连接。</p>
+        </section>
+
+        <section>
+            <h2 lang="ar">9. مشاركة البيانات مع أطراف خارجية</h2>
+            <h2 lang="en">9. Sharing Data with Third Parties</h2>
+            <h2 lang="zh">9. 与第三方共享数据</h2>
+
+            <p lang="ar">لا يشارك تطبيق خطوة بيانات تقدمك المحلي مع أطراف خارجية. لا توجد مزامنة حسابية أو خادم خارجي
+                لتخزين تقدمك داخل التطبيق.</p>
+            <p lang="en">Khotwa does not share your local progress data with third parties. There is no account sync or
+                external server used to store your in-app progress.</p>
+            <p lang="zh">Khotwa 不会与第三方共享您的本地进度数据。应用不会使用账户同步或外部服务器来存储您的应用内进度。</p>
+
+            <p lang="ar">الاستثناء الوحيد هو ما تختار أنت إرساله يدوياً عبر البريد أو ما يحدث عند فتح روابط خارجية من
+                جهازك.</p>
+            <p lang="en">The only exception is what you choose to send manually by email or what happens when you open
+                external links from your device.</p>
+            <p lang="zh">唯一的例外是您选择通过电子邮件手动发送的内容，或您从设备打开外部链接时发生的情况。</p>
+        </section>
+
+        <section>
+            <h2 lang="ar">10. خصوصية الأطفال</h2>
+            <h2 lang="en">10. Children’s Privacy</h2>
+            <h2 lang="zh">10. 儿童隐私</h2>
+
+            <p lang="ar">التطبيق لا يطلب إنشاء حساب ولا يجمع معلومات شخصية مباشرة. إذا كنت ولي أمر وتعتقد أن طفلاً أرسل
+                معلومات شخصية عبر البريد أو وسيلة خارجية، يمكنك التواصل معنا لطلب المساعدة.</p>
+            <p lang="en">The app does not require an account and does not directly collect personal information. If you
+                are a parent or guardian and believe that a child sent personal information by email or through an
+                external method, you may contact us for assistance.</p>
+            <p lang="zh">本应用不需要创建账户，也不会直接收集个人信息。如果您是家长或监护人，并认为儿童通过电子邮件或外部方式发送了个人信息，可以联系我们寻求帮助。</p>
+        </section>
+
+        <section>
+            <h2 lang="ar">11. أمان البيانات</h2>
+            <h2 lang="en">11. Data Security</h2>
+            <h2 lang="zh">11. 数据安全</h2>
+
+            <p lang="ar">لأن بيانات التقدم محفوظة محلياً على جهازك، فإن أمانها يعتمد أيضاً على أمان جهازك ونظام التشغيل.
+                ننصح باستخدام قفل شاشة وتحديث نظام الجهاز بانتظام.</p>
+            <p lang="en">Because progress data is stored locally on your device, its security also depends on your
+                device and operating system security. We recommend using a screen lock and keeping your device updated.
+            </p>
+            <p lang="zh">由于进度数据本地存储在您的设备上，其安全性也取决于您的设备和操作系统安全。建议您使用屏幕锁并定期更新设备系统。</p>
+        </section>
+
+        <section>
+            <h2 lang="ar">12. تغييرات سياسة الخصوصية</h2>
+            <h2 lang="en">12. Changes to This Privacy Policy</h2>
+            <h2 lang="zh">12. 隐私政策变更</h2>
+
+            <p lang="ar">قد يتم تحديث هذه السياسة عند إضافة ميزات جديدة أو تحسين طريقة توضيح الخصوصية. عند حدوث تغيير
+                مهم، يمكن تحديث هذه الصفحة أو الإشارة إلى ذلك داخل التطبيق.</p>
+            <p lang="en">This policy may be updated when new features are added or when the privacy explanation is
+                improved. If an important change occurs, this page may be updated or the change may be mentioned inside
+                the app.</p>
+            <p lang="zh">当新增功能或改进隐私说明时，本政策可能会更新。如发生重要变更，本页面可能会更新，或在应用内进行说明。</p>
+        </section>
+
+        <footer>
+            <span lang="ar">© 2026 خطوة — جميع الحقوق محفوظة.</span>
+            <span lang="en">© 2026 Khotwa — All rights reserved.</span>
+            <span lang="zh">© 2026 Khotwa — 保留所有权利。</span>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function setLanguage(lang) {
+                document.body.classList.remove("ar-active", "en-active", "zh-active");
+                document.body.classList.add(lang + "-active");
+
+                document.documentElement.lang = lang;
+                document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+                document.querySelectorAll(".lang-btn").forEach(function (button) {
+                    button.classList.toggle("active", button.getAttribute("data-lang") === lang);
+                });
+
+                try {
+                    localStorage.setItem("khotwa_privacy_lang", lang);
+                } catch (_) { }
+            }
+
+            var savedLang = null;
+            try {
+                savedLang = localStorage.getItem("khotwa_privacy_lang");
+            } catch (_) { }
+
+            var browserLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+            var initialLang = savedLang || "ar";
+
+            if (!savedLang) {
+                if (browserLang.startsWith("zh")) {
+                    initialLang = "zh";
+                } else if (browserLang.startsWith("en")) {
+                    initialLang = "en";
+                }
+            }
+
+            if (!["ar", "en", "zh"].includes(initialLang)) {
+                initialLang = "ar";
+            }
+
+            setLanguage(initialLang);
+
+            document.querySelectorAll(".lang-btn").forEach(function (button) {
+                button.addEventListener("click", function () {
+                    setLanguage(button.getAttribute("data-lang"));
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>
