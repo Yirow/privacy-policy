@@ -18,7 +18,7 @@
             var savedLang = null;
 
             try {
-                savedLang = localStorage.getItem("khotwa_privacy_lang");
+                savedLang = localStorage.getItem("dailyup_privacy_lang");
             } catch (_) {}
 
             if (!["ar", "en"].includes(savedLang)) {
@@ -403,7 +403,7 @@
 <body>
 <main class="page content">
 <header>
-<div aria-label="Language switcher" class="lang-switch"><button aria-label="Switch language" class="lang-btn" data-lang="en" id="languageToggle" type="button">English</button></div>
+<div role="group" aria-label="Language switcher" class="lang-switch"><button aria-label="Switch language" class="lang-btn" data-lang="en" id="languageToggle" type="button">English</button></div>
 <div class="logo">
 <img alt="شعار تطبيق خطوة" src="dailyup-icon.png"/>
 </div>
@@ -415,16 +415,16 @@
                 مع تجربة محلية لا تتطلب حساباً أو اتصالاً دائماً بالإنترنت.
             </p>
 <p class="subtitle" lang="en">
-                This policy explains how the <strong>Khotwa</strong> app handles your data. The app is designed to be
+                This policy explains how the <strong>DailyUp</strong> app handles your data. The app is designed to be
                 simple and private, with a local experience that does not require an account or a constant internet
                 connection.
             </p>
 
-<div class="updated" dir="rtl" lang="ar">آخر تحديث: <bdi>19 مايو 2026</bdi></div>
-<div class="updated" dir="ltr" lang="en">Last updated: <bdi>May 19, 2026</bdi></div>
+<div class="updated" dir="rtl" lang="ar">آخر تحديث: <bdi>20 مايو 2026</bdi></div>
+<div class="updated" dir="ltr" lang="en">Last updated: <bdi>May 20, 2026</bdi></div>
 
 </header>
-<div aria-label="Privacy summary" class="summary">
+<div role="region" aria-label="Privacy summary" class="summary">
 <div class="summary-card">
 <strong lang="ar">لا حسابات</strong>
 <strong lang="en">No accounts</strong>
@@ -504,7 +504,7 @@
                 وواضحة.
             </p>
 <p lang="en">
-<strong>Khotwa</strong> is a simple self-improvement app that provides one daily challenge, along with
+<strong>DailyUp</strong> is a simple self-improvement app that provides one daily challenge, along with
                 points, streaks, an achievement calendar, and motivational badges. Its goal is to help you improve one
                 small step each day in a calm and clear way.
             </p>
@@ -516,7 +516,7 @@
 
 <p lang="ar">تطبيق خطوة لا يتطلب إنشاء حساب، ولا يطلب منك إدخال اسمك أو بريدك أو رقم هاتفك لاستخدام التطبيق.
             </p>
-<p lang="en">Khotwa does not require an account and does not ask you to enter your name, email address, or
+<p lang="en">DailyUp does not require an account and does not ask you to enter your name, email address, or
                 phone number to use the app.</p>
 
 <ul lang="ar">
@@ -587,12 +587,14 @@
 <li>لا يتم طلب إذن الإشعارات أثناء التهيئة الأولى.</li>
 <li>قد يظهر طلب ناعم لتفعيل التذكير بعد أول إنجاز.</li>
 <li>يمكن تغيير وقت التذكير من الإعدادات عند تفعيل الإشعارات.</li>
+<li>تعتمد التذكيرات على جدولة غير دقيقة مناسبة للتذكيرات اليومية، ولا يستخدم التطبيق صلاحية التنبيه الدقيق الحساسة.</li>
 <li>يمكنك تعطيل الإشعارات من داخل التطبيق أو من إعدادات النظام.</li>
 </ul>
 <ul lang="en">
 <li>Notification permission is not requested during onboarding.</li>
 <li>A gentle reminder prompt may appear after your first completion.</li>
 <li>You can change the reminder time from Settings when reminders are enabled.</li>
+<li>Reminders use inexact scheduling suitable for daily reminders, and the app does not use the sensitive exact alarm permission.</li>
 <li>You can disable notifications from inside the app or from system settings.</li>
 </ul>
 
@@ -605,14 +607,14 @@
                 يوفر تطبيق خطوة خيار "إرسال ملاحظة" داخل شاشة "حول التطبيق" لمساعدتك على إرسال اقتراح أو الإبلاغ عن مشكلة.
             </p>
 <p lang="en">
-                Khotwa provides a "Send Feedback" option inside the "About" screen to help you send a suggestion or report a problem.
+                DailyUp provides a "Send Feedback" option inside the "About" screen to help you send a suggestion or report a problem.
             </p>
 
 <p lang="ar">
                 عند استخدام هذا الخيار، يتم فتح تطبيق البريد الإلكتروني المثبت على جهازك مع قالب رسالة جاهز. لا يرسل تطبيق خطوة الملاحظة تلقائياً، ولا يتم إرسال أي شيء إلا إذا اخترت أنت إرسال البريد من تطبيق البريد.
             </p>
 <p lang="en">
-                When you use this option, the email app installed on your device opens with a prepared message template. Khotwa does not send the feedback automatically, and nothing is sent unless you choose to send the email from your email app.
+                When you use this option, the email app installed on your device opens with a prepared message template. DailyUp does not send the feedback automatically, and nothing is sent unless you choose to send the email from your email app.
             </p>
 
 <p lang="ar">
@@ -643,7 +645,7 @@
 
 <p lang="ar">لا يشارك تطبيق خطوة بيانات تقدمك المحلي مع أطراف خارجية. لا توجد مزامنة حسابية أو خادم خارجي
                 لتخزين تقدمك داخل التطبيق.</p>
-<p lang="en">Khotwa does not share your local progress data with third parties. There is no account sync or
+<p lang="en">DailyUp does not share your local progress data with third parties. There is no account sync or
                 external server used to store your in-app progress.</p>
 
 <p lang="ar">الاستثناء الوحيد هو ما تختار أنت إرساله يدوياً عبر البريد أو ما يحدث عند فتح روابط خارجية من
@@ -687,7 +689,7 @@
 </section>
 <footer>
 <span dir="rtl" lang="ar">جميع الحقوق محفوظة © <bdi>2026</bdi> خطوة.</span>
-<span dir="ltr" lang="en">© <bdi>2026</bdi> Khotwa — All rights reserved.</span>
+<span dir="ltr" lang="en">© <bdi>2026</bdi> DailyUp — All rights reserved.</span>
 
 </footer>
 </main>
@@ -723,13 +725,13 @@
                 }
 
                 try {
-                    localStorage.setItem("khotwa_privacy_lang", lang);
+                    localStorage.setItem("dailyup_privacy_lang", lang);
                 } catch (_) { }
             }
 
             let savedLang = null;
             try {
-                savedLang = localStorage.getItem("khotwa_privacy_lang");
+                savedLang = localStorage.getItem("dailyup_privacy_lang");
             } catch (_) { }
 
             if (!["ar", "en"].includes(savedLang)) {
