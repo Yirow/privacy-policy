@@ -5,8 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>سياسة الخصوصية | واعي</title>
-    <meta name="description"
-        content="سياسة الخصوصية لتطبيق واعي: تطبيق يساعدك على فهم استخدامك للهاتف، وضع حدود، حجب التطبيقات المشتتة، وجلسات التركيز. البيانات محفوظة محلياً على جهازك." />
+    <meta name="description" content="سياسة الخصوصية لتطبيق واعي: تطبيق يساعدك على فهم استخدامك للهاتف، وضع حدود، حجب التطبيقات المشتتة، وجلسات التركيز. البيانات محفوظة محلياً على جهازك." />
     <style>
         :root {
             --bg: #f7f3ec;
@@ -221,7 +220,7 @@
             <p class="meta" data-ar>تاريخ آخر تحديث: <bdi>16 مايو 2026</bdi></p>
             <p class="meta" data-en dir="ltr">Last updated: May 16, 2026</p>
 
-            <div class="lang-switch" aria-label="Language selector">
+            <div class="lang-switch">
                 <button type="button" id="languageToggle" data-target-lang="en">English</button>
             </div>
         </header>
@@ -231,7 +230,7 @@
         <section data-ar>
             <div class="card positive">
                 <p><strong>ملخص مبسط</strong></p>
-                <p>اسم التطبيق: واعي<br>اسم المطوّر: يِرُر</p>
+                <p>اسم التطبيق: واعي - وقت الشاشة والتركيز<br>اسم المطوّر: يِرُر</p>
                 <p>تطبيق واعي مصمم وفق مبدأ "الخصوصية أولاً".</p>
                 <p>جميع بيانات استخدام التطبيقات، والحدود، وجلسات التركيز، وإعدادات الاستخدام يتم معالجتها وتخزينها
                     محلياً على جهازك، ولا يتم إرسالها إلى خوادم خارجية في النسخة الحالية من التطبيق.</p>
@@ -386,7 +385,7 @@
         <section data-en dir="ltr">
             <div class="card positive">
                 <p><strong>Plain-language summary</strong></p>
-                <p>App name: Aware<br>Developer name: Yirow</p>
+                <p>App name: Aware - Screen Time & Focus<br>Developer name: Yirow</p>
                 <p>Aware is designed with a "privacy-first" approach.</p>
                 <p>All app usage data, limits, focus sessions, and app settings and usage preferences are processed and
                     stored locally on your device, and are not sent to external servers in the current version of the
@@ -557,7 +556,7 @@
     </main>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const appName = document.getElementById("appName");
             const languageToggle = document.getElementById("languageToggle");
 
@@ -591,7 +590,7 @@
             }
 
             if (languageToggle) {
-                languageToggle.addEventListener("click", function () {
+                languageToggle.addEventListener("click", function() {
                     applyLanguage(this.getAttribute("data-target-lang"));
                 });
             }
