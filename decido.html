@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html class="ar-active" dir="rtl" lang="ar">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سياسة الخصوصية — احسم</title>
+  <meta name="description" content="سياسة الخصوصية لتطبيق احسم — مساعد قرار شخصي يعمل محليًا بدون حسابات أو تتبع." />
+  <script>
+    (function () {
+      const titles = {
+        ar: "سياسة الخصوصية — احسم",
+        en: "Privacy Policy — Decido"
+      };
+
+      let savedLang = null;
+      try { savedLang = localStorage.getItem("decido_privacy_lang"); } catch (_) { }
+      if (!["ar", "en"].includes(savedLang)) savedLang = null;
+
+      const browserLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+      const lang = savedLang || (browserLang.startsWith("ar") ? "ar" : "en");
+
+      document.documentElement.classList.remove("ar-active", "en-active");
+      document.documentElement.classList.add(lang + "-active");
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+      document.title = titles[lang] || titles.en;
+      window.__privacyLang = lang;
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: #f5f8f6;
+      --card: #ffffff;
+      --text: #1f2933;
+      --muted: #667085;
+      --green: #2f9d6a;
+      --green-dark: #1f7a50;
+      --green-soft: #eaf6f0;
+      --border: #dbe7df;
+      --shadow: 0 18px 45px rgba(31, 122, 80, 0.08);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top right, rgba(47, 157, 106, 0.16), transparent 32rem),
+        linear-gradient(180deg, #fbfdfc 0%, var(--bg) 100%);
+      color: var(--text);
+      font-family: "Cairo", "Tajawal", "Noto Kufi Arabic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.9;
+    }
+
+    html.en-active body {
+      font-family: "Inter", "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    .page {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 56px;
+    }
+
+    header {
+      text-align: center;
+      padding: 38px 24px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(47, 157, 106, 0.24);
+      border-radius: calc(var(--radius) + 10px);
+      background:
+        linear-gradient(135deg, rgba(234, 246, 240, 0.96), rgba(255, 255, 255, 0.92)),
+        var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .lang-switch {
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 0 24px auto;
+      padding: 6px;
+      display: flex;
+      gap: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(47, 157, 106, 0.22);
+    }
+
+    html.ar-active .lang-switch {
+      margin-right: 0;
+      margin-left: auto;
+    }
+
+    html.en-active .lang-switch {
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    .lang-btn {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      min-width: 112px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 0.92rem;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .lang-btn.active {
+      color: white;
+      background: var(--green);
+      box-shadow: 0 8px 20px rgba(47, 157, 106, 0.22);
+    }
+
+    .logo {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 14px;
+      display: block;
+      border-radius: 22px;
+      object-fit: contain;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: -0.04em;
+      line-height: 1.25;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 12px auto 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .updated {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 8px 14px;
+      color: var(--green-dark);
+      background: rgba(47, 157, 106, 0.12);
+      border: 1px solid rgba(47, 157, 106, 0.24);
+      border-radius: 999px;
+      font-size: 0.94rem;
+      unicode-bidi: isolate;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .summary-card,
+    section {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 28px rgba(31, 122, 80, 0.035);
+    }
+
+    .summary-card {
+      padding: 18px;
+      text-align: center;
+    }
+
+    .summary-card strong {
+      display: block;
+      color: var(--green);
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .summary-card span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    section {
+      padding: 24px;
+      margin: 18px 0;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #17212b;
+    }
+
+    p {
+      margin: 0 0 12px;
+      color: #344054;
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-inline-start: 1.2rem;
+    }
+
+    li {
+      margin: 8px 0;
+      color: #344054;
+    }
+
+    .note {
+      padding: 16px 18px;
+      margin-top: 14px;
+      border-radius: 18px;
+      background: rgba(47, 157, 106, 0.10);
+      border: 1px solid rgba(47, 157, 106, 0.20);
+      color: #245c41;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .info-item {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(47, 157, 106, 0.08);
+      border: 1px solid rgba(47, 157, 106, 0.16);
+    }
+
+    .info-item strong {
+      display: block;
+      color: var(--green);
+      margin-bottom: 2px;
+      font-size: 0.95rem;
+    }
+
+    .info-item span {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      margin-top: 8px;
+      border-radius: 999px;
+      color: var(--green-dark);
+      background: var(--green-soft);
+      border: 1px solid rgba(47, 157, 106, 0.28);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 28px;
+      font-size: 0.95rem;
+    }
+
+    a {
+      color: var(--green-dark);
+    }
+
+    html.ar-active .content [lang="en"] {
+      display: none !important;
+    }
+
+    html.en-active .content [lang="ar"] {
+      display: none !important;
+    }
+
+    html.ar-active .page {
+      direction: rtl;
+    }
+
+    html.en-active .page {
+      direction: ltr;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 22px, 960px);
+        padding-top: 20px;
+      }
+
+      header {
+        padding: 30px 18px;
+      }
+
+      .summary,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      .lang-btn {
+        min-width: 112px;
+        padding: 9px 14px;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101513;
+        --card: #18201c;
+        --text: #edf7f1;
+        --muted: #b5c3bb;
+        --border: #293a32;
+        --green-soft: rgba(47, 157, 106, 0.16);
+        --shadow: 0 18px 45px rgba(0, 0, 0, 0.30);
+      }
+
+      body {
+        background:
+          radial-gradient(circle at top right, rgba(47, 157, 106, 0.12), transparent 32rem),
+          linear-gradient(180deg, #121a16 0%, var(--bg) 100%);
+      }
+
+      header,
+      .summary-card,
+      section {
+        background: rgba(24, 32, 28, 0.92);
+      }
+
+      .lang-switch {
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      h2,
+      p,
+      li,
+      .info-item span {
+        color: var(--text);
+      }
+
+      .note {
+        color: #cfeade;
+      }
+
+      .contact {
+        color: #e6fff2;
+      }
+
+      .logo {
+        color: #d9ffea;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page content">
+    <header>
+      <div role="group" aria-label="Language switcher" class="lang-switch">
+        <button aria-label="Switch language" class="lang-btn" data-lang="en" id="languageToggle"
+          type="button">English</button>
+      </div>
+      <img class="logo" src="decido_icon.png" alt="Decido Logo" aria-hidden="true" />
+      <h1 lang="ar">سياسة الخصوصية</h1>
+      <h1 lang="en">Privacy Policy</h1>
+
+      <p class="subtitle" lang="ar">
+        توضّح هذه السياسة كيف يتعامل تطبيق <strong>احسم</strong> مع بياناتك. صُمم التطبيق ليعمل محليًا على جهازك، بدون
+        حسابات أو تتبع أو تخزين سحابي.
+      </p>
+      <p class="subtitle" lang="en">
+        This policy explains how the <strong>Decido</strong> app handles your data. The app is designed to work locally
+        on your device, without accounts, tracking, or cloud storage.
+      </p>
+
+      <div class="updated" dir="rtl" lang="ar">آخر تحديث: <bdi>7 يونيو 2026</bdi></div>
+      <div class="updated" dir="ltr" lang="en">Last updated: <bdi>June 7, 2026</bdi></div>
+    </header>
+
+    <div role="region" aria-label="Privacy summary" class="summary">
+      <div class="summary-card">
+        <strong lang="ar">لا حسابات</strong>
+        <strong lang="en">No accounts</strong>
+        <span lang="ar">لا تحتاج إلى تسجيل دخول أو إنشاء حساب.</span>
+        <span lang="en">No sign-in or account creation is required.</span>
+      </div>
+      <div class="summary-card">
+        <strong lang="ar">بيانات محلية</strong>
+        <strong lang="en">Local data</strong>
+        <span lang="ar">قراراتك وإعداداتك محفوظة على جهازك.</span>
+        <span lang="en">Your decisions and settings are stored on your device.</span>
+      </div>
+      <div class="summary-card">
+        <strong lang="ar">لا تتبع</strong>
+        <strong lang="en">No tracking</strong>
+        <span lang="ar">لا نستخدم بياناتك للإعلانات أو التحليلات.</span>
+        <span lang="en">We do not use your data for ads or analytics.</span>
+      </div>
+    </div>
+
+    <section>
+      <h2 lang="ar">1. معلومات التطبيق والمطور</h2>
+      <h2 lang="en">1. App and Developer Information</h2>
+      <p lang="ar">يوضح هذا القسم المعلومات الأساسية الخاصة بالتطبيق والمطور المسؤول عنه.</p>
+      <p lang="en">This section provides the basic information about the app and its developer.</p>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <strong lang="ar">اسم التطبيق</strong>
+          <strong lang="en">App name</strong>
+          <span lang="ar">احسم</span>
+          <span lang="en">Decido</span>
+        </div>
+        <div class="info-item">
+          <strong lang="ar">نوع التطبيق</strong>
+          <strong lang="en">App type</strong>
+          <span lang="ar">مساعد قرار شخصي</span>
+          <span lang="en">Personal decision assistant</span>
+        </div>
+        <div class="info-item">
+          <strong lang="ar">اسم المطور</strong>
+          <strong lang="en">Developer name</strong>
+          <span lang="ar">Yirow</span>
+          <span lang="en">Yirow</span>
+        </div>
+        <div class="info-item">
+          <strong lang="ar">البريد الإلكتروني للتواصل</strong>
+          <strong lang="en">Contact email</strong>
+          <span>Yirow.dev@gmail.com</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 lang="ar">2. من نحن</h2>
+      <h2 lang="en">2. About the App</h2>
+      <p lang="ar"><strong>احسم</strong> هو تطبيق يساعدك على مقارنة الخيارات واتخاذ قراراتك اليومية بوضوح، من خلال
+        معايير وأوزان ونتيجة مرتبة، مع إمكانية حفظ القرارات محليًا والرجوع إليها لاحقًا.</p>
+      <p lang="en"><strong>Decido</strong> helps you compare options and make everyday decisions more clearly using
+        criteria, weights, and ranked results, with the ability to save decisions locally and review them later.</p>
+    </section>
+
+    <section>
+      <h2 lang="ar">3. البيانات التي لا نجمعها</h2>
+      <h2 lang="en">3. Data We Do Not Collect</h2>
+      <p lang="ar">لا يتطلب تطبيق احسم إنشاء حساب، ولا يطلب منك إدخال اسمك أو بريدك أو رقم هاتفك لاستخدام التطبيق.</p>
+      <p lang="en">Decido does not require an account and does not ask you to enter your name, email address, or phone
+        number to use the app.</p>
+      <ul lang="ar">
+        <li>لا نجمع بيانات تعريف شخصية لاستخدام التطبيق الأساسي.</li>
+        <li>لا نبيع بيانات المستخدمين.</li>
+        <li>لا نستخدم تتبعًا إعلانيًا أو تحليلات داخل التطبيق.</li>
+        <li>لا نستخدم خادمًا خارجيًا لتخزين قراراتك.</li>
+      </ul>
+      <ul lang="en">
+        <li>We do not collect personal identifiers for the core app experience.</li>
+        <li>We do not sell user data.</li>
+        <li>We do not use advertising tracking or in-app analytics.</li>
+        <li>We do not use an external server to store your decisions.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 lang="ar">4. البيانات المحفوظة على جهازك</h2>
+      <h2 lang="en">4. Data Stored on Your Device</h2>
+      <p lang="ar">لحفظ تجربتك داخل التطبيق، يتم تخزين بيانات التطبيق محليًا على جهازك فقط، مثل:</p>
+      <p lang="en">To keep your in-app experience working, app data is stored locally on your device only, such as:</p>
+      <ul lang="ar">
+        <li>القرارات المحفوظة، الخيارات، المعايير، الأوزان، والنتائج.</li>
+        <li>الملاحظات الاختيارية المرتبطة بالقرارات.</li>
+        <li>حالة الأرشفة وتاريخها عند استخدام الأرشفة.</li>
+        <li>عملة القرار كقيمة عرض فقط، دون تحويل أسعار.</li>
+        <li>المسودات غير المكتملة لاستعادة آخر قرار لم يكتمل.</li>
+        <li>إعدادات اللغة، المظهر، والعملة الافتراضية للقرارات الجديدة.</li>
+      </ul>
+      <ul lang="en">
+        <li>Saved decisions, options, criteria, weights, and results.</li>
+        <li>Optional notes attached to decisions.</li>
+        <li>Archive status and archive date when archiving is used.</li>
+        <li>The decision currency as a display value only, without currency conversion.</li>
+        <li>Incomplete drafts used to restore the last unfinished decision.</li>
+        <li>Language, appearance, and default currency settings for new decisions.</li>
+      </ul>
+      <div class="note" lang="ar">حذف بيانات التطبيق أو إلغاء تثبيته قد يؤدي إلى حذف القرارات والإعدادات المحفوظة
+        محليًا.</div>
+      <div class="note" lang="en">Deleting the app data or uninstalling the app may delete locally saved decisions and
+        settings.</div>
+    </section>
+
+    <section>
+      <h2 lang="ar">5. الإشعارات والتذكيرات</h2>
+      <h2 lang="en">5. Notifications and Reminders</h2>
+      <p lang="ar">يتيح لك التطبيق تعيين تذكير محلي لمراجعة قرار لاحقًا. يتم إنشاء هذه الإشعارات وإدارتها على جهازك.</p>
+      <p lang="en">The app lets you set local reminders to review a decision later. These notifications are created and
+        managed on your device.</p>
+      <ul lang="ar">
+        <li>لا يُطلب إذن الإشعارات إلا عند إضافة تذكير لقرار.</li>
+        <li>يمكنك إلغاء التذكير أو تعيين تذكير جديد من داخل التطبيق.</li>
+        <li>عند حذف قرار، يتم إلغاء التذكير المرتبط به إن وجد.</li>
+        <li>عند استيراد نسخة احتياطية، لا تتم استعادة التذكيرات كإشعارات مجدولة تلقائيًا.</li>
+      </ul>
+      <ul lang="en">
+        <li>Notification permission is requested only when you add a reminder to a decision.</li>
+        <li>You can cancel or reschedule a reminder from inside the app.</li>
+        <li>When a decision is deleted, its associated reminder is canceled if one exists.</li>
+        <li>When importing a backup, reminders are not automatically restored as scheduled notifications.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 lang="ar">6. المشاركة والتصدير والنسخ الاحتياطي</h2>
+      <h2 lang="en">6. Sharing, Export, and Backup</h2>
+      <p lang="ar">يوفر التطبيق خيارات محلية لمشاركة أو تصدير قراراتك عند اختيارك ذلك.</p>
+      <p lang="en">The app provides local options to share or export your decisions when you choose to do so.</p>
+      <ul lang="ar">
+        <li>يمكن مشاركة نتيجة القرار كنص أو صورة عبر نظام المشاركة في جهازك.</li>
+        <li>تضمين ملاحظة القرار في المشاركة اختياري ومغلق افتراضيًا.</li>
+        <li>يمكن تصدير قرار واحد كـ PDF أو JSON.</li>
+        <li>يمكن تصدير نسخة احتياطية JSON واستيرادها لاحقًا داخل التطبيق.</li>
+        <li>عند الاستيراد، يتم فحص إصدار الملف وبنيته قبل حفظ أي بيانات.</li>
+        <li>يتم تخطي القرارات المكررة، واستبعاد المسودات غير المكتملة، وعدم استيراد التذكيرات كإشعارات مجدولة.</li>
+      </ul>
+      <ul lang="en">
+        <li>You can share a decision result as text or an image using your device’s share system.</li>
+        <li>Including the decision note in sharing is optional and turned off by default.</li>
+        <li>You can export a single decision as PDF or JSON.</li>
+        <li>You can export a JSON backup and import it later inside the app.</li>
+        <li>When importing, the file version and structure are checked before any data is saved.</li>
+        <li>Duplicate decisions are skipped, incomplete drafts are excluded, and reminders are not imported as scheduled
+          notifications.</li>
+      </ul>
+      <div class="note" lang="ar">ملفات المشاركة والتصدير تُنشأ محليًا داخل مساحة التطبيق أو عبر نظام جهازك. يتحكم
+        المستخدم في مكان حفظها أو مشاركتها.</div>
+      <div class="note" lang="en">Share and export files are created locally within the app space or through your device
+        system. You control where they are saved or shared.</div>
+    </section>
+
+    <section>
+      <h2 lang="ar">7. الصلاحيات والوصول للملفات</h2>
+      <h2 lang="en">7. Permissions and File Access</h2>
+      <p lang="ar">قد يستخدم التطبيق منتقي ملفات النظام عندما تختار استيراد نسخة احتياطية JSON. يمنح منتقي النظام
+        التطبيق وصولًا مؤقتًا إلى الملف الذي تختاره فقط.</p>
+      <p lang="en">The app may use the system file picker when you choose to import a JSON backup. The system picker
+        gives the app temporary access only to the file you select.</p>
+      <ul lang="ar">
+        <li>لا يحتاج التطبيق إلى صلاحيات تخزين واسعة لاستيراد ملف تختاره بنفسك.</li>
+        <li>لا يقرأ التطبيق ملفات أخرى من جهازك دون اختيارك.</li>
+        <li>قد يحتاج التطبيق إلى إذن الإشعارات فقط عند إضافة تذكير.</li>
+      </ul>
+      <ul lang="en">
+        <li>The app does not require broad storage permissions to import a file you choose.</li>
+        <li>The app does not read other files from your device without your selection.</li>
+        <li>The app may need notification permission only when you add a reminder.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 lang="ar">8. مشاركة البيانات مع أطراف خارجية</h2>
+      <h2 lang="en">8. Sharing Data with Third Parties</h2>
+      <p lang="ar">لا يشارك تطبيق احسم قراراتك أو بياناتك المحلية مع أطراف خارجية. لا توجد مزامنة حسابية أو خادم خارجي
+        لتخزين قراراتك داخل التطبيق.</p>
+      <p lang="en">Decido does not share your decisions or local data with third parties. There is no account sync or
+        external server used to store your in-app decisions.</p>
+      <p lang="ar">الاستثناء الوحيد هو ما تختار أنت مشاركته أو تصديره أو إرساله يدويًا باستخدام تطبيقات أو خدمات خارجية
+        على جهازك.</p>
+      <p lang="en">The only exception is what you choose to share, export, or send manually using external apps or
+        services on your device.</p>
+    </section>
+
+    <section>
+      <h2 lang="ar">9. حذف البيانات</h2>
+      <h2 lang="en">9. Deleting Data</h2>
+      <p lang="ar">يمكنك حذف قرار واحد أو حذف جميع القرارات من داخل التطبيق. عند حذف جميع القرارات، يتم حذف القرارات
+        النشطة والمؤرشفة وأي مسودات غير مكتملة، ولا يؤثر ذلك على إعدادات اللغة أو المظهر.</p>
+      <p lang="en">You can delete a single decision or delete all decisions from inside the app. When deleting all
+        decisions, active and archived decisions and any incomplete drafts are deleted, while language and appearance
+        settings are not affected.</p>
+      <p lang="ar">عند وجود عدد كبير من القرارات، قد يطلب التطبيق كتابة كلمة تأكيد لتقليل خطر الحذف بالخطأ.</p>
+      <p lang="en">When there are many decisions, the app may ask you to type a confirmation word to reduce the risk of
+        accidental deletion.</p>
+    </section>
+
+    <section>
+      <h2 lang="ar">10. خصوصية الأطفال</h2>
+      <h2 lang="en">10. Children’s Privacy</h2>
+      <p lang="ar">التطبيق لا يطلب إنشاء حساب ولا يجمع معلومات شخصية مباشرة. إذا كنت ولي أمر وتعتقد أن طفلاً أرسل
+        معلومات شخصية عبر وسيلة خارجية، يمكنك التواصل معنا لطلب المساعدة.</p>
+      <p lang="en">The app does not require an account and does not directly collect personal information. If you are a
+        parent or guardian and believe that a child sent personal information through an external method, you may
+        contact us for assistance.</p>
+    </section>
+
+    <section>
+      <h2 lang="ar">11. أمان البيانات</h2>
+      <h2 lang="en">11. Data Security</h2>
+      <p lang="ar">لأن بياناتك محفوظة محليًا على جهازك، فإن أمانها يعتمد أيضًا على أمان جهازك ونظام التشغيل. ننصح
+        باستخدام قفل شاشة وتحديث نظام الجهاز بانتظام.</p>
+      <p lang="en">Because your data is stored locally on your device, its security also depends on your device and
+        operating system security. We recommend using a screen lock and keeping your device updated.</p>
+    </section>
+
+    <section>
+      <h2 lang="ar">12. تغييرات سياسة الخصوصية</h2>
+      <h2 lang="en">12. Changes to This Privacy Policy</h2>
+      <p lang="ar">قد يتم تحديث هذه السياسة عند إضافة ميزات جديدة أو تحسين طريقة توضيح الخصوصية. عند حدوث تغيير مهم،
+        يمكن تحديث هذه الصفحة أو الإشارة إلى ذلك داخل التطبيق.</p>
+      <p lang="en">This policy may be updated when new features are added or when the privacy explanation is improved.
+        If an important change occurs, this page may be updated or the change may be mentioned inside the app.</p>
+    </section>
+
+    <footer>
+      <span dir="rtl" lang="ar">جميع الحقوق محفوظة © <bdi>2026</bdi> احسم.</span>
+      <span dir="ltr" lang="en">© <bdi>2026</bdi> Decido — All rights reserved.</span>
+    </footer>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const titles = {
+        ar: "سياسة الخصوصية — احسم",
+        en: "Privacy Policy — Decido"
+      };
+
+      const toggleButton = document.getElementById("languageToggle");
+
+      function setLanguage(lang) {
+        if (!["ar", "en"].includes(lang)) lang = "en";
+
+        document.documentElement.classList.remove("ar-active", "en-active");
+        document.documentElement.classList.add(lang + "-active");
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+        document.title = titles[lang] || titles.en;
+
+        if (toggleButton) {
+          const nextLang = lang === "ar" ? "en" : "ar";
+          toggleButton.setAttribute("data-lang", nextLang);
+          toggleButton.textContent = lang === "ar" ? "English" : "العربية";
+          toggleButton.classList.add("active");
+          toggleButton.setAttribute("aria-label", lang === "ar" ? "Switch to English" : "التبديل إلى العربية");
+        }
+
+        try { localStorage.setItem("decido_privacy_lang", lang); } catch (_) { }
+      }
+
+      let savedLang = null;
+      try { savedLang = localStorage.getItem("decido_privacy_lang"); } catch (_) { }
+      if (!["ar", "en"].includes(savedLang)) savedLang = null;
+
+      const browserLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+      const initialLang = window.__privacyLang || savedLang || (browserLang.startsWith("ar") ? "ar" : "en");
+      setLanguage(initialLang);
+
+      if (toggleButton) {
+        toggleButton.addEventListener("click", function () {
+          setLanguage(toggleButton.getAttribute("data-lang"));
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
