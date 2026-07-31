@@ -1,1 +1,756 @@
+<!DOCTYPE html>
 
+<html class="ar-active" dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>سياسة الخصوصية — خطوة</title>
+<meta content="سياسة الخصوصية لتطبيق خطوة — DailyUp. تطبيق تحدي يومي يعمل محلياً دون حساب أو إنترنت." name="description"/>
+<link href="dailyup-icon.png" rel="icon" type="image/png"/>
+<link href="dailyup-icon.png" rel="apple-touch-icon"/>
+<script>
+        (function () {
+            var titles = {
+                ar: "سياسة الخصوصية — خطوة",
+                en: "Privacy Policy — DailyUp"
+            };
+
+            var savedLang = null;
+
+            try {
+                savedLang = localStorage.getItem("dailyup_privacy_lang");
+            } catch (_) {}
+
+            if (!["ar", "en"].includes(savedLang)) {
+                savedLang = null;
+            }
+
+            var browserLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+            var lang = savedLang || (browserLang.startsWith("ar") ? "ar" : "en");
+
+            document.documentElement.classList.remove("ar-active", "en-active");
+            document.documentElement.classList.add(lang + "-active");
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+            document.title = titles[lang] || titles.en;
+
+            window.__privacyLang = lang;
+        })();
+    </script>
+<style>
+        :root {
+            --bg: #f7f7f8;
+            --card: #ffffff;
+            --text: #1f1f1f;
+            --muted: #6f6f6f;
+            --gold: #d4af37;
+            --gold-soft: #fff6d8;
+            --border: #e7e2d5;
+            --shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+            --radius: 22px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at top right, rgba(212, 175, 55, 0.16), transparent 32rem),
+                linear-gradient(180deg, #fbfbfc 0%, var(--bg) 100%);
+            color: var(--text);
+            font-family: "Cairo", "Tajawal", "Noto Kufi Arabic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.9;
+        }
+
+        html.en-active body {
+            font-family: "Inter", "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .page {
+            width: min(960px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 40px 0 56px;
+        }
+
+        header {
+            text-align: center;
+            padding: 38px 24px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            border-radius: calc(var(--radius) + 10px);
+            background:
+                linear-gradient(135deg, rgba(255, 248, 223, 0.96), rgba(255, 255, 255, 0.9)),
+                var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .lang-switch {
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 0 24px auto;
+            padding: 6px;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            gap: 6px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.62);
+            border: 1px solid rgba(212, 175, 55, 0.26);
+        }
+
+        .lang-btn {
+            border: 0;
+            background: transparent;
+            color: var(--muted);
+            min-width: 112px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 0.92rem;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .lang-btn.active {
+            color: #1f1f1f;
+            background: var(--gold);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.22);
+        }
+
+        .logo {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 14px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--gold-soft);
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 82px;
+            height: 82px;
+            object-fit: contain;
+            display: block;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: -0.04em;
+            line-height: 1.25;
+        }
+
+        .subtitle {
+            max-width: 720px;
+            margin: 12px auto 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            padding: 8px 14px;
+            color: #7c6517;
+            background: rgba(212, 175, 55, 0.14);
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            border-radius: 999px;
+            font-size: 0.94rem;
+        }
+
+        .updated,
+        footer span {
+            unicode-bidi: isolate;
+        }
+
+        .updated[dir="rtl"],
+        footer span[dir="rtl"] {
+            direction: rtl;
+        }
+
+        .updated[dir="ltr"],
+        footer span[dir="ltr"] {
+            direction: ltr;
+        }
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin: 24px 0;
+        }
+
+        .summary-card,
+        section {
+            background: rgba(255, 255, 255, 0.86);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.035);
+        }
+
+        .summary-card {
+            padding: 18px;
+            text-align: center;
+        }
+
+        .summary-card strong {
+            display: block;
+            color: var(--gold);
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+
+        .summary-card span {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        section {
+            padding: 24px;
+            margin: 18px 0;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: 1.35rem;
+            line-height: 1.35;
+            color: #222;
+        }
+
+        p {
+            margin: 0 0 12px;
+            color: #3d3d3d;
+        }
+
+        ul {
+            margin: 8px 0 0;
+            padding-inline-start: 1.2rem;
+        }
+
+        li {
+            margin: 8px 0;
+            color: #3d3d3d;
+        }
+
+        .note {
+            padding: 16px 18px;
+            margin-top: 14px;
+            border-radius: 18px;
+            background: rgba(212, 175, 55, 0.10);
+            border: 1px solid rgba(212, 175, 55, 0.22);
+            color: #4b421f;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .info-item {
+            padding: 14px 16px;
+            border-radius: 18px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--gold);
+            margin-bottom: 2px;
+            font-size: 0.95rem;
+        }
+
+        .info-item span {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            margin-top: 8px;
+            border-radius: 999px;
+            color: #1f1f1f;
+            background: var(--gold-soft);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            margin-top: 28px;
+            font-size: 0.95rem;
+        }
+
+        a {
+            color: #9a7a13;
+        }
+
+        html.ar-active .content [lang="en"] {
+            display: none !important;
+        }
+
+        html.en-active .content [lang="ar"] {
+            display: none !important;
+        }
+
+        html.ar-active .page {
+            direction: rtl;
+        }
+
+        html.en-active .page {
+            direction: ltr;
+        }
+
+
+        html.ar-active .lang-switch {
+            margin-right: 0;
+            margin-left: auto;
+        }
+
+        html.en-active .lang-switch {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        @media (max-width: 760px) {
+            .page {
+                width: min(100% - 22px, 960px);
+                padding-top: 20px;
+            }
+
+            header {
+                padding: 30px 18px;
+            }
+
+            .summary,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .lang-switch {
+                border-radius: 999px;
+            }
+
+            .lang-btn {
+                min-width: 112px;
+                padding: 9px 14px;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #121212;
+                --card: #1b1b1b;
+                --text: #f3f0e8;
+                --muted: #b7b2a8;
+                --border: #343024;
+                --gold-soft: rgba(212, 175, 55, 0.14);
+                --shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+            }
+
+            body {
+                background:
+                    radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 32rem),
+                    linear-gradient(180deg, #171717 0%, var(--bg) 100%);
+            }
+
+            header,
+            .summary-card,
+            section {
+                background: rgba(27, 27, 27, 0.9);
+            }
+
+            .lang-switch {
+                background: rgba(255, 255, 255, 0.04);
+            }
+
+            h2,
+            p,
+            li,
+            .contact,
+            .info-item span {
+                color: var(--text);
+            }
+
+            .note {
+                color: #efe2aa;
+            }
+        }
+    </style>
+</head>
+<body>
+<main class="page content">
+<header>
+<div role="group" aria-label="Language switcher" class="lang-switch"><button aria-label="Switch language" class="lang-btn" data-lang="en" id="languageToggle" type="button">English</button></div>
+<div class="logo">
+<img alt="شعار تطبيق خطوة" src="dailyup-icon.png"/>
+</div>
+<h1 lang="ar">سياسة الخصوصية</h1>
+<h1 lang="en">Privacy Policy</h1>
+
+<p class="subtitle" lang="ar">
+                هذه السياسة توضّح كيف يتعامل تطبيق <strong>خطوة</strong> مع بياناتك. صُمم التطبيق ليعمل ببساطة وخصوصية،
+                مع تجربة محلية لا تتطلب حساباً أو اتصالاً دائماً بالإنترنت.
+            </p>
+<p class="subtitle" lang="en">
+                This policy explains how the <strong>DailyUp</strong> app handles your data. The app is designed to be
+                simple and private, with a local experience that does not require an account or a constant internet
+                connection.
+            </p>
+
+<div class="updated" dir="rtl" lang="ar">آخر تحديث: <bdi>6 يوليو 2026</bdi></div>
+<div class="updated" dir="ltr" lang="en">Last updated: <bdi>July 6, 2026</bdi></div>
+
+</header>
+<div role="region" aria-label="Privacy summary" class="summary">
+<div class="summary-card">
+<strong lang="ar">لا حسابات</strong>
+<strong lang="en">No accounts</strong>
+
+<span lang="ar">لا تحتاج إلى تسجيل دخول أو إنشاء حساب.</span>
+<span lang="en">No sign-in or account creation is required.</span>
+
+</div>
+<div class="summary-card">
+<strong lang="ar">بيانات محلية</strong>
+<strong lang="en">Local data</strong>
+
+<span lang="ar">تقدمك وإعداداتك محفوظة على جهازك.</span>
+<span lang="en">Your progress and settings are stored on your device.</span>
+
+</div>
+<div class="summary-card">
+<strong lang="ar">لا تتبع إعلاني</strong>
+<strong lang="en">No ad tracking</strong>
+
+<span lang="ar">لا نستخدم بياناتك للإعلانات أو التتبع.</span>
+<span lang="en">We do not use your data for ads or tracking.</span>
+
+</div>
+</div>
+<section>
+<h2 lang="ar">1. معلومات التطبيق والمطور</h2>
+<h2 lang="en">1. App and Developer Information</h2>
+
+<p lang="ar">
+                يوضح هذا القسم المعلومات الأساسية الخاصة بالتطبيق والمطور المسؤول عنه.
+            </p>
+<p lang="en">
+                This section provides the basic information about the app and its developer.
+            </p>
+
+<div class="info-grid">
+<div class="info-item">
+<strong lang="ar">اسم التطبيق</strong>
+<strong lang="en">App name</strong>
+
+<span lang="ar">خطوة</span>
+<span lang="en">DailyUp</span>
+
+</div>
+<div class="info-item">
+<strong lang="ar">نوع التطبيق</strong>
+<strong lang="en">App type</strong>
+
+<span lang="ar">تطوير ذات وتحديات يومية</span>
+<span lang="en">Self-improvement and daily challenges</span>
+
+</div>
+<div class="info-item">
+<strong lang="ar">اسم المطور</strong>
+<strong lang="en">Developer name</strong>
+
+<span lang="ar">يِرُو</span>
+<span lang="en">Yirow</span>
+
+</div>
+<div class="info-item">
+<strong lang="ar">البريد الإلكتروني للتواصل</strong>
+<strong lang="en">Contact Email</strong>
+
+<span>Yirow.dev@gmail.com</span>
+</div>
+</div>
+</section>
+<section>
+<h2 lang="ar">2. من نحن</h2>
+<h2 lang="en">2. About the App</h2>
+
+<p lang="ar">
+<strong>خطوة</strong> هو تطبيق تطوير ذات بسيط يقدّم تحدياً واحداً يومياً، مع نقاط وسلسلة استمرارية
+                وتقويم إنجاز وشارات تحفيزية. الهدف من التطبيق هو مساعدتك على التحسن خطوة واحدة كل يوم بطريقة هادئة
+                وواضحة.
+            </p>
+<p lang="en">
+<strong>DailyUp</strong> is a simple self-improvement app that provides one daily challenge, along with
+                points, streaks, an achievement calendar, and motivational badges. Its goal is to help you improve one
+                small step each day in a calm and clear way.
+            </p>
+
+</section>
+<section>
+<h2 lang="ar">3. البيانات التي لا نجمعها</h2>
+<h2 lang="en">3. Data We Do Not Collect</h2>
+
+<p lang="ar">تطبيق خطوة لا يتطلب إنشاء حساب، ولا يطلب منك إدخال اسمك أو بريدك أو رقم هاتفك لاستخدام التطبيق.
+            </p>
+<p lang="en">DailyUp does not require an account and does not ask you to enter your name, email address, or
+                phone number to use the app.</p>
+
+<ul lang="ar">
+<li>لا نجمع بيانات تعريف شخصية لاستخدام التطبيق الأساسي.</li>
+<li>لا نبيع بيانات المستخدمين.</li>
+<li>لا نستخدم تتبعاً إعلانياً داخل التطبيق.</li>
+<li>لا يحتاج التطبيق إلى الإنترنت لتوليد التحديات أو حفظ تقدمك.</li>
+</ul>
+<ul lang="en">
+<li>We do not collect personal identifiers for the core app experience.</li>
+<li>We do not sell user data.</li>
+<li>We do not use advertising tracking inside the app.</li>
+<li>The app does not need the internet to generate challenges or save your progress.</li>
+</ul>
+
+</section>
+<section>
+<h2 lang="ar">4. البيانات المحفوظة على جهازك</h2>
+<h2 lang="en">4. Data Stored on Your Device</h2>
+
+<p lang="ar">لحفظ تجربتك داخل التطبيق، يتم تخزين بعض البيانات محلياً على جهازك فقط، مثل:</p>
+<p lang="en">To keep your in-app experience working, some data is stored locally on your device, such as:
+            </p>
+
+<ul lang="ar">
+<li>حالة إكمال تحدي اليوم.</li>
+<li>النقاط، السلسلة الحالية، وأطول سلسلة.</li>
+<li>سجل التحديات المكتملة.</li>
+<li>محور التركيز المختار.</li>
+<li>إعدادات اللغة والمظهر.</li>
+<li>إعدادات التذكير ووقت التذكير.</li>
+<li>حالة استخدام تبديل التحدي الأسبوعي.</li>
+<li>حالة مشاهدة نافذة "ما الجديد".</li>
+</ul>
+<ul lang="en">
+<li>The completion status of today’s challenge.</li>
+<li>Points, current streak, and longest streak.</li>
+<li>Completed challenge history.</li>
+<li>Your selected focus area.</li>
+<li>Language and appearance settings.</li>
+<li>Reminder settings and reminder time.</li>
+<li>The weekly challenge swap usage status.</li>
+<li>The viewed status of the “What’s New” dialog.</li>
+</ul>
+
+<p lang="ar">يعمل التطبيق محلياً دون الحاجة إلى اتصال دائم بالإنترنت. قد تحتاج إلى الإنترنت فقط عند إرسال ملاحظة عبر البريد أو فتح محتوى خارجي متعلق بسياسة الخصوصية.</p>
+<p lang="en">The app works locally without requiring a constant internet connection. Internet access may only be needed when sending feedback by email or opening external content related to the privacy policy.</p>
+
+<div class="note" lang="ar">
+                هذه البيانات تُستخدم لتشغيل ميزات التطبيق مثل شاشة اليوم، التقويم، إنجازاتي، الشارات، والإعدادات. حذف
+                بيانات التطبيق أو إلغاء تثبيته قد يؤدي إلى حذف هذا التقدم المحلي.
+            </div>
+<div class="note" lang="en">
+                This data is used to power features such as Today, Calendar, Achievements, badges, and Settings.
+                Deleting the app data or uninstalling the app may delete this local progress.
+            </div>
+
+</section>
+<section>
+<h2 lang="ar">5. الإشعارات والتذكيرات</h2>
+<h2 lang="en">5. Notifications and Reminders</h2>
+
+<p lang="ar">يتيح لك التطبيق تفعيل تذكيرات محلية لمساعدتك على عدم نسيان تحدي اليوم. هذه الإشعارات تُدار على
+                جهازك، ويمكنك تفعيلها أو تعطيلها من شاشة الإعدادات في أي وقت.</p>
+<p lang="en">The app lets you enable local reminders to help you remember today’s challenge. These
+                notifications are managed on your device, and you can enable or disable them from Settings at any time.
+            </p>
+
+<ul lang="ar">
+<li>لا يتم طلب إذن الإشعارات أثناء التهيئة الأولى.</li>
+<li>قد يظهر طلب ناعم لتفعيل التذكير بعد أول إنجاز.</li>
+<li>يمكن تغيير وقت التذكير من الإعدادات عند تفعيل الإشعارات.</li>
+<li>تعتمد التذكيرات على جدولة غير دقيقة مناسبة للتذكيرات اليومية، ولا يستخدم التطبيق صلاحية التنبيه الدقيق الحساسة.</li>
+<li>يمكنك تعطيل الإشعارات من داخل التطبيق أو من إعدادات النظام.</li>
+</ul>
+<ul lang="en">
+<li>Notification permission is not requested during onboarding.</li>
+<li>A gentle reminder prompt may appear after your first completion.</li>
+<li>You can change the reminder time from Settings when reminders are enabled.</li>
+<li>Reminders use inexact scheduling suitable for daily reminders, and the app does not use the sensitive exact alarm permission.</li>
+<li>You can disable notifications from inside the app or from system settings.</li>
+</ul>
+
+</section>
+<section>
+<h2 lang="ar">6. إرسال ملاحظة</h2>
+<h2 lang="en">6. Sending Feedback</h2>
+
+<p lang="ar">
+                يوفر تطبيق خطوة خيار "إرسال ملاحظة" داخل شاشة "حول التطبيق" لمساعدتك على إرسال اقتراح أو الإبلاغ عن مشكلة.
+            </p>
+<p lang="en">
+                DailyUp provides a "Send Feedback" option inside the "About" screen to help you send a suggestion or report a problem.
+            </p>
+
+<p lang="ar">
+                عند استخدام هذا الخيار، يتم فتح تطبيق البريد الإلكتروني المثبت على جهازك مع قالب رسالة جاهز. لا يرسل تطبيق خطوة الملاحظة تلقائياً، ولا يتم إرسال أي شيء إلا إذا اخترت أنت إرسال البريد من تطبيق البريد.
+            </p>
+<p lang="en">
+                When you use this option, the email app installed on your device opens with a prepared message template. DailyUp does not send the feedback automatically, and nothing is sent unless you choose to send the email from your email app.
+            </p>
+
+<p lang="ar">
+                قد يتضمن قالب الرسالة معلومات غير حساسة مثل اسم التطبيق، رقم الإصدار، لغة الواجهة، نوع الملاحظة، ونص الملاحظة الذي تكتبه بنفسك.
+            </p>
+<p lang="en">
+                The message template may include non-sensitive information such as the app name, app version, interface language, feedback type, and the feedback text you write yourself.
+            </p>
+
+<p lang="ar">
+                لا يتم تضمين بيانات استخدامك، أو أسماء التطبيقات، أو معرف الجهاز، أو موقعك، أو أي بيانات شخصية حساسة تلقائياً في رسالة الملاحظة.
+            </p>
+<p lang="en">
+                Your usage data, app list, device identifier, location, or any sensitive personal data are not automatically included in the feedback message.
+            </p>
+
+<p lang="ar">
+                عند إرسال البريد، ستتم معالجة الرسالة بواسطة تطبيق وخدمة البريد الإلكتروني التي تستخدمها، وقد تخضع لسياسات الخصوصية الخاصة بها.
+            </p>
+<p lang="en">
+                When you send the email, the message will be processed by the email app and email service you use, and it may be subject to their privacy policies.
+            </p>
+
+</section>
+<section>
+<h2 lang="ar">7. مشاركة البيانات مع أطراف خارجية</h2>
+<h2 lang="en">7. Sharing Data with Third Parties</h2>
+
+<p lang="ar">لا يشارك تطبيق خطوة بيانات تقدمك المحلي مع أطراف خارجية. لا توجد مزامنة حسابية أو خادم خارجي
+                لتخزين تقدمك داخل التطبيق.</p>
+<p lang="en">DailyUp does not share your local progress data with third parties. There is no account sync or
+                external server used to store your in-app progress.</p>
+
+<p lang="ar">الاستثناء الوحيد هو ما تختار أنت إرساله يدوياً عبر البريد أو ما يحدث عند فتح روابط خارجية من
+                جهازك.</p>
+<p lang="en">The only exception is what you choose to send manually by email or what happens when you open
+                external links from your device.</p>
+
+</section>
+<section>
+<h2 lang="ar">8. خصوصية الأطفال</h2>
+<h2 lang="en">8. Children’s Privacy</h2>
+
+<p lang="ar">التطبيق لا يطلب إنشاء حساب ولا يجمع معلومات شخصية مباشرة. إذا كنت ولي أمر وتعتقد أن طفلاً أرسل
+                معلومات شخصية عبر البريد أو وسيلة خارجية، يمكنك التواصل معنا لطلب المساعدة.</p>
+<p lang="en">The app does not require an account and does not directly collect personal information. If you
+                are a parent or guardian and believe that a child sent personal information by email or through an
+                external method, you may contact us for assistance.</p>
+
+</section>
+<section>
+<h2 lang="ar">9. أمان البيانات</h2>
+<h2 lang="en">9. Data Security</h2>
+
+<p lang="ar">لأن بيانات التقدم محفوظة محلياً على جهازك، فإن أمانها يعتمد أيضاً على أمان جهازك ونظام التشغيل.
+                ننصح باستخدام قفل شاشة وتحديث نظام الجهاز بانتظام.</p>
+<p lang="en">Because progress data is stored locally on your device, its security also depends on your
+                device and operating system security. We recommend using a screen lock and keeping your device updated.
+            </p>
+
+</section>
+<section>
+<h2 lang="ar">10. تغييرات سياسة الخصوصية</h2>
+<h2 lang="en">10. Changes to This Privacy Policy</h2>
+
+<p lang="ar">قد يتم تحديث هذه السياسة عند إضافة ميزات جديدة أو تحسين طريقة توضيح الخصوصية. عند حدوث تغيير
+                مهم، يمكن تحديث هذه الصفحة أو الإشارة إلى ذلك داخل التطبيق.</p>
+<p lang="en">This policy may be updated when new features are added or when the privacy explanation is
+                improved. If an important change occurs, this page may be updated or the change may be mentioned inside
+                the app.</p>
+
+</section>
+<footer>
+<span dir="rtl" lang="ar">جميع الحقوق محفوظة © <bdi>2026</bdi> خطوة.</span>
+<span dir="ltr" lang="en">© <bdi>2026</bdi> DailyUp — All rights reserved.</span>
+
+</footer>
+</main>
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const titles = {
+                ar: "سياسة الخصوصية — خطوة",
+                en: "Privacy Policy — DailyUp"
+            };
+
+            const toggleButton = document.getElementById("languageToggle");
+
+            function setLanguage(lang) {
+                if (!["ar", "en"].includes(lang)) {
+                    lang = "en";
+                }
+
+                document.documentElement.classList.remove("ar-active", "en-active");
+                document.documentElement.classList.add(lang + "-active");
+
+                document.documentElement.lang = lang;
+                document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+                document.title = titles[lang] || titles.en;
+
+                if (toggleButton) {
+                    const nextLang = lang === "ar" ? "en" : "ar";
+                    toggleButton.setAttribute("data-lang", nextLang);
+                    toggleButton.textContent = lang === "ar" ? "English" : "العربية";
+                    toggleButton.setAttribute(
+                        "aria-label",
+                        lang === "ar" ? "Switch to English" : "التبديل إلى العربية"
+                    );
+                }
+
+                try {
+                    localStorage.setItem("dailyup_privacy_lang", lang);
+                } catch (_) { }
+            }
+
+            let savedLang = null;
+            try {
+                savedLang = localStorage.getItem("dailyup_privacy_lang");
+            } catch (_) { }
+
+            if (!["ar", "en"].includes(savedLang)) {
+                savedLang = null;
+            }
+
+            const browserLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+            const initialLang = window.__privacyLang || savedLang || (browserLang.startsWith("ar") ? "ar" : "en");
+
+            setLanguage(initialLang);
+
+            if (toggleButton) {
+                toggleButton.addEventListener("click", function () {
+                    setLanguage(toggleButton.getAttribute("data-lang"));
+                });
+            }
+        });
+    </script>
+</body>
+</html>
